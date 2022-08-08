@@ -802,12 +802,12 @@ public ArrayList() &amp;#123;
 <hr>
 <h4 id="7、ArrayList、LinkedList、Vector-的区别"><a href="#7、ArrayList、LinkedList、Vector-的区别" class="headerlink" title="7、ArrayList、LinkedList、Vector 的区别"></a>7、ArrayList、LinkedList、Vector 的区别</h4><h6 id="1、ArrayList、Vector-的区别"><a href="#1、ArrayList、Vector-的区别" class="headerlink" title="1、ArrayList、Vector 的区别"></a>1、ArrayList、Vector 的区别</h6><hr>
 <p><strong>ArrayList</strong></p>
-<p>1、ArrayList 使用默认的构造器进行创建对象时，默认的容量为0，当第一次向集合中添加单个元素的时候，会将集合容量扩大到10；</p>
+<p>1、ArrayList 使用默认的构造器进行创建对象时，会创建一个长度0的 Object[]，当第一次向集合中添加单个元素的时候，会将集合容量扩大到10；</p>
 <p>2、ArrayList 每次扩容都是扩大为原来的 1.5 倍；</p>
 <p>3、ArrayList 是线程不安全的；</p>
 <hr>
 <p><strong>Vector</strong></p>
-<p>1、Vector 使用默认的构造器进行创建对象时，默认的容量为 10；</p>
+<p>1、Vector 使用默认的构造器进行创建对象时，会创建一个初识长度为 10 的 Object[]；</p>
 <p>2、Vector 每次扩容都是扩大为原来的 2 倍；</p>
 <p>3、Vector 是线程安全的，因为 Vector 向外部提供的方法都加了 synchronized；</p>
 <hr>
