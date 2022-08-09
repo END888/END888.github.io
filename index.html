@@ -602,22 +602,6 @@
 
 
 
-
-<style>
-    #index-video { z-index: -1; position: absolute; top: 0; left: 0; height: 100vh; width: 100%; object-fit: cover;}
-    @media only screen and (max-width: 760px) { #index-video { display: none;}}
-    @media only screen and (min-width: 760px) { .bg-cover { background-image: none!important;}}
-</style>
-<video id="index-video" autoplay loop muted>
-
-    <source src="https://txmov2.a.yximgs.com/upic/2021/04/09/22/BMjAyMTA0MDkyMjMwMDhfMTg1ODk2MDg4N180NzUyOTMyMjA4Nl8xXzM=_b_B8e080d7ede19e6674d48a9f12545007b.mp4?pkey=AAVAfNhi5_f-HGkIPXrY5w6nyf4JibwOY-WwdHgSJ2aSoi-2WQLpiYDunLbRZQuESz875eMdsepRlVFtXg9nuQY58uRc-7AsF0kEMNR6QYBj56g9JFFMSGdsoKK2-SV27u8&amp;tag=1-1617978682-xpcwebprofile-0-lcvipceuti-9e40072f87531f1a&amp;clientCacheKey=3xbbtbrfxqpccp4_b.mp4">
-
-    <source src="https://txmov2.a.yximgs.com/upic/2021/04/09/21/BMjAyMTA0MDkyMTQyNDRfMTg1ODk2MDg4N180NzUyNjAyMzA0N18xXzM=_b_B83b004b85aba8eca3ded270637616575.mp4">
-
-    <source src="https://txmov2.a.yximgs.com/upic/2021/04/09/21/BMjAyMTA0MDkyMTU4MDNfMTg1ODk2MDg4N180NzUyNzE0MzkyNV8xXzM=_b_Bf94cee6bd181efeaca64049bd2e4e276.mp4">
-
-</video>
-
 <main class="content">
 
     
@@ -662,16 +646,16 @@
 <div class="music-player">
     
         <div class="title center-align">
-            <i class="fas fa-music"></i>&nbsp;&nbsp;网易云音乐
+            <i class="fas fa-music"></i>&nbsp;&nbsp;听听音乐
         </div>
     
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
                    type="playlist"
-                   id="496869422"
+                   id="503838841"
                    fixed='false'
-                   autoplay='true'
+                   autoplay='false'
                    theme='#42b983'
                    loop='all'
                    order='random'
@@ -713,22 +697,29 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/08/09/10_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%8D%96%E7%A5%A8(lock)/">
+                    <a href="/2022/08/09/11_%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%85%AD%E7%A7%8D%E7%8A%B6%E6%80%81/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="10_多线程卖票(lock)">
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="11_线程的六种状态">
                             
-                            <span class="card-title">10_多线程卖票(lock)</span>
+                            <span class="card-title">11_线程的六种状态</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                多线程买票–lockpublic class ThreadDemo &#123;
-    public static void main(String[] args) &#123;
-        Ticket ticket = new T
+                                
+线程的六种状态public enum State &#123;
+    // 新建
+    NEW,
+    // 可运行
+    RUNNABLE,
+    // 阻塞
+    BLOCKED,
+    // 等待
+    WAITIN
                             
                         </div>
                         <div class="publish-info">
@@ -795,13 +786,13 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/08/09/06_%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5/">
+                    <a href="/2022/08/09/04_%E7%BA%BF%E7%A8%8B%E3%80%81%E8%BF%9B%E7%A8%8B%E3%80%81%E7%AE%A1%E7%A8%8B/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="06_同步和异步">
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="04_线程、进程、管程">
                             
-                            <span class="card-title">06_同步和异步</span>
+                            <span class="card-title">04_线程、进程、管程</span>
                         </div>
                     </a>
 
@@ -809,11 +800,9 @@
                         <div class="summary block-with-text">
                             
                                 
-同步、异步
-同步和异步是指访问数据的机制
-
-1、同步：主动请求数据并等待IO操作完成之后才能继续处理其他的任务
-2、异步：主动请求数据后可以继续处理其他任务，之后会收到IO操作完成的通知
+进程、线程、、管程1、进程：指的是正在运行的应用程序，是系统进行资源分配和调度的基本单位
+2、线程：用来执行进程中的每个任务的单位，是程序运行的最小单元
+3、管程：监视器（Monitor），也就是锁
 
                             
                         </div>
@@ -838,13 +827,13 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/08/09/04_%E7%BA%BF%E7%A8%8B%E3%80%81%E8%BF%9B%E7%A8%8B%E3%80%81%E7%AE%A1%E7%A8%8B/">
+                    <a href="/2022/08/09/05_%E5%B9%B6%E8%A1%8C%E5%92%8C%E5%B9%B6%E5%8F%91/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="04_线程、进程、管程">
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="05_并行和并发">
                             
-                            <span class="card-title">04_线程、进程、管程</span>
+                            <span class="card-title">05_并行和并发</span>
                         </div>
                     </a>
 
@@ -852,9 +841,8 @@
                         <div class="summary block-with-text">
                             
                                 
-进程、线程、、管程1、进程：指的是正在运行的应用程序，是系统进行资源分配和调度的基本单位
-2、线程：用来执行进程中的每个任务的单位，是程序运行的最小单元
-3、管程：监视器（Monitor），也就是锁
+并行、并发1、并行：多个线程同时执行操作多个资源
+2、并发：多个线程同时操作一个资源
 
                             
                         </div>
@@ -923,13 +911,13 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/08/09/05_%E5%B9%B6%E8%A1%8C%E5%92%8C%E5%B9%B6%E5%8F%91/">
+                    <a href="/2022/08/09/06_%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="05_并行和并发">
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="06_同步和异步">
                             
-                            <span class="card-title">05_并行和并发</span>
+                            <span class="card-title">06_同步和异步</span>
                         </div>
                     </a>
 
@@ -937,49 +925,11 @@
                         <div class="summary block-with-text">
                             
                                 
-并行、并发1、并行：多个线程同时执行操作多个资源
-2、并发：多个线程同时操作一个资源
+同步、异步
+同步和异步是指访问数据的机制
 
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                殷存渝
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/08/09/07_%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E9%94%81/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="07_如何判断锁">
-                            
-                            <span class="card-title">07_如何判断锁</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-如何判断锁1、判断是否锁的是同一个资源
-2、判断该锁是类锁还是对象锁
-3、普通方法不参与锁的竞争
+1、同步：主动请求数据并等待IO操作完成之后才能继续处理其他的任务
+2、异步：主动请求数据后可以继续处理其他任务，之后会收到IO操作完成的通知
 
                             
                         </div>
@@ -1044,6 +994,47 @@ CopyOnWriteArrayList&lt;String> list2 = new CopyOnWri
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2022/08/09/07_%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E9%94%81/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="07_如何判断锁">
+                            
+                            <span class="card-title">07_如何判断锁</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+如何判断锁1、判断是否锁的是同一个资源
+2、判断该锁是类锁还是对象锁
+3、普通方法不参与锁的竞争
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                殷存渝
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2022/08/09/09_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%8D%96%E7%A5%A8(synchronized)/">
                         <div class="card-image">
                             
@@ -1060,6 +1051,45 @@ CopyOnWriteArrayList&lt;String> list2 = new CopyOnWri
                                 多线程买票–synchronizedpublic class ThreadDemo &#123;
     public static void main(String[] args) &#123;
         Ticket ticket
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                殷存渝
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/08/09/10_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%8D%96%E7%A5%A8(lock)/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="10_多线程卖票(lock)">
+                            
+                            <span class="card-title">10_多线程卖票(lock)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                多线程买票–lockpublic class ThreadDemo &#123;
+    public static void main(String[] args) &#123;
+        Ticket ticket = new T
                             
                         </div>
                         <div class="publish-info">
@@ -1111,52 +1141,6 @@ CopyOnWriteArrayList&lt;String> list2 = new CopyOnWri
                                 
                                 <i class="fas fa-user fa-fw"></i>
                                 yincy
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/08/09/11_%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%85%AD%E7%A7%8D%E7%8A%B6%E6%80%81/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="11_线程的六种状态">
-                            
-                            <span class="card-title">11_线程的六种状态</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-线程的六种状态public enum State &#123;
-    // 新建
-    NEW,
-    // 可运行
-    RUNNABLE,
-    // 阻塞
-    BLOCKED,
-    // 等待
-    WAITIN
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                殷存渝
                                 
                             </span>
                         </div>
@@ -1249,7 +1233,7 @@ class AirCondition&#123;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
             <a href="/about" target="_blank">殷存渝</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
