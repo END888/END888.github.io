@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>JUC 的四句口诀</title>
+      <link href="/2022/08/09/JUC%20%E5%9B%9B%E5%8F%A5%E5%8F%A3%E8%AF%80/"/>
+      <url>/2022/08/09/JUC%20%E5%9B%9B%E5%8F%A5%E5%8F%A3%E8%AF%80/</url>
+      
+        <content type="html"><![CDATA[<h3 id="JUC-的四句口诀"><a href="#JUC-的四句口诀" class="headerlink" title="JUC 的四句口诀"></a>JUC 的四句口诀</h3><hr><p>1、多个线程操作同一资源：线程操作同一资源类</p><p>2、判断、干活、唤醒</p><p>3、防止线程虚假唤醒</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java 集合篇</title>
       <link href="/2022/08/08/Java%20%E9%9B%86%E5%90%88%E7%AF%87/"/>
       <url>/2022/08/08/Java%20%E9%9B%86%E5%90%88%E7%AF%87/</url>
