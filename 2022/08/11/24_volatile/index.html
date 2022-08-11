@@ -4,15 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="15_JUC, 殷存渝的个人博客">
-    <meta name="description" content="
-JUC
-1、JUC 是什么？JUC：java.util.concurrent（Java 并发工具包）
+    <meta name="keywords" content="24_volatile, 殷存渝的个人博客">
+    <meta name="description" content="volatile内存语义：volatile 的写是直接刷新到主内存中；读是直接从主内存中读取
+作用：保证 volatile 变量的可见性和有序性
 
-2、三个部分
-java.util.concurrent
-java.util.concurrent.atomic
-java,util.c">
+1、内存屏障是什么？是一种屏障指令，它使得 CPU 或编译器对屏障指令的前和后所发出的内存操">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +20,7 @@ java,util.c">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>15_JUC | 殷存渝的个人博客</title>
+    <title>24_volatile | 殷存渝的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -415,12 +411,12 @@ java,util.c">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">15_JUC</h1>
+                    <h1 class="description center-align post-title">24_volatile</h1>
                 </div>
             </div>
         </div>
@@ -456,7 +452,7 @@ java,util.c">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-09
+                    2022-08-11
                 </div>
                 
 
@@ -480,15 +476,55 @@ java,util.c">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <hr>
-<h3 id="JUC"><a href="#JUC" class="headerlink" title="JUC"></a>JUC</h3><hr>
-<h6 id="1、JUC-是什么？"><a href="#1、JUC-是什么？" class="headerlink" title="1、JUC 是什么？"></a>1、JUC 是什么？</h6><p><strong>JUC</strong>：java.util.concurrent（Java 并发工具包）</p>
+                <h3 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h3><p><strong>内存语义：volatile 的写是直接刷新到主内存中；读是直接从主内存中读取</strong></p>
+<p><strong>作用：保证 volatile 变量的可见性和有序性</strong></p>
 <hr>
-<h6 id="2、三个部分"><a href="#2、三个部分" class="headerlink" title="2、三个部分"></a>2、三个部分</h6><ol>
-<li>java.util.concurrent</li>
-<li>java.util.concurrent.atomic</li>
-<li>java,util.concurrent.locks</li>
-</ol>
+<h5 id="1、内存屏障是什么？"><a href="#1、内存屏障是什么？" class="headerlink" title="1、内存屏障是什么？"></a>1、内存屏障是什么？</h5><p>是一种屏障指令，它使得 CPU 或编译器对屏障指令的前和后所发出的内存操作执行一个排序的约束，也叫内存栅栏或栅栏指令</p>
+<hr>
+<h5 id="2、内存屏障能干嘛"><a href="#2、内存屏障能干嘛" class="headerlink" title="2、内存屏障能干嘛"></a>2、内存屏障能干嘛</h5><ul>
+<li>阻止屏障两边的指令重排序</li>
+<li>写数据时加入屏障，强制将线程私有工作内存的数据刷回主物理内存</li>
+<li>读数据时加入屏障，线程私有工作内存的数据失效，重新到主物理内存中获取最新数据</li>
+</ul>
+<hr>
+<h5 id="3、内存屏障四大指令"><a href="#3、内存屏障四大指令" class="headerlink" title="3、内存屏障四大指令"></a>3、内存屏障四大指令</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">native</span> <span class="token keyword">void</span> <span class="token function">loadFence</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">native</span> <span class="token keyword">void</span> <span class="token function">storeFence</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">native</span> <span class="token keyword">void</span> <span class="token function">fullFence</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>1、在每一个 volatile 写操作前插入一个 StoreStore 屏障</strong></p>
+<p>​    禁止重排序：一定是 Store1 的数据写出到主内存完成后，才能让 Store2 及其之后的写出操作的数据，被其他线程看到。保证 Store1 指令写出去的数据，会强制被刷新回到主内存中。</p>
+<p><strong>2、在每一个 volatile 写操作后面插入一个 StoreStore 屏障</strong></p>
+<p>​    禁止重排序：一定是 Store1 的数据写出到主内存完成后，才能让 Load2 来读取数据；</p>
+<p>​    同时保证：强制把写缓冲区的数据刷回到主内存中，让工作内存/CPU 高速缓存当中的缓存的数据失效，重新到主内存中获取新的数据</p>
+<p><strong>3、在每一个 volatile 读操作后面插入一个 LoadLoad 屏障</strong></p>
+<p>​    禁止重排序：访问 Load2 的读取操作一定不会重排到 Load1 之前，保证 Load2 在读取的时候，自己缓存内的相应数据失效，Load2 会去主内存中获取最新的数据</p>
+<p><strong>4、在每一个 volatile 读操作后面插入一个 LoadStore 屏障</strong></p>
+<p>​    禁止重排序：一定是 Load1 读取数据完成后，才能让 Store2 及其之后的写出操作的数据，被其他线程看到</p>
+<hr>
+<h5 id="4、volatile-关键字在系统底层是如何加入内存屏障的？"><a href="#4、volatile-关键字在系统底层是如何加入内存屏障的？" class="headerlink" title="4、volatile 关键字在系统底层是如何加入内存屏障的？"></a>4、volatile 关键字在系统底层是如何加入内存屏障的？</h5><p>​    通过反编译后的字节码可以看出来，我们使用 volatile 修饰的变量会在 Class 中的 Field 的flags 添加一个 ACC_VOLATILE。</p>
+<p>​    JVM 在把字节码生成机器码的时候，发现操作是 volatile 变量的话，就会根据 JMM 要求，在相应的位置去插入内存屏障指令。</p>
+<hr>
+<h5 id="5、volatile-的可见性"><a href="#5、volatile-的可见性" class="headerlink" title="5、volatile 的可见性"></a>5、volatile 的可见性</h5><p>1、对一个 volatile 修饰的变量进行读操作的话，总是能读取到这个变量的最新的值，也就是这个变量最后被修改的值</p>
+<p>2、一个线程修改了 volatile 修饰的变量的值的时候，那么这个变量的新的值，会立即刷新回到主内存中</p>
+<p>3、一个线程去读取 volatile 修饰的变量的值的时候，该变量在工作内存中的数据无效，需要重新到主内存中读取最新的数据</p>
+<hr>
+<h5 id="6、volatile-禁止指令重排"><a href="#6、volatile-禁止指令重排" class="headerlink" title="6、volatile 禁止指令重排"></a>6、volatile 禁止指令重排</h5><p><strong>写指令</strong>：</p>
+<p>1、StoreSore 屏障，禁止上面的普通写和下面的 volatile 写操作重排序，前面所有的普通写的操作，数据都已经刷新到主内存；普通写和 volatile 写禁止重排；volatile 写和 volatile 写禁止重排。</p>
+<p>2、StoreLoad 屏障，禁止上面的 volatile 写和下面的 volatile 读/写或普通写操作重排序，前面 volatile 写的操作，数据都已经刷新到主内存，volatile 写和普通写禁止重排；volatile 写和 volatile 读/写禁止重排。</p>
+<p><strong>读指令</strong>：</p>
+<p>1、LoadLoad 屏障，禁止下面的普通读、volatile 读和上面的volatile 读重排序，volatile 读和普通读禁止重排；volatile 读和 volatile 读禁止重排</p>
+<p>2、LoadStore 屏障，禁止上面的 volatile 读和下面的 volatile 写或普通写重排序，volatile 读和普通写禁止重排；volatile 读和 volatile 写禁止重排 </p>
+<hr>
+<h5 id="7、对比-java-util-concurrent-locks-Lock-来理解"><a href="#7、对比-java-util-concurrent-locks-Lock-来理解" class="headerlink" title="7、对比 java.util.concurrent.locks.Lock 来理解"></a>7、对比 java.util.concurrent.locks.Lock 来理解</h5><p>CPU 执行机器码指令的时候，是使用 lock前缀指令来实现 volatile 的功能的。</p>
+<p>Lock 指令，相当于内存屏障，功能也类似内存屏障的功能：</p>
+<p>1、首先对总线/缓存加锁，然后去执行后面的指令，最后，释放锁，同时把高速缓存的数据刷新回到主内存；</p>
+<p>2、在 lock 锁住总线/缓存的时候，其他 cpu 的读写请求就会被阻塞，直到锁释放。Lock 过后的写操作，会让其他 cpu 的高速缓存中响应的数据失效，这样后续这些 cpu 在读取数据的时候，就会从主内存去加载最新的数据</p>
+<p>加了 Lock 指令过后的具体表现，就跟 JMM 添加内存屏障后一样。</p>
+<hr>
+<h5 id="8、一句话总结"><a href="#8、一句话总结" class="headerlink" title="8、一句话总结"></a>8、一句话总结</h5><p>1、volatile 写之前的操作，都禁止重排序到 volatile 之后</p>
+<p>2、volatile 读之后的操作，都禁止重排序到 volatile 之前</p>
+<p>3、volatile 写之后 volatile 读，禁止重排序</p>
+<hr>
 
                 
             </div>
@@ -505,7 +541,7 @@ java,util.c">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">殷存渝</a>
+                    <a href="/about" rel="external nofollow noreferrer">yincy</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -515,7 +551,7 @@ java,util.c">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://localhost:4000/2022/08/09/15_JUC/">http://localhost:4000/2022/08/09/15_JUC/</a>
+                    <a href="http://localhost:4000/2022/08/11/24_volatile/">http://localhost:4000/2022/08/11/24_volatile/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -528,7 +564,7 @@ java,util.c">
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">殷存渝</a>
+                    <a href="/about" target="_blank">yincy</a>
                     !
                 </span>
             </div>
@@ -635,13 +671,13 @@ java,util.c">
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/10/18_JUC%20%E7%9A%84%E8%BE%85%E5%8A%A9%E7%B1%BB/">
+                <a href="/2022/08/11/25_%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E8%87%AA%E6%97%8B%E9%94%81/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="18_JUC 的辅助类">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="25_实现一个自旋锁">
                         
-                        <span class="card-title">18_JUC 的辅助类</span>
+                        <span class="card-title">25_实现一个自旋锁</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -652,12 +688,12 @@ java,util.c">
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-10
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-11
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            殷存渝
+                            yincy
                             
                         </span>
                     </div>
@@ -672,13 +708,13 @@ java,util.c">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/09/10_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%8D%96%E7%A5%A8(lock)/">
+                <a href="/2022/08/11/23_JMM/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="10_多线程卖票(lock)">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="23_JMM">
                         
-                        <span class="card-title">10_多线程卖票(lock)</span>
+                        <span class="card-title">23_JMM</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -689,12 +725,12 @@ java,util.c">
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-11
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            殷存渝
+                            yincy
                             
                         </span>
                     </div>

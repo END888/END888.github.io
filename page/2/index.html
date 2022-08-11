@@ -463,13 +463,13 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/08/09/01_%E6%B0%B8%E8%BF%9C%E7%9A%84HelloWorld/">
+                    <a href="/2022/08/09/13_%E7%BA%BF%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1(lock)/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="01_永远的HelloWorld">
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="13_线程间通信(lock)">
                             
-                            <span class="card-title">01_永远的HelloWorld</span>
+                            <span class="card-title">13_线程间通信(lock)</span>
                         </div>
                     </a>
 
@@ -477,56 +477,10 @@
                         <div class="summary block-with-text">
                             
                                 
-永远的HelloWorld1、是什么
-2、能干嘛
-3、去哪下
-4、怎么玩（常用的 Api 和对应的技术用法）
-5、永远的 Hello World
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                殷存渝
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/08/09/15_JUC/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="15_JUC">
-                            
-                            <span class="card-title">15_JUC</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-JUC
-1、JUC 是什么？JUC：java.util.concurrent（Java 并发工具包）
-
-2、三个部分
-java.util.concurrent
-java.util.concurrent.atomic
-java,util.c
+13_线程间通信(lock)// 资源类
+class AirCondition &#123;
+    private int number = 0;
+    private Lock lock = new ReentrantLock();
                             
                         </div>
                         <div class="publish-info">
@@ -592,23 +546,22 @@ java,util.c
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/08/09/17_%E5%94%A4%E9%86%92%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/">
+                    <a href="/2022/08/09/09_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%8D%96%E7%A5%A8(synchronized)/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="17_唤醒线程的三种方式">
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="09_多线程卖票(synchronized)">
                             
-                            <span class="card-title">17_唤醒线程的三种方式</span>
+                            <span class="card-title">09_多线程卖票(synchronized)</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                唤醒线程的三种方式
-1、使用 Object 中的 wait() 方法让线程等待，使用 Object 中的 notify() 方法让线程唤醒/**
- * 	流程：ObjLock 为一把锁，同时也作为两个线程所要共同操作的资源
- * 		1、A
+                                多线程买票–synchronizedpublic class ThreadDemo &#123;
+    public static void main(String[] args) &#123;
+        Ticket ticket
                             
                         </div>
                         <div class="publish-info">
@@ -632,27 +585,23 @@ java,util.c
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/08/09/03_Lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                    <a href="/2022/08/09/17_%E5%94%A4%E9%86%92%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="03_Lambda 表达式">
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="17_唤醒线程的三种方式">
                             
-                            <span class="card-title">03_Lambda 表达式</span>
+                            <span class="card-title">17_唤醒线程的三种方式</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Lambda 表达式
-使用前提：必须是一个函数式接口
-1、隐士表达：自动识别为函数式接口
-2、显示表达：@FunctionalInterface
-3、可以定义 default 方法
-4、可以定义 static 方法
-
-
+                                唤醒线程的三种方式
+1、使用 Object 中的 wait() 方法让线程等待，使用 Object 中的 notify() 方法让线程唤醒/**
+ * 	流程：ObjLock 为一把锁，同时也作为两个线程所要共同操作的资源
+ * 		1、A
                             
                         </div>
                         <div class="publish-info">
@@ -761,6 +710,46 @@ public class CountDownLatchDemo
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2022/08/09/08_%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E9%9B%86%E5%90%88%E7%B1%BB/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="08_线程安全的集合类">
+                            
+                            <span class="card-title">08_线程安全的集合类</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+线程安全的集合类
+1、ListArrayList&lt;String> list1 = new ArrayList&lt;>();
+CopyOnWriteArrayList&lt;String> list2 = new CopyOnWri
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                殷存渝
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2022/08/09/07_%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E9%94%81/">
                         <div class="card-image">
                             
@@ -778,6 +767,132 @@ public class CountDownLatchDemo
 如何判断锁1、判断是否锁的是同一个资源
 2、判断该锁是类锁还是对象锁
 3、普通方法不参与锁的竞争
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                殷存渝
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/08/09/06_%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="06_同步和异步">
+                            
+                            <span class="card-title">06_同步和异步</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+同步、异步
+同步和异步是指访问数据的机制
+
+1、同步：主动请求数据并等待IO操作完成之后才能继续处理其他的任务
+2、异步：主动请求数据后可以继续处理其他任务，之后会收到IO操作完成的通知
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                殷存渝
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/08/09/05_%E5%B9%B6%E8%A1%8C%E5%92%8C%E5%B9%B6%E5%8F%91/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="05_并行和并发">
+                            
+                            <span class="card-title">05_并行和并发</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+并行、并发1、并行：多个线程同时执行操作多个资源
+2、并发：多个线程同时操作一个资源
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                殷存渝
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/08/09/01_%E6%B0%B8%E8%BF%9C%E7%9A%84HelloWorld/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="01_永远的HelloWorld">
+                            
+                            <span class="card-title">01_永远的HelloWorld</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+永远的HelloWorld1、是什么
+2、能干嘛
+3、去哪下
+4、怎么玩（常用的 Api 和对应的技术用法）
+5、永远的 Hello World
 
                             
                         </div>
@@ -825,124 +940,6 @@ public ArrayList() &#123;
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                yincy
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/08/07/hello-world/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                            
-                            <span class="card-title">Hello World</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                殷存渝
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/08/16_%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="16_实现多线程的四种方式">
-                            
-                            <span class="card-title">16_实现多线程的四种方式</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                3、实现多线程的四种方式1、继承 Thread 类class MyThread extends Thread&#123;
-    public void run()&#123;&#125;
-&#125;
-&#123;
-    MyThrea
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                yincy
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/08/14_synchronized%20%E5%92%8C%20Lock%20%E7%9A%84%E5%8C%BA%E5%88%AB/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="14_synchronized 和 Lock 的区别">
-                            
-                            <span class="card-title">14_synchronized 和 Lock 的区别</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                synchronized 和 Lock 的区别
-
-synchronized 是 Java 内置的关键字；Lock 是 java.util.concurrent 包下的一个接口;
-synchronized 创建的锁是非公平锁；Lock 默认创
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-08
                             </span>
                             <span class="publish-author">
                                 

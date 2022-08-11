@@ -4,15 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="15_JUC, 殷存渝的个人博客">
-    <meta name="description" content="
-JUC
-1、JUC 是什么？JUC：java.util.concurrent（Java 并发工具包）
-
-2、三个部分
-java.util.concurrent
-java.util.concurrent.atomic
-java,util.c">
+    <meta name="keywords" content="25_实现一个自旋锁, 殷存渝的个人博客">
+    <meta name="description" content="实现一个自旋锁/**
+ *  自旋锁的好处：循环比较获取没有类似 wait 的阻塞
+ *
+ *  通过 CAS 操作完成自旋锁，A 线程先进来调用 myLock 方法自己持有锁 5 秒，
+ *  B 随后进来发现当前有线程持有锁，不是 nu">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +21,7 @@ java,util.c">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>15_JUC | 殷存渝的个人博客</title>
+    <title>25_实现一个自旋锁 | 殷存渝的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -415,12 +412,12 @@ java,util.c">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">15_JUC</h1>
+                    <h1 class="description center-align post-title">25_实现一个自旋锁</h1>
                 </div>
             </div>
         </div>
@@ -456,7 +453,7 @@ java,util.c">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-09
+                    2022-08-11
                 </div>
                 
 
@@ -480,15 +477,55 @@ java,util.c">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <hr>
-<h3 id="JUC"><a href="#JUC" class="headerlink" title="JUC"></a>JUC</h3><hr>
-<h6 id="1、JUC-是什么？"><a href="#1、JUC-是什么？" class="headerlink" title="1、JUC 是什么？"></a>1、JUC 是什么？</h6><p><strong>JUC</strong>：java.util.concurrent（Java 并发工具包）</p>
-<hr>
-<h6 id="2、三个部分"><a href="#2、三个部分" class="headerlink" title="2、三个部分"></a>2、三个部分</h6><ol>
-<li>java.util.concurrent</li>
-<li>java.util.concurrent.atomic</li>
-<li>java,util.concurrent.locks</li>
-</ol>
+                <h3 id="实现一个自旋锁"><a href="#实现一个自旋锁" class="headerlink" title="实现一个自旋锁"></a>实现一个自旋锁</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ *  自旋锁的好处：循环比较获取没有类似 wait 的阻塞
+ *
+ *  通过 CAS 操作完成自旋锁，A 线程先进来调用 myLock 方法自己持有锁 5 秒，
+ *  B 随后进来发现当前有线程持有锁，不是 null，所以只能通过自旋等待，直到 A 释放锁后 B 随手抢到。
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CountDownLatchDemo</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">SpinLockDemo</span> spinLockDemo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SpinLockDemo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token punctuation">&#123;</span>
+            spinLockDemo<span class="token punctuation">.</span><span class="token function">myLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 上锁</span>
+            <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+                <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>SECONDS<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">finally</span> <span class="token punctuation">&#123;</span>
+                spinLockDemo<span class="token punctuation">.</span><span class="token function">myUnlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 释放锁</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token string">"A"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>SECONDS<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token punctuation">&#123;</span>
+            spinLockDemo<span class="token punctuation">.</span><span class="token function">myLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 上锁</span>
+            spinLockDemo<span class="token punctuation">.</span><span class="token function">myUnlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 释放锁</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token string">"B"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SpinLockDemo</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">AtomicReference</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Thread</span><span class="token punctuation">></span></span> atomicReference <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AtomicReference</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 上锁</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">myLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Thread</span> thread <span class="token operator">=</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>thread<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"\t come in"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>atomicReference<span class="token punctuation">.</span><span class="token function">compareAndSet</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> thread<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>thread<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"循环了..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// 解锁</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">myUnlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Thread</span> thread <span class="token operator">=</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        atomicReference<span class="token punctuation">.</span><span class="token function">compareAndSet</span><span class="token punctuation">(</span>thread<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>thread<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"\t over"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -505,7 +542,7 @@ java,util.c">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">殷存渝</a>
+                    <a href="/about" rel="external nofollow noreferrer">yincy</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -515,7 +552,7 @@ java,util.c">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://localhost:4000/2022/08/09/15_JUC/">http://localhost:4000/2022/08/09/15_JUC/</a>
+                    <a href="http://localhost:4000/2022/08/11/25_%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E8%87%AA%E6%97%8B%E9%94%81/">http://localhost:4000/2022/08/11/25_%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E8%87%AA%E6%97%8B%E9%94%81/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -528,7 +565,7 @@ java,util.c">
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">殷存渝</a>
+                    <a href="/about" target="_blank">yincy</a>
                     !
                 </span>
             </div>
@@ -631,54 +668,18 @@ java,util.c">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/08/10/18_JUC%20%E7%9A%84%E8%BE%85%E5%8A%A9%E7%B1%BB/">
+                <a href="/2022/08/11/25_%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E8%87%AA%E6%97%8B%E9%94%81/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="18_JUC 的辅助类">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="25_实现一个自旋锁">
                         
-                        <span class="card-title">18_JUC 的辅助类</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-10
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            殷存渝
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/08/09/10_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%8D%96%E7%A5%A8(lock)/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="10_多线程卖票(lock)">
-                        
-                        <span class="card-title">10_多线程卖票(lock)</span>
+                        <span class="card-title">25_实现一个自旋锁</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -689,12 +690,50 @@ java,util.c">
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-11
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            殷存渝
+                            yincy
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/08/11/24_volatile/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="24_volatile">
+                        
+                        <span class="card-title">24_volatile</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            yincy
                             
                         </span>
                     </div>

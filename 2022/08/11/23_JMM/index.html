@@ -4,15 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="15_JUC, 殷存渝的个人博客">
-    <meta name="description" content="
-JUC
-1、JUC 是什么？JUC：java.util.concurrent（Java 并发工具包）
+    <meta name="keywords" content="23_JMM, 殷存渝的个人博客">
+    <meta name="description" content="JMM–Java 内存模型计算机存储体系：
+本地磁盘 –&amp;gt; 主内存 –&amp;gt; CPU 缓存(一、二、三级) –&amp;gt; CPU
+CPU 在操作数据的时候，会根据缓存一致性协议，将数据读取到缓存中
 
-2、三个部分
-java.util.concurrent
-java.util.concurrent.atomic
-java,util.c">
+能干嘛：
+1、通过 JMM 来实现">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +22,7 @@ java,util.c">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>15_JUC | 殷存渝的个人博客</title>
+    <title>23_JMM | 殷存渝的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -415,12 +413,12 @@ java,util.c">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">15_JUC</h1>
+                    <h1 class="description center-align post-title">23_JMM</h1>
                 </div>
             </div>
         </div>
@@ -456,7 +454,7 @@ java,util.c">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-09
+                    2022-08-11
                 </div>
                 
 
@@ -480,15 +478,40 @@ java,util.c">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <hr>
-<h3 id="JUC"><a href="#JUC" class="headerlink" title="JUC"></a>JUC</h3><hr>
-<h6 id="1、JUC-是什么？"><a href="#1、JUC-是什么？" class="headerlink" title="1、JUC 是什么？"></a>1、JUC 是什么？</h6><p><strong>JUC</strong>：java.util.concurrent（Java 并发工具包）</p>
+                <h4 id="JMM–Java-内存模型"><a href="#JMM–Java-内存模型" class="headerlink" title="JMM–Java 内存模型"></a>JMM–Java 内存模型</h4><p><strong>计算机存储体系：</strong></p>
+<p>本地磁盘 –&gt; 主内存 –&gt; CPU 缓存(一、二、三级) –&gt; CPU</p>
+<p>CPU 在操作数据的时候，会根据缓存一致性协议，将数据读取到缓存中</p>
 <hr>
-<h6 id="2、三个部分"><a href="#2、三个部分" class="headerlink" title="2、三个部分"></a>2、三个部分</h6><ol>
-<li>java.util.concurrent</li>
-<li>java.util.concurrent.atomic</li>
-<li>java,util.concurrent.locks</li>
-</ol>
+<p><strong>能干嘛</strong>：</p>
+<p>1、通过 JMM 来实现线程和主内存之间的抽象关系</p>
+<p>2、屏蔽各个硬件平台和操作系统的内存访问差异，实现让 Java 程序能在各种平台下都能达到一致性的内存访问效果</p>
+<hr>
+<p><strong>三大特性</strong></p>
+<p>1、可见性：当一个线程 修改了某一个共享变量的值，其他线程能否获取到最新的值；（如果没有可见性，会导致线程脏读）</p>
+<p>2、原子性：在多线程情况下，操作不能被其他线程干扰，要么都执行成功，要么都执行失败（比如i++：读取变量、加一、赋值【AtomicInteger 的 getAndIncrement() 自增就是原子性的】）</p>
+<p>3、有序性：编译器和处理器为了提高程序的性能，通常会对指令进行重排序，此时可能会产生脏读，因为执行顺序可能会被优化，在多线程环境中线程交替执行，多个线程中使用的变量无法保证一致性。</p>
+<hr>
+<p><strong>多线程对变量的读写过程</strong></p>
+<p>1、我们定义的所有共享变量都存储在物理内存中</p>
+<p>2、每个线程都有自己独立的工作内存，里面保存该线程使用到的变量的副本（主内存中该变量的一份拷贝）</p>
+<p>3、线程对共享变量所有的操作都必须先在线程自己的工作内存中进行后写回主内存，不能直接从主内存中读写</p>
+<p>4、不同线程之间也无法直接访问其他线程的工作内存中的变量，线程间变量值的传递需要通过主内存来进行</p>
+<hr>
+<p><strong>多线程先行发生原则之 happens-before</strong></p>
+<p>在 JMM 中，如果一个操作执行的结果需要对另一个操作可见，那么这两个操作之间必须存在 happens-before 关系</p>
+<p>作用：判断数据是否存在竞争、线程是否安全（主要是用来保证可见性和有序性）</p>
+<p>1、如果一个操作 happens-before 于另一个操作，那么第一个操作的执行结果将对第二个操作可见；而且第一个操作的执行顺序排在第二个操作的执行顺序之前。</p>
+<p>2、两个操作之前存在 happens-before 关系，并不意味着一定按照 happens-before 原则制定的顺序执行；如果重排序后的执行结果与按照 happens-before关系执行的结果一致，那么这种重排序并不非法。</p>
+<hr>
+<p><strong>8条</strong></p>
+<p>1、次序规则：一个线程内，按照代码顺序，写在前面的操作先行发生于写在后面的操作，前一个操作的结果可以被后续的操作获取</p>
+<p>2、锁定规则：一个unLock操作先行发生于后面((这里的“后面”是指时间上的先后))对同一个锁的lock操作</p>
+<p>3、volatile 变量规则：对一个volatile变量的写操作先行发生于后面对这个变量的读操作，前面的写对后面的读是可见的，这里的“后面”同样是指时间上的先后</p>
+<p>4、传递规则：如果操作A先行发生于操作B，而操作B又先行发生于操作C，则可以得出操作A先行发生于操作C</p>
+<p>5、线程启动规则：Thread对象的start()方法先行发生于此线程的每一个动作</p>
+<p>6、线程中断规则：对线程interrupt()方法的调用先行发生于被中断线程的代码检测到中断事件的发生</p>
+<p>7、线程终止规则：线程中的所有操作都先行发生于对此线程的终止检测，我们可以通过Thread::join()方法是否结束、Thread::isAlive()的返回值等手段检测线程是否已经终止执行</p>
+<p>8、对象终结规则：一个对象的初始化完成（构造函数执行结束）先行发生于它的finalize()方法的开始对象没有完成初始化之前，是不能调用finalized()方法的</p>
 
                 
             </div>
@@ -505,7 +528,7 @@ java,util.c">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">殷存渝</a>
+                    <a href="/about" rel="external nofollow noreferrer">yincy</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -515,7 +538,7 @@ java,util.c">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://localhost:4000/2022/08/09/15_JUC/">http://localhost:4000/2022/08/09/15_JUC/</a>
+                    <a href="http://localhost:4000/2022/08/11/23_JMM/">http://localhost:4000/2022/08/11/23_JMM/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -528,7 +551,7 @@ java,util.c">
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">殷存渝</a>
+                    <a href="/about" target="_blank">yincy</a>
                     !
                 </span>
             </div>
@@ -635,13 +658,13 @@ java,util.c">
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/10/18_JUC%20%E7%9A%84%E8%BE%85%E5%8A%A9%E7%B1%BB/">
+                <a href="/2022/08/11/24_volatile/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="18_JUC 的辅助类">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="24_volatile">
                         
-                        <span class="card-title">18_JUC 的辅助类</span>
+                        <span class="card-title">24_volatile</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -652,12 +675,12 @@ java,util.c">
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-10
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-11
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            殷存渝
+                            yincy
                             
                         </span>
                     </div>
@@ -672,13 +695,13 @@ java,util.c">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/09/10_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%8D%96%E7%A5%A8(lock)/">
+                <a href="/2022/08/11/22_%E7%BA%BF%E7%A8%8B%E4%B8%AD%E6%96%AD/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="10_多线程卖票(lock)">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="22_线程中断">
                         
-                        <span class="card-title">10_多线程卖票(lock)</span>
+                        <span class="card-title">22_线程中断</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -689,12 +712,12 @@ java,util.c">
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-11
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            殷存渝
+                            yincy
                             
                         </span>
                     </div>
