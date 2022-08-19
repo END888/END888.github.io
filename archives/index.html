@@ -989,6 +989,56 @@ JVM 不采用该算法，缺点：
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
+                        <a href="/2022/08/11/20_equals%E5%92%8C==%E7%9A%84%E5%8C%BA%E5%88%AB/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="20_equals() 和 == 的区别">
+                                
+                                <span class="card-title">20_equals() 和 == 的区别</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    equals() 和 == 的区别1、== 是 Java 中提供的特殊标识符；两个基本数据类型的值使用 == 进行比较时，比较的是两个值是否相等；而两个引用数据类型的对象通过 == 进行比较时，比较的是两个对象的内存地址是否相等。
+2、eq
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="far fa-clock fa-fw icon-date"></i>2022-08-11
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fas fa-user fa-fw"></i>
+                                    yincy
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>11</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
                         <a href="/2022/08/11/26_HashMap/">
                             <div class="card-image">
                                 
@@ -1038,20 +1088,22 @@ JVM 不采用该算法，缺点：
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2022/08/11/20_equals%E5%92%8C==%E7%9A%84%E5%8C%BA%E5%88%AB/">
+                        <a href="/2022/08/11/24_volatile/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="20_equals() 和 == 的区别">
+                                <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="24_volatile">
                                 
-                                <span class="card-title">20_equals() 和 == 的区别</span>
+                                <span class="card-title">24_volatile</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    equals() 和 == 的区别1、== 是 Java 中提供的特殊标识符；两个基本数据类型的值使用 == 进行比较时，比较的是两个值是否相等；而两个引用数据类型的对象通过 == 进行比较时，比较的是两个对象的内存地址是否相等。
-2、eq
+                                    volatile内存语义：volatile 的写是直接刷新到主内存中；读是直接从主内存中读取
+作用：保证 volatile 变量的可见性和有序性
+
+1、内存屏障是什么？是一种屏障指令，它使得 CPU 或编译器对屏障指令的前和后所发出的内存操
                                 
                             </div>
                             <div class="publish-info">
@@ -1105,58 +1157,6 @@ JVM 不采用该算法，缺点：
  *
  *  通过 CAS 操作完成自旋锁，A 线程先进来调用 myLock 方法自己持有锁 5 秒，
  *  B 随后进来发现当前有线程持有锁，不是 nu
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>2022-08-11
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-user fa-fw"></i>
-                                    yincy
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>11</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2022/08/11/24_volatile/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="24_volatile">
-                                
-                                <span class="card-title">24_volatile</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    volatile内存语义：volatile 的写是直接刷新到主内存中；读是直接从主内存中读取
-作用：保证 volatile 变量的可见性和有序性
-
-1、内存屏障是什么？是一种屏障指令，它使得 CPU 或编译器对屏障指令的前和后所发出的内存操
                                 
                             </div>
                             <div class="publish-info">
