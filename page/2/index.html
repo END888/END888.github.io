@@ -463,48 +463,6 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/08/11/23_JMM/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="23_JMM">
-                            
-                            <span class="card-title">23_JMM</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                JMM–Java 内存模型计算机存储体系：
-本地磁盘 –&gt; 主内存 –&gt; CPU 缓存(一、二、三级) –&gt; CPU
-CPU 在操作数据的时候，会根据缓存一致性协议，将数据读取到缓存中
-
-能干嘛：
-1、通过 JMM 来实现
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-11
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                yincy
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
                     <a href="/2022/08/11/22_%E7%BA%BF%E7%A8%8B%E4%B8%AD%E6%96%AD/">
                         <div class="card-image">
                             
@@ -546,23 +504,66 @@ Thread 的3个与线程中断的方法public void interrupt() //中断线程
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/08/11/21_%E5%8E%9F%E5%AD%90%E7%B1%BB/">
+                    <a href="/2022/08/11/25_%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E8%87%AA%E6%97%8B%E9%94%81/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="21_原子类">
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="25_实现一个自旋锁">
                             
-                            <span class="card-title">21_原子类</span>
+                            <span class="card-title">25_实现一个自旋锁</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                原子类
-1、不使用原子类public class CountDownLatchDemo &#123;
-    public static void main(String[] args) throws Exception &#123;
-  
+                                实现一个自旋锁/**
+ *  自旋锁的好处：循环比较获取没有类似 wait 的阻塞
+ *
+ *  通过 CAS 操作完成自旋锁，A 线程先进来调用 myLock 方法自己持有锁 5 秒，
+ *  B 随后进来发现当前有线程持有锁，不是 nu
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                yincy
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/08/11/23_JMM/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="23_JMM">
+                            
+                            <span class="card-title">23_JMM</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                JMM–Java 内存模型计算机存储体系：
+本地磁盘 –&gt; 主内存 –&gt; CPU 缓存(一、二、三级) –&gt; CPU
+CPU 在操作数据的时候，会根据缓存一致性协议，将数据读取到缓存中
+
+能干嘛：
+1、通过 JMM 来实现
                             
                         </div>
                         <div class="publish-info">
@@ -630,22 +631,29 @@ JUC的辅助类
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/08/09/09_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%8D%96%E7%A5%A8(synchronized)/">
+                    <a href="/2022/08/09/11_%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%85%AD%E7%A7%8D%E7%8A%B6%E6%80%81/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="09_多线程卖票(synchronized)">
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="11_线程的六种状态">
                             
-                            <span class="card-title">09_多线程卖票(synchronized)</span>
+                            <span class="card-title">11_线程的六种状态</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                多线程买票–synchronizedpublic class ThreadDemo &#123;
-    public static void main(String[] args) &#123;
-        Ticket ticket
+                                
+线程的六种状态public enum State &#123;
+    // 新建
+    NEW,
+    // 可运行
+    RUNNABLE,
+    // 阻塞
+    BLOCKED,
+    // 等待
+    WAITIN
                             
                         </div>
                         <div class="publish-info">
@@ -656,48 +664,6 @@ JUC的辅助类
                                 
                                 <i class="fas fa-user fa-fw"></i>
                                 殷存渝
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/08/09/02_JUC%20%E5%9B%9B%E5%8F%A5%E5%8F%A3%E8%AF%80/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="02_JUC 四句口诀">
-                            
-                            <span class="card-title">02_JUC 四句口诀</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                02_JUC 四句口诀
-1、多个线程操作同一资源：线程操作同一资源类
-2、判断、干活、唤醒
-3、虚假唤醒用 while
-4、精确打击用多个
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                yincy
                                 
                             </span>
                         </div>
@@ -755,26 +721,23 @@ public class CountDownLatchDemo
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/08/09/01_%E6%B0%B8%E8%BF%9C%E7%9A%84HelloWorld/">
+                    <a href="/2022/08/09/17_%E5%94%A4%E9%86%92%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="01_永远的HelloWorld">
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="17_唤醒线程的三种方式">
                             
-                            <span class="card-title">01_永远的HelloWorld</span>
+                            <span class="card-title">17_唤醒线程的三种方式</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-永远的HelloWorld1、是什么
-2、能干嘛
-3、去哪下
-4、怎么玩（常用的 Api 和对应的技术用法）
-5、永远的 Hello World
-
+                                唤醒线程的三种方式
+1、使用 Object 中的 wait() 方法让线程等待，使用 Object 中的 notify() 方法让线程唤醒/**
+ * 	流程：ObjLock 为一把锁，同时也作为两个线程所要共同操作的资源
+ * 		1、A
                             
                         </div>
                         <div class="publish-info">
@@ -785,6 +748,48 @@ public class CountDownLatchDemo
                                 
                                 <i class="fas fa-user fa-fw"></i>
                                 殷存渝
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/08/09/02_JUC%20%E5%9B%9B%E5%8F%A5%E5%8F%A3%E8%AF%80/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="02_JUC 四句口诀">
+                            
+                            <span class="card-title">02_JUC 四句口诀</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                02_JUC 四句口诀
+1、多个线程操作同一资源：线程操作同一资源类
+2、判断、干活、唤醒
+3、虚假唤醒用 while
+4、精确打击用多个
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                yincy
                                 
                             </span>
                         </div>
@@ -883,24 +888,27 @@ java,util.c
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/08/09/13_%E7%BA%BF%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1(lock)/">
+                    <a href="/2022/08/09/03_Lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="13_线程间通信(lock)">
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="03_Lambda 表达式">
                             
-                            <span class="card-title">13_线程间通信(lock)</span>
+                            <span class="card-title">03_Lambda 表达式</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-13_线程间通信(lock)// 资源类
-class AirCondition &#123;
-    private int number = 0;
-    private Lock lock = new ReentrantLock();
+                                Lambda 表达式
+使用前提：必须是一个函数式接口
+1、隐士表达：自动识别为函数式接口
+2、显示表达：@FunctionalInterface
+3、可以定义 default 方法
+4、可以定义 static 方法
+
+
                             
                         </div>
                         <div class="publish-info">
@@ -924,13 +932,13 @@ class AirCondition &#123;
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/08/09/12_%E7%BA%BF%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1(synchronized)/">
+                    <a href="/2022/08/09/13_%E7%BA%BF%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1(lock)/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="12_线程间通信(synchronized)">
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="13_线程间通信(lock)">
                             
-                            <span class="card-title">12_线程间通信(synchronized)</span>
+                            <span class="card-title">13_线程间通信(lock)</span>
                         </div>
                     </a>
 
@@ -938,11 +946,10 @@ class AirCondition &#123;
                         <div class="summary block-with-text">
                             
                                 
-12_线程间通信(synchronized)// 资源类
-class AirCondition&#123;
+13_线程间通信(lock)// 资源类
+class AirCondition &#123;
     private int number = 0;
-    // +1 操作
-    public synchronized 
+    private Lock lock = new ReentrantLock();
                             
                         </div>
                         <div class="publish-info">
