@@ -569,6 +569,57 @@
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
+                        <a href="/2022/08/09/10_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%8D%96%E7%A5%A8(lock)/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="10_多线程卖票(lock)">
+                                
+                                <span class="card-title">10_多线程卖票(lock)</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    多线程买票–lockpublic class ThreadDemo &#123;
+    public static void main(String[] args) &#123;
+        Ticket ticket = new T
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fas fa-user fa-fw"></i>
+                                    殷存渝
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>09</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
                         <a href="/2022/08/09/12_%E7%BA%BF%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1(synchronized)/">
                             <div class="card-image">
                                 
@@ -681,21 +732,22 @@ class AirCondition&#123;
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2022/08/09/09_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%8D%96%E7%A5%A8(synchronized)/">
+                        <a href="/2022/08/09/17_%E5%94%A4%E9%86%92%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="09_多线程卖票(synchronized)">
+                                <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="17_唤醒线程的三种方式">
                                 
-                                <span class="card-title">09_多线程卖票(synchronized)</span>
+                                <span class="card-title">17_唤醒线程的三种方式</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    多线程买票–synchronizedpublic class ThreadDemo &#123;
-    public static void main(String[] args) &#123;
-        Ticket ticket
+                                    唤醒线程的三种方式
+1、使用 Object 中的 wait() 方法让线程等待，使用 Object 中的 notify() 方法让线程唤醒/**
+ * 	流程：ObjLock 为一把锁，同时也作为两个线程所要共同操作的资源
+ * 		1、A
                                 
                             </div>
                             <div class="publish-info">
@@ -732,22 +784,22 @@ class AirCondition&#123;
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2022/08/09/17_%E5%94%A4%E9%86%92%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/">
+                        <a href="/2022/08/09/08_%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E9%9B%86%E5%90%88%E7%B1%BB/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="17_唤醒线程的三种方式">
+                                <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="08_线程安全的集合类">
                                 
-                                <span class="card-title">17_唤醒线程的三种方式</span>
+                                <span class="card-title">08_线程安全的集合类</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    唤醒线程的三种方式
-1、使用 Object 中的 wait() 方法让线程等待，使用 Object 中的 notify() 方法让线程唤醒/**
- * 	流程：ObjLock 为一把锁，同时也作为两个线程所要共同操作的资源
- * 		1、A
+                                    
+线程安全的集合类
+1、ListArrayList&lt;String> list1 = new ArrayList&lt;>();
+CopyOnWriteArrayList&lt;String> list2 = new CopyOnWri
                                 
                             </div>
                             <div class="publish-info">
@@ -801,58 +853,6 @@ class AirCondition&#123;
 2、判断该锁是类锁还是对象锁
 3、普通方法不参与锁的竞争
 
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-user fa-fw"></i>
-                                    殷存渝
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>09</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2022/08/09/08_%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E9%9B%86%E5%90%88%E7%B1%BB/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="08_线程安全的集合类">
-                                
-                                <span class="card-title">08_线程安全的集合类</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    
-线程安全的集合类
-1、ListArrayList&lt;String> list1 = new ArrayList&lt;>();
-CopyOnWriteArrayList&lt;String> list2 = new CopyOnWri
                                 
                             </div>
                             <div class="publish-info">

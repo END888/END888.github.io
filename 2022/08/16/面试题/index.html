@@ -474,16 +474,16 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><h5 id="什么是面向对象？"><a href="#什么是面向对象？" class="headerlink" title="什么是面向对象？"></a>什么是面向对象？</h5><p>面向对象就是将拥有属性和行为的事物抽象为一个类，在使用的时候，通过这个类的对象就可以获取和使用该对象的属性和方法。</p>
+                <h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><h4 id="什么是面向对象？"><a href="#什么是面向对象？" class="headerlink" title="什么是面向对象？"></a>什么是面向对象？</h4><p>面向对象就是将拥有属性和行为的事物抽象为一个类，在使用的时候，通过这个类的对象就可以获取和使用该对象的属性和方法。</p>
 <p><strong>封装：</strong>对类内部的属性或者方法等结构进行设置，让外部该访问的访问，不该访问的不能访问，具体是通过权限修饰符来实现的，常见的就是将类内部的属性私有化，并提供getter、setter方法；当然有些属性并不一定要设置getter、setter方法，比如AbstractStringBuilder中的char[]、String的char[]、ArrayList的Object[]、HashSet中的HashMap这些用来存储元素的数据结构，还有就是单例模式的应用，对类的构造器进行私有化，在内部进行实例化，仅对外暴露获取实例的方法。</p>
 <p><strong>继承：</strong>在原有类的基础上扩展出新的类，新的类也就是子类拥有父类的所有信息，在一些场景下可以实现代码的复用</p>
 <p><strong>多态：</strong>父类或接口定义的变量在程序编译期间，并不能确定它所指向的引用究竟是哪个具体类型，并且由该变量调用的方法在程序编译期间也不能确定调用的究竟是谁的方法，只有在程序运行期间才能确定，而多态也在框架中被大量地应用，比如我们在使用Spring进行项目开发的时候，在使用@Autowired注解给类的成员变量进行注入的时候，默认是按照类型进行注入的，那么此时如果声明的成员变量是接口类型的话，通过类型进行注入，则可以方便我们对后期项目的维护，因为如果要替换某个类的时候，只需要让类去实现对应的接口即可，不用修改原来的代码。</p>
 <hr>
-<h5 id="成员变量和局部变量的区别"><a href="#成员变量和局部变量的区别" class="headerlink" title="成员变量和局部变量的区别"></a>成员变量和局部变量的区别</h5><p>（1）从语法形式上来看成员变量可以被权限修饰符修饰，而局部变量不能,当然局部变量也不能被static、volatile修饰，不过都可以被final修饰；</p>
+<h4 id="成员变量和局部变量的区别"><a href="#成员变量和局部变量的区别" class="headerlink" title="成员变量和局部变量的区别"></a>成员变量和局部变量的区别</h4><p>（1）从语法形式上来看成员变量可以被权限修饰符修饰，而局部变量不能,当然局部变量也不能被static、volatile修饰，不过都可以被final修饰；</p>
 <p>（2）从存储方式上来看，成员变量可以分为实例变量和类变量，实例变量是属于实例对象的，而类变量是属于类的，而对象是存储在堆内存中的，类变量是存储在方法区中的；局部变量是存储在栈空间的局部变量表中的；</p>
 <p>（3）从生命周期上看，如果是实例变量的话，会随着对象的创建而创建，随着对象的销毁而销毁；如果是类变量的话，会随着类的加载而加载；而局部变量的话，会随着方法的入栈开始，到方法的出栈而结束</p>
 <hr>
-<h5 id="Object-类中常用的方法"><a href="#Object-类中常用的方法" class="headerlink" title="Object 类中常用的方法"></a>Object 类中常用的方法</h5><p>（1）protected Object clone()—&gt;创建并返回此对象的一个副本。 </p>
+<h4 id="Object-类中常用的方法"><a href="#Object-类中常用的方法" class="headerlink" title="Object 类中常用的方法"></a>Object 类中常用的方法</h4><p>（1）protected Object clone()—&gt;创建并返回此对象的一个副本。 </p>
 <p>（2）boolean equals(Object obj)—&gt;指示某个其他对象是否与此对象“相等”。 </p>
 <p>（3）protected void finalize()—&gt;当垃圾回收器确定不存在对该对象的更多引用时，由对象的垃圾回收器调用此方法。 </p>
 <p>（4）Class&lt;? extendsObject&gt; getClass()—&gt;返回一个对象的运行时类。 </p>
@@ -495,30 +495,30 @@
 <p>（10）void wait(long timeout)—&gt;导致当前的线程等待，直到其他线程调用此对象的notify()方法或notifyAll()方法，或者超过指定的时间量。 </p>
 <p>（11）void wait(long timeout, int nanos)—&gt;导致当前的线程等待，直到其他线程调用此对象的notify()</p>
 <hr>
-<h5 id="接口与抽象类的区别"><a href="#接口与抽象类的区别" class="headerlink" title="接口与抽象类的区别"></a>接口与抽象类的区别</h5><p>1、从声明的形式上来看，接口是通过interface关键字声明的，而抽象类是通过abstract class进行声明的;</p>
+<h4 id="接口与抽象类的区别"><a href="#接口与抽象类的区别" class="headerlink" title="接口与抽象类的区别"></a>接口与抽象类的区别</h4><p>1、从声明的形式上来看，接口是通过interface关键字声明的，而抽象类是通过abstract class进行声明的;</p>
 <p>2、抽象类要被子类继承，接口要被类实现；</p>
 <p>3、接口可多继承接口，但类只能单继承；</p>
 <p>4、抽象类可以有构造器、接口不能有构造器</p>
 <p>5、抽象类中可以定义任意权限的属性和方法，而接口默认并且只支持声明常量，方法默认是 public ，可以定义 protected、default 方法</p>
 <hr>
-<h5 id="重载与重写的区别"><a href="#重载与重写的区别" class="headerlink" title="重载与重写的区别"></a>重载与重写的区别</h5><p>（1）重载：在本类内部，对方法名相同，参数列表不同的方法的方法体中的代码进行修改，与方法的权限修饰符、方法返回值类型无关</p>
+<h4 id="重载与重写的区别"><a href="#重载与重写的区别" class="headerlink" title="重载与重写的区别"></a>重载与重写的区别</h4><p>（1）重载：在本类内部，对方法名相同，参数列表不同的方法的方法体中的代码进行修改，与方法的权限修饰符、方法返回值类型无关</p>
 <p>（2）重写：发生在子类内部，对父类中方法名相同，参数列表也相同的方法的方法体中的代码进行修改，方法的权限修饰符要大于或等于父类的，如果父类方法的访问权限修饰符为private的话，子类不能进行重写，并且重写的方法抛出的异常类型必须小于等于父类方法抛出的异常，方法返回值类型必须小于或等于父类方法返回值类型。</p>
 <hr>
-<h5 id="StringBuffer、StringBuilder、String-的区别"><a href="#StringBuffer、StringBuilder、String-的区别" class="headerlink" title="StringBuffer、StringBuilder、String 的区别"></a>StringBuffer、StringBuilder、String 的区别</h5><p>（1）String是不可变的字符串序列、而StringBuffer、StringBuilder是可变的字符序列；String类是由final关键字修饰的,并且Sting用来存储字符的容器char[]也是由final关键字修饰的，内部还没有提供修改的方法；StringBuffer、StringBuilder他两都是继承了AbstractStringBuilder类，用来存储字符的容器char[]没有被final修饰；而且，该类内部提供了许多修改char[]的方法；</p>
+<h4 id="StringBuffer、StringBuilder、String-的区别"><a href="#StringBuffer、StringBuilder、String-的区别" class="headerlink" title="StringBuffer、StringBuilder、String 的区别"></a>StringBuffer、StringBuilder、String 的区别</h4><p>（1）String是不可变的字符串序列、而StringBuffer、StringBuilder是可变的字符序列；String类是由final关键字修饰的,并且Sting用来存储字符的容器char[]也是由final关键字修饰的，内部还没有提供修改的方法；StringBuffer、StringBuilder他两都是继承了AbstractStringBuilder类，用来存储字符的容器char[]没有被final修饰；而且，该类内部提供了许多修改char[]的方法；</p>
 <p>（2）String是常量，在编译期间，就已经被赋值了，所以是线程安全的；StringBuffer是在重写AbstractStringBuilder的方法的时候，在方法位置添加了同步锁，也就是synchronized，从而保证了线程安全；StringBuilder是在重写父类方法的时候，直接使用super关键字调用的父类的方法，没有进行线程安全处理，所以是线程不安全的；</p>
 <p>（3）String在进行修改的时候，会创建新的对象，很消耗系统资源；StringBuffer是直接修改的对象本身，而不是生成新的对象，将原来的变量指向新创建的对象，但是由于StringBuffer的方法上基本都加上了锁，所以效率较低；StringBuilder也是直接修改的对象本身，并且没有在方法上加锁，所以效率比StringBuffer来说要高</p>
 <p>总结：如果操作少的情况下，建议使用String；如果在多线程情况下，建议使用StringBuffer；如果在单线程情况下，并且操作频繁的话，建议使用StringBuilder</p>
 <hr>
-<h5 id="ArrayList-和-LinkedList-的区别"><a href="#ArrayList-和-LinkedList-的区别" class="headerlink" title="ArrayList 和 LinkedList 的区别"></a>ArrayList 和 LinkedList 的区别</h5><p>（1）数据结构不同：ArrayList使用的是对象数组，而LinkedList使用的是双向链表；</p>
+<h4 id="ArrayList-和-LinkedList-的区别"><a href="#ArrayList-和-LinkedList-的区别" class="headerlink" title="ArrayList 和 LinkedList 的区别"></a>ArrayList 和 LinkedList 的区别</h4><p>（1）数据结构不同：ArrayList使用的是对象数组，而LinkedList使用的是双向链表；</p>
 <p>（2）容量大小不同：ArrayList的容量为Integer的最大值，而LinkedList没有最大值</p>
 <p>（3）操作数据的效率不同：ArrayList底层使用的是对象数组，里面的元素在内存中都是连续存储的，其本身也实现了RandomAccess接口，支持随机访问，所以对读操作的效率很高，但是在进行插入和删除操作时，需要将数组的元素进行移动，所以在修改方面效率低；LinkedList底层使用的是双向链表，每个节点都包含了前驱节点、后继节点还有数据，在进行插入和删除的时候，是通过改变相应前驱节点和后继节点的指向来实现了，所以在修改方面效率高；而在进行获取元素的时候，需要从头节点进行遍历，直到找到要获取的元素的位置为止，所以对元素的获取效率低；</p>
 <hr>
-<h5 id="sleep-和-wait-的区别"><a href="#sleep-和-wait-的区别" class="headerlink" title="sleep 和 wait 的区别"></a>sleep 和 wait 的区别</h5><p>（1）sleep 是 Thread 类中的一个静态方法，wait 是Object 中的一个成员方法；</p>
+<h4 id="sleep-和-wait-的区别"><a href="#sleep-和-wait-的区别" class="headerlink" title="sleep 和 wait 的区别"></a>sleep 和 wait 的区别</h4><p>（1）sleep 是 Thread 类中的一个静态方法，wait 是Object 中的一个成员方法；</p>
 <p>（2）sleep 在使用时，必须要指定时间，而 wait 如果不指定时间，则需要使用 notify/notifyAll 来唤醒；</p>
 <p>（3）sleep 在任何地方都能睡，而 wait 必须在 synchronized 内才能等；</p>
 <p>（4）sleep 不会释放锁，而 wait 会自动释放锁</p>
 <hr>
-<h5 id="final、finally、finalize"><a href="#final、finally、finalize" class="headerlink" title="final、finally、finalize"></a>final、finally、finalize</h5><p><strong>final：</strong></p>
+<h4 id="final、finally、finalize"><a href="#final、finally、finalize" class="headerlink" title="final、finally、finalize"></a>final、finally、finalize</h4><p><strong>final：</strong></p>
 <p>修饰类：被修饰的类不能被继承</p>
 <p>修饰属性：在初始化后不能被修改</p>
 <p>修饰方法：不能被子类重写</p>
@@ -527,7 +527,7 @@
 <p><strong>finalize：</strong></p>
 <p>finalize()是在java.lang.Object里定义的。这个方法在gc启动，该对象被回收的时候被调用。</p>
 <hr>
-<h5 id="HashMap、HashTable-的区别"><a href="#HashMap、HashTable-的区别" class="headerlink" title="HashMap、HashTable 的区别"></a>HashMap、HashTable 的区别</h5><p>1、两者父类不同：HashMap（AbstractMap）、HashTable（Dictionary）；</p>
+<h4 id="HashMap、HashTable-的区别"><a href="#HashMap、HashTable-的区别" class="headerlink" title="HashMap、HashTable 的区别"></a>HashMap、HashTable 的区别</h4><p>1、两者父类不同：HashMap（AbstractMap）、HashTable（Dictionary）；</p>
 <p>2、数据结构不同：HashMap（数组+链表/红黑树）、HashTable（动态数组，每个数组元素中又维护了一个单向链表）；</p>
 <p>3、数组类型不同：HashMap（Node[]【hash、key、value、next】）、HashTable（Entry[]【hash、key、value、next】）；</p>
 <p>4、初始化容量不同：HashMap（16【使用默认构造器时，没有对数组进行初始化，当第一次添加的时候，会使用初始化容量】）、HashTable（11）；</p>
@@ -540,14 +540,14 @@
 <p>elments()：用于返回Hashtable中的value的枚举</p>
 <p>contains()：判断 是否包含传入的value</p>
 <hr>
-<h5 id="反射原理"><a href="#反射原理" class="headerlink" title="反射原理"></a>反射原理</h5><hr>
-<h5 id="HashMap-底层原理"><a href="#HashMap-底层原理" class="headerlink" title="HashMap 底层原理"></a>HashMap 底层原理</h5><p>HashMap基于哈希表的Map接口实现，是以key-value存储形式存在，即主要用来存放键值对。HashMap 的实现不是同步的，这意味着它不是线程安全的。它的key、value都可以为null。此外，HashMap中的映射不是有序的。</p>
+<h4 id="反射原理"><a href="#反射原理" class="headerlink" title="反射原理"></a>反射原理</h4><hr>
+<h4 id="HashMap-底层原理"><a href="#HashMap-底层原理" class="headerlink" title="HashMap 底层原理"></a>HashMap 底层原理</h4><p>HashMap基于哈希表的Map接口实现，是以key-value存储形式存在，即主要用来存放键值对。HashMap 的实现不是同步的，这意味着它不是线程安全的。它的key、value都可以为null。此外，HashMap中的映射不是有序的。</p>
 <p>JDK1.8 之前 HashMap 由 数组+链表 组成的，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突(两个对象调用的hashCode方法计算的哈希码值一致导致计算的数组索引值相同)而存在的（“拉链法”解决冲突）.JDK1.8 以后在解决哈希冲突时有了较大的变化，当链表长度大于阈值（或者红黑树的边界值，默认为 8）并且当前数组的长度大于64时，此时此索引位置上的所有数据改为使用红黑树存储。</p>
 <p>补充：将链表转换成红黑树前会判断，即使阈值大于8，但是数组长度小于64，此时并不会将链表变为红黑树。而是选择进行数组扩容。</p>
 <p>这样做的目的是因为数组比较小，尽量避开红黑树结构，这种情况下变为红黑树结构，反而会降低效率，因为红黑树需要进行左旋，右旋，变色这些操作来保持平衡 。同时数组长度小于64时，搜索时间相对要快些。所以综上所述为了提高性能和减少搜索时间，底层在阈值大于8并且数组长度大于64时，链表才转换为红黑树。具体可以参考 treeifyBin方法。</p>
 <p>当然虽然增了红黑树作为底层数据结构，结构变得复杂了，但是阈值大于8并且数组长度大于64时，链表转换为红黑树时，效率也变的更高效。</p>
 <hr>
-<h5 id="说一下有哪些-IO-类"><a href="#说一下有哪些-IO-类" class="headerlink" title="说一下有哪些 IO 类"></a>说一下有哪些 IO 类</h5><p>InputStream/Reader：所有的输入流的基类，前者是字节输入流，后者是字符输入流。</p>
+<h4 id="说一下有哪些-IO-类"><a href="#说一下有哪些-IO-类" class="headerlink" title="说一下有哪些 IO 类"></a>说一下有哪些 IO 类</h4><p>InputStream/Reader：所有的输入流的基类，前者是字节输入流，后者是字符输入流。</p>
 <p>OutputStream/Writer：所有输出流的基类，前者是字节输出流，后者是字符输出流。</p>
 <p>按照流的流向分，可以分为输入流和输出流；</p>
 <p>按照操作单元划分，可以划分为字节流和字符流；</p>
@@ -556,7 +556,7 @@
 <p>InputStream/Reader: 所有的输入流的基类，前者是字节输入流，后者是字符输入流。</p>
 <p>OutputStream/Writer: 所有输出流的基类，前者是字节输出流，后者是字符输出流。</p>
 <hr>
-<h5 id="如何查看死锁"><a href="#如何查看死锁" class="headerlink" title="如何查看死锁"></a>如何查看死锁</h5><p>1、可以通过jstack命令来进行查看，jstack命令中会显示发生了死锁的线程</p>
+<h4 id="如何查看死锁"><a href="#如何查看死锁" class="headerlink" title="如何查看死锁"></a>如何查看死锁</h4><p>1、可以通过jstack命令来进行查看，jstack命令中会显示发生了死锁的线程</p>
 <p>2、或者两个线程去操作数据库时，数据库发生了死锁，这是可以查询数据库的死锁情况SOL</p>
 <p>1、查询是否锁表</p>
 <p>show OPEN TABLES wtere In_use 》e;</p>
@@ -567,7 +567,7 @@
 <p>4、查看等待锁的事务</p>
 <p>SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCK_WAITS;</p>
 <hr>
-<h5 id="Java-死锁如何避免"><a href="#Java-死锁如何避免" class="headerlink" title="Java 死锁如何避免"></a>Java 死锁如何避免</h5><p>造成死锁的几个原因:</p>
+<h4 id="Java-死锁如何避免"><a href="#Java-死锁如何避免" class="headerlink" title="Java 死锁如何避免"></a>Java 死锁如何避免</h4><p>造成死锁的几个原因:</p>
 <p>1.一个资源每次只能被一个线程使用</p>
 <p>2.一个线程在阻塞等待某个资源时，不释放已占有资源</p>
 <p>3.一个线程已经获得的资源，在未使用完之前，不能被强行剥夺</p>
@@ -578,7 +578,7 @@
 <p>2.要注意加锁时限，可以针对锁设置一个超时时间</p>
 <p>3.要注意死锁检查，这是一种预防机制，确保在第一时间发现死锁并进行解决</p>
 <hr>
-<h5 id="synchronized-与-lock-的区别"><a href="#synchronized-与-lock-的区别" class="headerlink" title="synchronized 与 lock 的区别"></a>synchronized 与 lock 的区别</h5><p>1、首先synchronized是java内置关键字；Lock是个  java.util.concurrent 包中的一个接口；</p>
+<h4 id="synchronized-与-lock-的区别"><a href="#synchronized-与-lock-的区别" class="headerlink" title="synchronized 与 lock 的区别"></a>synchronized 与 lock 的区别</h4><p>1、首先synchronized是java内置关键字；Lock是个  java.util.concurrent 包中的一个接口；</p>
 <p>2、synchronized会自动释放锁；Lock需在finally中手工释放锁（unlock()方法释放锁）；</p>
 <p>3、synchronized的锁可重入、不可中断、非公平，而Lock锁可重入、可判断、可公平（两者皆可）；</p>
 <p>4、锁是一个对象，并且锁的信息保存在了对象中；Lock 是通过 int 类型的 state 标识；</p>
@@ -587,16 +587,16 @@
 <p>7、用synchronized关键字的两个线程1和线程2，如果当前线程1获得锁，线程2线程等待。如果线程1阻塞，线程2则会一直等待下去，而Lock锁就不一定会等待下去，如果尝试获取不到锁，线程可以不用一直等待就结束了；</p>
 <p>8、Lock锁适合大量同步的代码的同步问题，synchronized锁适合代码少量的同步问题。</p>
 <hr>
-<h5 id="深拷贝与浅拷贝"><a href="#深拷贝与浅拷贝" class="headerlink" title="深拷贝与浅拷贝"></a>深拷贝与浅拷贝</h5><p>深拷贝和浅拷贝就是指对象的拷贝，一个对象中存在两种类型的属性，一种是基本数据类型，一种是实例对象的引用。</p>
+<h4 id="深拷贝与浅拷贝"><a href="#深拷贝与浅拷贝" class="headerlink" title="深拷贝与浅拷贝"></a>深拷贝与浅拷贝</h4><p>深拷贝和浅拷贝就是指对象的拷贝，一个对象中存在两种类型的属性，一种是基本数据类型，一种是实例对象的引用。</p>
 <p>1.浅拷贝是指，只会拷贝基本数据类型的值，以及实例对象的引用地址，并不会复制一份引用地址所指向的对象，也就是浅拷贝出来的对象，内部的类属性指向的是同一个对象</p>
 <p>2.深拷贝是指，既会拷贝基本数据类型的值，也会针对实例对象的引用地址所指向的对象进行复制，深拷贝出来的对象，内部的类执行指向的不是同一个对象</p>
 <hr>
-<h5 id="JVM-架构图"><a href="#JVM-架构图" class="headerlink" title="JVM 架构图"></a>JVM 架构图</h5><hr>
-<h5 id="为啥要用线程池"><a href="#为啥要用线程池" class="headerlink" title="为啥要用线程池"></a>为啥要用线程池</h5><p>1、线程也是系统资源的一种，频繁地创建和销毁线程会消耗系统资源，可以通过线程池对线程进行复用</p>
+<h4 id="JVM-架构图"><a href="#JVM-架构图" class="headerlink" title="JVM 架构图"></a>JVM 架构图</h4><hr>
+<h4 id="为啥要用线程池"><a href="#为啥要用线程池" class="headerlink" title="为啥要用线程池"></a>为啥要用线程池</h4><p>1、线程也是系统资源的一种，频繁地创建和销毁线程会消耗系统资源，可以通过线程池对线程进行复用</p>
 <p>2、创建线程的这个操作比较耗时，使用线程池可以提高响应速度，当任务到达时，可以不需要等待线程创建而直接执行</p>
 <p>3、为了提高系统的稳定性，对线程进行统一的管理</p>
 <hr>
-<h5 id="线程池底层工作原理"><a href="#线程池底层工作原理" class="headerlink" title="线程池底层工作原理"></a>线程池底层工作原理</h5><p>1、在创建了线程池后，开始等待请求。</p>
+<h4 id="线程池底层工作原理"><a href="#线程池底层工作原理" class="headerlink" title="线程池底层工作原理"></a>线程池底层工作原理</h4><p>1、在创建了线程池后，开始等待请求。</p>
 <p>2、当调用 execute() 方法添加一个请求任务时，线程池会做出如下判断：</p>
 <ul>
 <li>如果正在运行的线程数量小于 corePoolSize，那么马上创建线程运行这个任务；</li>
@@ -611,7 +611,7 @@
 <li>所以线程池的所有任务完成后，它最终会收缩到 corePoolSize 的大小。</li>
 </ul>
 <hr>
-<h5 id="如何自定义线程池"><a href="#如何自定义线程池" class="headerlink" title="如何自定义线程池"></a>如何自定义线程池</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ThreadPoolExecutor</span> pool <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadPoolExecutor</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token comment">// 1、常驻核心线程数</span>
+<h4 id="如何自定义线程池"><a href="#如何自定义线程池" class="headerlink" title="如何自定义线程池"></a>如何自定义线程池</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ThreadPoolExecutor</span> pool <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadPoolExecutor</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token comment">// 1、常驻核心线程数</span>
                                                  <span class="token number">5</span><span class="token punctuation">,</span> <span class="token comment">// 2、最大线程数</span>
                                                  <span class="token number">10</span><span class="token punctuation">,</span> <span class="token comment">// 3、保持活跃时间</span>
                                                  <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>MINUTES<span class="token punctuation">,</span> <span class="token comment">// 4、时间单位</span>
@@ -624,13 +624,13 @@
 
 
 <hr>
-<h5 id="核心线程数如何确定"><a href="#核心线程数如何确定" class="headerlink" title="核心线程数如何确定"></a>核心线程数如何确定</h5><p>1、CPU 密集型：如果是 CPU 密集型任务，那么就意味着 CPU 是稀缺资源，这个时候我们通常不能通过增加线程数来提高计算能力，因为线程数量太多，会导致频繁的上下文切换，一般这种情况下，建议合理的线程数值为：N(CPU)数 + 1。</p>
+<h4 id="核心线程数如何确定"><a href="#核心线程数如何确定" class="headerlink" title="核心线程数如何确定"></a>核心线程数如何确定</h4><p>1、CPU 密集型：如果是 CPU 密集型任务，那么就意味着 CPU 是稀缺资源，这个时候我们通常不能通过增加线程数来提高计算能力，因为线程数量太多，会导致频繁的上下文切换，一般这种情况下，建议合理的线程数值为：N(CPU)数 + 1。</p>
 <p>2、I/O 密集型：如果是 I/O 密集型，就说明需要较多的等待，线程数 = CPU 核数 * （1 + 平均等待时间/平均工作时间）【参考：N（CPU）核数 * 2】</p>
 <blockquote>
 <p>具体的设置还需要根据实际情况进行调整，比如可以先将线程池大小设置为参考值，再观察任务运行情况和系统负载、资源利用率来进行适当调整。</p>
 </blockquote>
 <hr>
-<h5 id="拒绝策略"><a href="#拒绝策略" class="headerlink" title="拒绝策略"></a>拒绝策略</h5><p>1、AbortPolicy（默认的拒绝策略）：</p>
+<h4 id="拒绝策略"><a href="#拒绝策略" class="headerlink" title="拒绝策略"></a>拒绝策略</h4><p>1、AbortPolicy（默认的拒绝策略）：</p>
 <p>当请求任务数大于最大线程数+阻塞队列的时候，会：java.util.concurrent.RejectedExecutionException</p>
 <p>2、CallerRunsPolicy:</p>
 <p>当请求任务数大于最大线程数+阻塞队列的时候，超出的任务会返回给调用者让调用者执行</p>
@@ -639,49 +639,49 @@
 <p>4、DiscardPolicy:</p>
 <p>当请求任务数大于最大线程数+阻塞队列的时候，会丢弃新来的任务</p>
 <hr>
-<h5 id="数据库的存储引擎有哪些？有什么区别？"><a href="#数据库的存储引擎有哪些？有什么区别？" class="headerlink" title="数据库的存储引擎有哪些？有什么区别？"></a>数据库的存储引擎有哪些？有什么区别？</h5><p>1、InnoDB</p>
+<h4 id="数据库的存储引擎有哪些？有什么区别？"><a href="#数据库的存储引擎有哪些？有什么区别？" class="headerlink" title="数据库的存储引擎有哪些？有什么区别？"></a>数据库的存储引擎有哪些？有什么区别？</h4><p>1、InnoDB</p>
 <p>2、MyISAM</p>
 <p>3、Memory</p>
 <p>4、MERGE</p>
 <p>5、NDB</p>
 <hr>
-<h5 id="有没有设计过数据库表？你是如何设计的？"><a href="#有没有设计过数据库表？你是如何设计的？" class="headerlink" title="有没有设计过数据库表？你是如何设计的？"></a>有没有设计过数据库表？你是如何设计的？</h5><hr>
-<h5 id="聚簇索引与非聚簇索引有什么区别"><a href="#聚簇索引与非聚簇索引有什么区别" class="headerlink" title="聚簇索引与非聚簇索引有什么区别"></a>聚簇索引与非聚簇索引有什么区别</h5><hr>
-<h5 id="B-tree-与-B-tree-的区别"><a href="#B-tree-与-B-tree-的区别" class="headerlink" title="B+tree 与 B-tree 的区别"></a>B+tree 与 B-tree 的区别</h5><hr>
-<h5 id="以-mysql-为例，linux-如何排查问题"><a href="#以-mysql-为例，linux-如何排查问题" class="headerlink" title="以 mysql 为例，linux 如何排查问题"></a>以 mysql 为例，linux 如何排查问题</h5><hr>
-<h5 id="如何处理慢查询"><a href="#如何处理慢查询" class="headerlink" title="如何处理慢查询"></a>如何处理慢查询</h5><hr>
-<h5 id="说说你对Spring的理解？"><a href="#说说你对Spring的理解？" class="headerlink" title="说说你对Spring的理解？"></a>说说你对Spring的理解？</h5><p>1、Spring是一个为了简化企业级应用开发且无侵入式的轻量级开源框架。Spring主要有两个强大的功能：IOC、AOP  </p>
+<h4 id="有没有设计过数据库表？你是如何设计的？"><a href="#有没有设计过数据库表？你是如何设计的？" class="headerlink" title="有没有设计过数据库表？你是如何设计的？"></a>有没有设计过数据库表？你是如何设计的？</h4><hr>
+<h4 id="聚簇索引与非聚簇索引有什么区别"><a href="#聚簇索引与非聚簇索引有什么区别" class="headerlink" title="聚簇索引与非聚簇索引有什么区别"></a>聚簇索引与非聚簇索引有什么区别</h4><hr>
+<h4 id="B-tree-与-B-tree-的区别"><a href="#B-tree-与-B-tree-的区别" class="headerlink" title="B+tree 与 B-tree 的区别"></a>B+tree 与 B-tree 的区别</h4><hr>
+<h4 id="以-mysql-为例，linux-如何排查问题"><a href="#以-mysql-为例，linux-如何排查问题" class="headerlink" title="以 mysql 为例，linux 如何排查问题"></a>以 mysql 为例，linux 如何排查问题</h4><hr>
+<h4 id="如何处理慢查询"><a href="#如何处理慢查询" class="headerlink" title="如何处理慢查询"></a>如何处理慢查询</h4><hr>
+<h4 id="说说你对Spring的理解？"><a href="#说说你对Spring的理解？" class="headerlink" title="说说你对Spring的理解？"></a>说说你对Spring的理解？</h4><p>1、Spring是一个为了简化企业级应用开发且无侵入式的轻量级开源框架。Spring主要有两个强大的功能：IOC、AOP  </p>
 <p>​    ① 控制反转(IOC)：通过工厂模式将我们之前自己手动创建对象的这一过程交给Spring去执行，将创建后的对象都存放到Spring容器中，并进行管理；我们使用时不需要自己去创建，直接从Spring容器中获取对象即可</p>
 <p>​    ② 依赖注入(DI)：Spring使用Java Bean对象的Set方法或者带参数的构造方法在我们创建对象时，自动从Spring容器中获取所需对象并设置给当前对象的属性。</p>
 <p>​    ③ 面向切面编程(AOP)：通过代理模式，在程序运行期间动态地将某段代码切入到指定方法的指定位置进行运行的一种编程方式，可以用来做权限验证，事务管理，记录日志等</p>
 <p>2、在Spring中，所有管理的都是JavaBean对象，而BeanFactory和ApplicationContext就是Spring框架的那个IOC容器，现在一般使用</p>
 <p>ApplicationContext，其不但包括了BeanFactory的作用，同时还进行了更多的扩展。</p>
 <hr>
-<h5 id="在Spring中有几种配置Bean的方式？"><a href="#在Spring中有几种配置Bean的方式？" class="headerlink" title="在Spring中有几种配置Bean的方式？"></a>在Spring中有几种配置Bean的方式？</h5><p>1、基于XML的配置</p>
+<h4 id="在Spring中有几种配置Bean的方式？"><a href="#在Spring中有几种配置Bean的方式？" class="headerlink" title="在Spring中有几种配置Bean的方式？"></a>在Spring中有几种配置Bean的方式？</h4><p>1、基于XML的配置</p>
 <p>2、基于注解的配置</p>
 <p>3、基于Java的配置</p>
 <hr>
-<h5 id="BeanFactory和ApplicationContext有什么区别？"><a href="#BeanFactory和ApplicationContext有什么区别？" class="headerlink" title="BeanFactory和ApplicationContext有什么区别？"></a>BeanFactory和ApplicationContext有什么区别？</h5><p>1、BeanFactory：BeanFactory在启动的时候不会去实例化Bean，当从容器中拿Bean的时候才会去实例化；</p>
+<h4 id="BeanFactory和ApplicationContext有什么区别？"><a href="#BeanFactory和ApplicationContext有什么区别？" class="headerlink" title="BeanFactory和ApplicationContext有什么区别？"></a>BeanFactory和ApplicationContext有什么区别？</h4><p>1、BeanFactory：BeanFactory在启动的时候不会去实例化Bean，当从容器中拿Bean的时候才会去实例化；</p>
 <p>2、ApplicationContext：ApplicationContext在启动的时候就把所有的Bean全部实例化了。它还可以为Bean配置lazy-init=true来让Bean延迟实例化； </p>
 <hr>
-<h5 id="Spring框架中的单例bean是线程安全的吗？"><a href="#Spring框架中的单例bean是线程安全的吗？" class="headerlink" title="Spring框架中的单例bean是线程安全的吗？"></a>Spring框架中的单例bean是线程安全的吗？</h5><p>不是线程安全的，当多用户同时请求一个服务时，容器会给每一个请求分配一个线程，这时多个线程会并发执行该请求对应的业务逻辑（成员方法），如果该处理逻辑中有对该单例对象状态的修改（比如修改成员属性），则必须考虑线程同步问题。</p>
+<h4 id="Spring框架中的单例bean是线程安全的吗？"><a href="#Spring框架中的单例bean是线程安全的吗？" class="headerlink" title="Spring框架中的单例bean是线程安全的吗？"></a>Spring框架中的单例bean是线程安全的吗？</h4><p>不是线程安全的，当多用户同时请求一个服务时，容器会给每一个请求分配一个线程，这时多个线程会并发执行该请求对应的业务逻辑（成员方法），如果该处理逻辑中有对该单例对象状态的修改（比如修改成员属性），则必须考虑线程同步问题。</p>
 <p>Spring框架并没有对单例bean进行任何多线程的封装处理。关于单例bean的线程安全和并发问题需要开发者自行去搞定。但实际上，大部分的Spring bean并没有可变的状态(比如Service类和DAO类)，所以在某种程度上说Spring的单例bean是线程安全的。</p>
 <p>如果bean有多种状态的话（比如 View Model对象），就需要自行保证线程安全。最浅显的解决办法就是将多态bean的作用域由“<strong>singleton</strong>”变更为“<strong>prototype</strong>”。</p>
 <hr>
-<h5 id="Spring框架中有哪些不同类型的事件？"><a href="#Spring框架中有哪些不同类型的事件？" class="headerlink" title="Spring框架中有哪些不同类型的事件？"></a>Spring框架中有哪些不同类型的事件？</h5><p>Spring 提供了以下5种标准的事件：</p>
+<h4 id="Spring框架中有哪些不同类型的事件？"><a href="#Spring框架中有哪些不同类型的事件？" class="headerlink" title="Spring框架中有哪些不同类型的事件？"></a>Spring框架中有哪些不同类型的事件？</h4><p>Spring 提供了以下5种标准的事件：</p>
 <p>1、上下文更新事件（ContextRefreshedEvent）：在调用ConfigurableApplicationContext 接口中的refresh()方法时被触发。</p>
 <p>2、上下文开始事件（ContextStartedEvent）：当容器调用ConfigurableApplicationContext的start()方法开始/重新开始容器时触发该事件。</p>
 <p>3、上下文停止事件（ContextStoppedEvent）：当容器调用ConfigurableApplicationContext的stop()方法停止容器时触发该事件。</p>
 <p>4、上下文关闭事件（ContextClosedEvent）：当ApplicationContext被关闭时触发该事件。容器被关闭时，其管理的所有单例Bean都被销毁。</p>
 <p>5、请求处理事件（RequestHandledEvent）：在Web应用中，当一个http请求（request）结束触发该事件。</p>
 <hr>
-<h5 id="请解释一下Spring框架有哪些自动装配模式，它们之间有何区别？"><a href="#请解释一下Spring框架有哪些自动装配模式，它们之间有何区别？" class="headerlink" title="请解释一下Spring框架有哪些自动装配模式，它们之间有何区别？"></a>请解释一下Spring框架有哪些自动装配模式，它们之间有何区别？</h5><p>1、no：这是 Spring 框架的默认设置，在该设置下自动装配是关闭的，开发者需要自行在 bean 定义中用标签明确的设置依赖关系 。</p>
+<h4 id="请解释一下Spring框架有哪些自动装配模式，它们之间有何区别？"><a href="#请解释一下Spring框架有哪些自动装配模式，它们之间有何区别？" class="headerlink" title="请解释一下Spring框架有哪些自动装配模式，它们之间有何区别？"></a>请解释一下Spring框架有哪些自动装配模式，它们之间有何区别？</h4><p>1、no：这是 Spring 框架的默认设置，在该设置下自动装配是关闭的，开发者需要自行在 bean 定义中用标签明确的设置依赖关系 。</p>
 <p>2、byName：该选项可以根据bean名称设置依赖关系 。 当向一个bean中自动装配一个属性时，容器将根据bean的名称自动在在配置文件中查询一个匹配的bean。 如果找到的话，就装配这个属性，如果没找到的话就报错 。</p>
 <p>3、byType：该选项可以根据 bean 类型设置依赖关系 。 当向一个 bean 中自动装配一个属性时，容器将根据 bean 的类型自动在在配置文件中查询一个匹配的 bean。 如果找到的话，就装配这个属性，如果没找到的话就报错 。</p>
 <p>4、constructor ：构造器的自动装配和byType模式类似，但是仅仅适用于与有构造器相同参数的bean，如果在容器中没有找到与构造器参数类型一致的bean ，那么将会抛出异常 。</p>
 <p>5、default：该模式自动探测使用构造器自动装配或者byType自动装配 。 首先会尝试找合适的带参数的构造器，如果找到的话就是用构造器自动装配，如果在bean内部没有找到相应的构造器或者是无参构造器，容器就会自动选择 byTpe 的自动装配方式 。</p>
 <hr>
-<h5 id="解释一下Spring-AOP里面的几个名词？"><a href="#解释一下Spring-AOP里面的几个名词？" class="headerlink" title="解释一下Spring AOP里面的几个名词？"></a>解释一下Spring AOP里面的几个名词？</h5><p>1、连接点（Join point）：指程序运行过程中所执行的方法。在Spring AOP中，一个连接点总代表一个方法的执行。 </p>
+<h4 id="解释一下Spring-AOP里面的几个名词？"><a href="#解释一下Spring-AOP里面的几个名词？" class="headerlink" title="解释一下Spring AOP里面的几个名词？"></a>解释一下Spring AOP里面的几个名词？</h4><p>1、连接点（Join point）：指程序运行过程中所执行的方法。在Spring AOP中，一个连接点总代表一个方法的执行。 </p>
 <p>2、切入点（Pointcut）：被拦截用于做增强的那些连接点。</p>
 <p>3、通知（Advice）：指要在切入点（Join Point）上执行的动作，即增强的逻辑，比如权限校验和、日志记录等。</p>
 <p>4、切面（Aspect）：被抽取出来的公共模块，可以用来横切多个对象。Aspect切面可以看成 Pointcut切点和 Advice通知的结合，一个切面可以由多个切点和通知组成。</p>
@@ -689,7 +689,7 @@
 <p>6、织入（Weaving）：通过动态代理，在目标对象（Target）的方法（即切入点）中执行增强逻辑（Advice）的过程。</p>
 <p>7、引入（Introduction）：添加额外的方法或者字段到被通知的类。Spring允许引入新的接口（以及对应的实现）到任何被代理的对象。</p>
 <hr>
-<h5 id="Spring中AOP的底层是怎么实现的？"><a href="#Spring中AOP的底层是怎么实现的？" class="headerlink" title="Spring中AOP的底层是怎么实现的？"></a>Spring中AOP的底层是怎么实现的？</h5><blockquote>
+<h4 id="Spring中AOP的底层是怎么实现的？"><a href="#Spring中AOP的底层是怎么实现的？" class="headerlink" title="Spring中AOP的底层是怎么实现的？"></a>Spring中AOP的底层是怎么实现的？</h4><blockquote>
 <p>AOP底层为动态代理，AOP指的是：在程序运行期间动态地将某段代码切入到指定方法指定位置进行运行的编程方式，相关设计模式为代理模式。</p>
 </blockquote>
 <p>1、在配置类上添加 @EnableAspectJAutoProxy 注解</p>
@@ -706,7 +706,7 @@
 </blockquote>
 <p>6、AOP代理对象生成后，通知方法被执行时，会被CglibAopProxy的intercept方法拦截，然后获取拦截器链</p>
 <hr>
-<h5 id="Spring如何管理事务的？"><a href="#Spring如何管理事务的？" class="headerlink" title="Spring如何管理事务的？"></a>Spring如何管理事务的？</h5><p>Spring事务管理主要包括3个接口，Spring事务主要由以下三个共同完成的：</p>
+<h4 id="Spring如何管理事务的？"><a href="#Spring如何管理事务的？" class="headerlink" title="Spring如何管理事务的？"></a>Spring如何管理事务的？</h4><p>Spring事务管理主要包括3个接口，Spring事务主要由以下三个共同完成的：</p>
 <p>1、PlatformTransactionManager：事务管理器，主要用于平台相关事务的管理。</p>
 <p>​     主要包括三个方法：</p>
 <p>​     ① commit：事务提交。</p>
@@ -724,7 +724,7 @@
 <p>​     ② isCompleted()：返回该事务是否已完成，也就是说，是否已经提交或回滚。</p>
 <p>​     ③ isNewTransaction()：判断当前事务是否是一个新事务。</p>
 <hr>
-<h5 id="Spring事务什么情况下会失效？"><a href="#Spring事务什么情况下会失效？" class="headerlink" title="Spring事务什么情况下会失效？"></a>Spring事务什么情况下会失效？</h5><p>1、<strong>数据库引擎不支持事务</strong>：这里以 MySQL为例，其MyISAM引擎是不支持事务操作的，InnoDB才是支持事务的引擎，一般要支持事务都会使用 InnoDB。</p>
+<h4 id="Spring事务什么情况下会失效？"><a href="#Spring事务什么情况下会失效？" class="headerlink" title="Spring事务什么情况下会失效？"></a>Spring事务什么情况下会失效？</h4><p>1、<strong>数据库引擎不支持事务</strong>：这里以 MySQL为例，其MyISAM引擎是不支持事务操作的，InnoDB才是支持事务的引擎，一般要支持事务都会使用 InnoDB。</p>
 <p>2、<strong>bean没有被Spring 管理</strong></p>
 <p>3、<strong>方法不是public的</strong>：@Transactional只能用于public的方法上，否则事务会失效。</p>
 <p>4、<strong>自身调用问题</strong></p>
@@ -732,7 +732,7 @@
 <p>6、<strong>异常在方法内部通过try…catch处理掉了</strong></p>
 <p>7、<strong>异常类型错误：事务默认回滚的是：RuntimeException</strong></p>
 <hr>
-<h5 id="请解释一下Spring-Bean的生命周期？"><a href="#请解释一下Spring-Bean的生命周期？" class="headerlink" title="请解释一下Spring Bean的生命周期？"></a>请解释一下Spring Bean的生命周期？</h5><p>1、实例化Bean：</p>
+<h4 id="请解释一下Spring-Bean的生命周期？"><a href="#请解释一下Spring-Bean的生命周期？" class="headerlink" title="请解释一下Spring Bean的生命周期？"></a>请解释一下Spring Bean的生命周期？</h4><p>1、实例化Bean：</p>
 <p>反射   BeanDefinition</p>
 <ul>
 <li><p>对于BeanFactory容器，当客户向容器请求一个尚未初始化的bean时，或初始化bean的时候需要注入另一个尚未初始化的依赖时，容器就会调用createBean进</p>
@@ -763,11 +763,11 @@
 <p>7、DisposableBean：当Bean不再需要时，会经过清理阶段，如果Bean实现了DisposableBean这个接口，会调用其实现的destroy()方法；</p>
 <p>8、destroy-method：最后，如果这个Bean的Spring配置中配置了destroy-method属性，会自动调用其配置的销毁方法。</p>
 <hr>
-<h5 id="Spring中的AOP是在bean生命周期的哪一步实现的？"><a href="#Spring中的AOP是在bean生命周期的哪一步实现的？" class="headerlink" title="Spring中的AOP是在bean生命周期的哪一步实现的？"></a>Spring中的AOP是在bean生命周期的哪一步实现的？</h5><p>在初始化阶段中执行完初始化方法之后</p>
+<h4 id="Spring中的AOP是在bean生命周期的哪一步实现的？"><a href="#Spring中的AOP是在bean生命周期的哪一步实现的？" class="headerlink" title="Spring中的AOP是在bean生命周期的哪一步实现的？"></a>Spring中的AOP是在bean生命周期的哪一步实现的？</h4><p>在初始化阶段中执行完初始化方法之后</p>
 <hr>
-<h5 id="什么是Spring-循环依赖"><a href="#什么是Spring-循环依赖" class="headerlink" title="什么是Spring 循环依赖"></a>什么是Spring 循环依赖</h5><p>BeanA 对象的创建依赖于 BeanB ，而 BeanB 对象的创建也依赖于 BeanA，这样就造成了死循环，如果不做处理的话就会造成栈溢出。</p>
+<h4 id="什么是Spring-循环依赖"><a href="#什么是Spring-循环依赖" class="headerlink" title="什么是Spring 循环依赖"></a>什么是Spring 循环依赖</h4><p>BeanA 对象的创建依赖于 BeanB ，而 BeanB 对象的创建也依赖于 BeanA，这样就造成了死循环，如果不做处理的话就会造成栈溢出。</p>
 <hr>
-<h5 id="Spring-的三级缓存"><a href="#Spring-的三级缓存" class="headerlink" title="Spring 的三级缓存"></a>Spring 的三级缓存</h5><table>
+<h4 id="Spring-的三级缓存"><a href="#Spring-的三级缓存" class="headerlink" title="Spring 的三级缓存"></a>Spring 的三级缓存</h4><table>
 <thead>
 <tr>
 <th>名称</th>
@@ -792,7 +792,7 @@
 </tr>
 </tbody></table>
 <hr>
-<h5 id="Spring如何解决循环依赖的？"><a href="#Spring如何解决循环依赖的？" class="headerlink" title="Spring如何解决循环依赖的？"></a>Spring如何解决循环依赖的？</h5><p>1、从一级缓存中获取 BeanA；</p>
+<h4 id="Spring如何解决循环依赖的？"><a href="#Spring如何解决循环依赖的？" class="headerlink" title="Spring如何解决循环依赖的？"></a>Spring如何解决循环依赖的？</h4><p>1、从一级缓存中获取 BeanA；</p>
 <p>2、获取不到，将当前 BeanA 添加到正在创建的 Bean 集合中；</p>
 <p>3、实例化 BeanA，将 BeanA 锁对应的工厂 Bean 添加到三级缓存中；</p>
 <p>4、对 BeanA 进行属性赋值。注入 BeanB；</p>
@@ -811,17 +811,17 @@
 <p>17、将 BeanA 从正在创建的集合中移除；</p>
 <p>18、将 BeanA 放入一级缓存，从二级缓存中移除，把 BeanA 添加到已经注册过的集合中。</p>
 <hr>
-<h5 id="三级缓存的作用："><a href="#三级缓存的作用：" class="headerlink" title="三级缓存的作用："></a>三级缓存的作用：</h5><p>如果 A 的原始对象注入给 B 的属性之后，A 的原始对象进行了 AOP 产生了一个代理对象，此时就会出现，对于 A 而言，它的 Bean 对象其实应该是 AOP 之后的代理对象，而 B 的 a 属性对应的并不是 AOP 之后的代理对象，这就产生了冲突。也就是说，最终单例池中存放的 A 对象（代理对象）和 B 依赖的 A 对象不是同一个。所以在该场景下，上述提到的二级缓存就解决不了，那么这个时候 Spring 就利用了第三级缓存 singletonFactories 来解决这个问题。</p>
+<h4 id="三级缓存的作用："><a href="#三级缓存的作用：" class="headerlink" title="三级缓存的作用："></a>三级缓存的作用：</h4><p>如果 A 的原始对象注入给 B 的属性之后，A 的原始对象进行了 AOP 产生了一个代理对象，此时就会出现，对于 A 而言，它的 Bean 对象其实应该是 AOP 之后的代理对象，而 B 的 a 属性对应的并不是 AOP 之后的代理对象，这就产生了冲突。也就是说，最终单例池中存放的 A 对象（代理对象）和 B 依赖的 A 对象不是同一个。所以在该场景下，上述提到的二级缓存就解决不了，那么这个时候 Spring 就利用了第三级缓存 singletonFactories 来解决这个问题。</p>
 <p>singletonFactories 中存的是 beanName 对应的 ObjectFactory，在 bean 实例化完之后，就会构造一个 ObjectFactory 存入对象时，会调用 getObject() 方法，调用 getEarlyBeanReference()，在这个方法中会调用 SmartInstantiationAwareBeanPostProcessor 的 getEarlyBeanReference() 方法。</p>
 <p>而当我们开启了基于注解版的 AspectJ 的 AOP 时，会向容器中注入一个 AnnotationAwareAspectJAutoProxyCreator，它的父类 AbstractAutoProxyCreator 又实现了 SmartInstantiationAwareBeanPostProcessor ，重写了它的 getEarlyBeanReference() 方法，在该方法中会创建指定对象的代理对象。</p>
 <p>所以通过三级缓存中的 ObjectFactory 获取的对象其实就是 Bean 的代理对象，然后把三级缓存中的 ObjectFactory 移除，将获取到的代理对象放入二级缓存中，而 BeanB 拿到 BeanA 的代理对象之后，将代理对象 BeanA 设置给 BeanB 完成 BeanB 的对象创建，BeanA 在对象初始化时，发现 BeanA 已经创建了代理对象，那么此时就不会再次创建，而是将代理对象A 返回，这样一来就保证了 BeanB 的 a 属性 和 BeanA 的 Bean对象都是 AOP 之后的代理对象了。</p>
 <hr>
-<h5 id="只有一级缓存和三级缓存是否可行？"><a href="#只有一级缓存和三级缓存是否可行？" class="headerlink" title="只有一级缓存和三级缓存是否可行？"></a>只有一级缓存和三级缓存是否可行？</h5><p>不行，每次从三级缓存中拿到ObjectFactory对象，执行getObject()方法又会产生<strong>新的代理对象</strong>，因为A是单例的，所有这里我们要借助二级缓存来解决这个问题，将执行了objectFactory.getObject()产生的对象放到二级缓存中去，后面去二级缓存中拿，没必要再执行一遍bjectFactory.getObject()方法再产生一个新的代理对象，保证始终只有一个代理对象。</p>
+<h4 id="只有一级缓存和三级缓存是否可行？"><a href="#只有一级缓存和三级缓存是否可行？" class="headerlink" title="只有一级缓存和三级缓存是否可行？"></a>只有一级缓存和三级缓存是否可行？</h4><p>不行，每次从三级缓存中拿到ObjectFactory对象，执行getObject()方法又会产生<strong>新的代理对象</strong>，因为A是单例的，所有这里我们要借助二级缓存来解决这个问题，将执行了objectFactory.getObject()产生的对象放到二级缓存中去，后面去二级缓存中拿，没必要再执行一遍bjectFactory.getObject()方法再产生一个新的代理对象，保证始终只有一个代理对象。</p>
 <p>总结：所以如果没有AOP的话确实可以两级缓存就可以解决循环依赖的问题，如果加上AOP，两级缓存是无法解决的，不可能每次执行objectFactory.getObject()方法都给我产生一个新的代理对象，所以还要借助另外一个缓存来保存产生的代理对象。</p>
 <hr>
-<h5 id="构造方法出现了循环依赖怎么解决？"><a href="#构造方法出现了循环依赖怎么解决？" class="headerlink" title="构造方法出现了循环依赖怎么解决？"></a>构造方法出现了循环依赖怎么解决？</h5><p>在构造参数前面加了@Lazy注解之后, 就不会真正的注入真实对象, 该注入对象会被延迟加载 ， 此时注入的是一个代理对象 。</p>
+<h4 id="构造方法出现了循环依赖怎么解决？"><a href="#构造方法出现了循环依赖怎么解决？" class="headerlink" title="构造方法出现了循环依赖怎么解决？"></a>构造方法出现了循环依赖怎么解决？</h4><p>在构造参数前面加了@Lazy注解之后, 就不会真正的注入真实对象, 该注入对象会被延迟加载 ， 此时注入的是一个代理对象 。</p>
 <hr>
-<h5 id="SpringMVC-的工作流程"><a href="#SpringMVC-的工作流程" class="headerlink" title="SpringMVC 的工作流程"></a>SpringMVC 的工作流程</h5><ol>
+<h4 id="SpringMVC-的工作流程"><a href="#SpringMVC-的工作流程" class="headerlink" title="SpringMVC 的工作流程"></a>SpringMVC 的工作流程</h4><ol>
 <li>浏览器发送请求到服务器的前端控制器(DispatcherServlet)</li>
 <li>HttpServlet 的 service() 方法 —&gt;<ol>
 <li> FrameworkServlet 的 doGet() 方法 —&gt; </li>
@@ -871,37 +871,37 @@
 <hr>
 <hr>
 <hr>
-<h5 id="为什么构造器注入属性无法解决循环依赖问题"><a href="#为什么构造器注入属性无法解决循环依赖问题" class="headerlink" title="为什么构造器注入属性无法解决循环依赖问题"></a>为什么构造器注入属性无法解决循环依赖问题</h5><hr>
-<h5 id="一级缓存能不能解决循环依赖问题"><a href="#一级缓存能不能解决循环依赖问题" class="headerlink" title="一级缓存能不能解决循环依赖问题"></a>一级缓存能不能解决循环依赖问题</h5><hr>
-<h5 id="二级缓存能不能解决循环依赖问题"><a href="#二级缓存能不能解决循环依赖问题" class="headerlink" title="二级缓存能不能解决循环依赖问题"></a>二级缓存能不能解决循环依赖问题</h5><hr>
-<h5 id="SpringBoot-自动装配原理"><a href="#SpringBoot-自动装配原理" class="headerlink" title="SpringBoot 自动装配原理"></a>SpringBoot 自动装配原理</h5><hr>
-<h5 id="Mybatis-中-与-的区别"><a href="#Mybatis-中-与-的区别" class="headerlink" title="Mybatis 中 #{} 与 ${} 的区别"></a>Mybatis 中 #{} 与 ${} 的区别</h5><hr>
-<h5 id="谈谈你对-Spring-的理解"><a href="#谈谈你对-Spring-的理解" class="headerlink" title="谈谈你对 Spring 的理解"></a>谈谈你对 Spring 的理解</h5><hr>
-<h5 id="Spring-中常用的设计模式"><a href="#Spring-中常用的设计模式" class="headerlink" title="Spring 中常用的设计模式"></a>Spring 中常用的设计模式</h5><hr>
-<h5 id="介绍一下-Spring-的生命周期、注入方式与作用域"><a href="#介绍一下-Spring-的生命周期、注入方式与作用域" class="headerlink" title="介绍一下 Spring 的生命周期、注入方式与作用域"></a>介绍一下 Spring 的生命周期、注入方式与作用域</h5><hr>
-<h5 id="简单介绍一下-redis-为什么不直接操作内存"><a href="#简单介绍一下-redis-为什么不直接操作内存" class="headerlink" title="简单介绍一下 redis 为什么不直接操作内存"></a>简单介绍一下 redis 为什么不直接操作内存</h5><hr>
-<h5 id="单线程的-Redis-为什么读写速度快"><a href="#单线程的-Redis-为什么读写速度快" class="headerlink" title="单线程的 Redis 为什么读写速度快"></a>单线程的 Redis 为什么读写速度快</h5><hr>
-<h5 id="Redis-为什么是单线程的"><a href="#Redis-为什么是单线程的" class="headerlink" title="Redis 为什么是单线程的"></a>Redis 为什么是单线程的</h5><hr>
-<h5 id="Redis-服务器的内存是多大"><a href="#Redis-服务器的内存是多大" class="headerlink" title="Redis 服务器的内存是多大"></a>Redis 服务器的内存是多大</h5><hr>
-<h5 id="为什么-Redis-的操作是原子性的，怎么保证原子性的"><a href="#为什么-Redis-的操作是原子性的，怎么保证原子性的" class="headerlink" title="为什么 Redis 的操作是原子性的，怎么保证原子性的"></a>为什么 Redis 的操作是原子性的，怎么保证原子性的</h5><hr>
-<h5 id="你还用过其他缓存嘛？这些缓存有什么区别？都在什么场景下去用"><a href="#你还用过其他缓存嘛？这些缓存有什么区别？都在什么场景下去用" class="headerlink" title="你还用过其他缓存嘛？这些缓存有什么区别？都在什么场景下去用"></a>你还用过其他缓存嘛？这些缓存有什么区别？都在什么场景下去用</h5><hr>
-<h5 id="Redis-在你们项目中是怎么用的"><a href="#Redis-在你们项目中是怎么用的" class="headerlink" title="Redis 在你们项目中是怎么用的"></a>Redis 在你们项目中是怎么用的</h5><hr>
-<h5 id="对-Redis-的持久化了解不"><a href="#对-Redis-的持久化了解不" class="headerlink" title="对 Redis 的持久化了解不"></a>对 Redis 的持久化了解不</h5><hr>
-<h5 id="Redis-的过期策略以及内存淘汰机制有了解过嘛"><a href="#Redis-的过期策略以及内存淘汰机制有了解过嘛" class="headerlink" title="Redis 的过期策略以及内存淘汰机制有了解过嘛"></a>Redis 的过期策略以及内存淘汰机制有了解过嘛</h5><hr>
-<h5 id="做过-Redis-的集群嘛，你们做集群的时候搭建了几台，都是怎么搭建的"><a href="#做过-Redis-的集群嘛，你们做集群的时候搭建了几台，都是怎么搭建的" class="headerlink" title="做过 Redis 的集群嘛，你们做集群的时候搭建了几台，都是怎么搭建的"></a>做过 Redis 的集群嘛，你们做集群的时候搭建了几台，都是怎么搭建的</h5><hr>
-<h5 id="说说-Redis-哈希槽的概念"><a href="#说说-Redis-哈希槽的概念" class="headerlink" title="说说 Redis 哈希槽的概念"></a>说说 Redis 哈希槽的概念</h5><hr>
-<h5 id="Redis-有事务嘛"><a href="#Redis-有事务嘛" class="headerlink" title="Redis 有事务嘛"></a>Redis 有事务嘛</h5><hr>
-<h5 id="是否了解过-Redis-的安全机制"><a href="#是否了解过-Redis-的安全机制" class="headerlink" title="是否了解过 Redis 的安全机制"></a>是否了解过 Redis 的安全机制</h5><hr>
-<h5 id="你对-Redis-的哨兵机制了解过多少"><a href="#你对-Redis-的哨兵机制了解过多少" class="headerlink" title="你对 Redis 的哨兵机制了解过多少"></a>你对 Redis 的哨兵机制了解过多少</h5><hr>
-<h5 id="Redis-缓存与-MySQL-数据库之间的数据一致性问题"><a href="#Redis-缓存与-MySQL-数据库之间的数据一致性问题" class="headerlink" title="Redis 缓存与 MySQL 数据库之间的数据一致性问题"></a>Redis 缓存与 MySQL 数据库之间的数据一致性问题</h5><hr>
-<h5 id="什么是-Redis-的缓存穿透？如何防止穿透"><a href="#什么是-Redis-的缓存穿透？如何防止穿透" class="headerlink" title="什么是 Redis 的缓存穿透？如何防止穿透"></a>什么是 Redis 的缓存穿透？如何防止穿透</h5><hr>
-<h5 id="什么是-Redis-的缓存雪崩？如何防止"><a href="#什么是-Redis-的缓存雪崩？如何防止" class="headerlink" title="什么是 Redis 的缓存雪崩？如何防止"></a>什么是 Redis 的缓存雪崩？如何防止</h5><hr>
-<h5 id="什么是-Redis-的缓存击穿？如何防止"><a href="#什么是-Redis-的缓存击穿？如何防止" class="headerlink" title="什么是 Redis 的缓存击穿？如何防止"></a>什么是 Redis 的缓存击穿？如何防止</h5><hr>
-<h5 id="Redis-中对于生命时间的应用"><a href="#Redis-中对于生命时间的应用" class="headerlink" title="Redis 中对于生命时间的应用"></a>Redis 中对于生命时间的应用</h5><hr>
-<h5 id="如何保证消息的可靠性传输-如何处理消息丢失问题"><a href="#如何保证消息的可靠性传输-如何处理消息丢失问题" class="headerlink" title="如何保证消息的可靠性传输/如何处理消息丢失问题"></a>如何保证消息的可靠性传输/如何处理消息丢失问题</h5><hr>
-<h5 id="如何保证消息不被重复消费"><a href="#如何保证消息不被重复消费" class="headerlink" title="如何保证消息不被重复消费"></a>如何保证消息不被重复消费</h5><hr>
-<h5 id="如何解决消息队列的延时以及过期失效问题？消息队列满了之后该如何处理？有几百万的消息持续积压几小时，说说如何解决"><a href="#如何解决消息队列的延时以及过期失效问题？消息队列满了之后该如何处理？有几百万的消息持续积压几小时，说说如何解决" class="headerlink" title="如何解决消息队列的延时以及过期失效问题？消息队列满了之后该如何处理？有几百万的消息持续积压几小时，说说如何解决"></a>如何解决消息队列的延时以及过期失效问题？消息队列满了之后该如何处理？有几百万的消息持续积压几小时，说说如何解决</h5><hr>
-<h5 id="如果让你写一个消息队列，该如何进行架构设计？说一下思路"><a href="#如果让你写一个消息队列，该如何进行架构设计？说一下思路" class="headerlink" title="如果让你写一个消息队列，该如何进行架构设计？说一下思路"></a>如果让你写一个消息队列，该如何进行架构设计？说一下思路</h5><hr>
+<h4 id="为什么构造器注入属性无法解决循环依赖问题"><a href="#为什么构造器注入属性无法解决循环依赖问题" class="headerlink" title="为什么构造器注入属性无法解决循环依赖问题"></a>为什么构造器注入属性无法解决循环依赖问题</h4><hr>
+<h4 id="一级缓存能不能解决循环依赖问题"><a href="#一级缓存能不能解决循环依赖问题" class="headerlink" title="一级缓存能不能解决循环依赖问题"></a>一级缓存能不能解决循环依赖问题</h4><hr>
+<h4 id="二级缓存能不能解决循环依赖问题"><a href="#二级缓存能不能解决循环依赖问题" class="headerlink" title="二级缓存能不能解决循环依赖问题"></a>二级缓存能不能解决循环依赖问题</h4><hr>
+<h4 id="SpringBoot-自动装配原理"><a href="#SpringBoot-自动装配原理" class="headerlink" title="SpringBoot 自动装配原理"></a>SpringBoot 自动装配原理</h4><hr>
+<h4 id="Mybatis-中-与-的区别"><a href="#Mybatis-中-与-的区别" class="headerlink" title="Mybatis 中 #{} 与 ${} 的区别"></a>Mybatis 中 #{} 与 ${} 的区别</h4><hr>
+<h4 id="谈谈你对-Spring-的理解"><a href="#谈谈你对-Spring-的理解" class="headerlink" title="谈谈你对 Spring 的理解"></a>谈谈你对 Spring 的理解</h4><hr>
+<h4 id="Spring-中常用的设计模式"><a href="#Spring-中常用的设计模式" class="headerlink" title="Spring 中常用的设计模式"></a>Spring 中常用的设计模式</h4><hr>
+<h4 id="介绍一下-Spring-的生命周期、注入方式与作用域"><a href="#介绍一下-Spring-的生命周期、注入方式与作用域" class="headerlink" title="介绍一下 Spring 的生命周期、注入方式与作用域"></a>介绍一下 Spring 的生命周期、注入方式与作用域</h4><hr>
+<h4 id="简单介绍一下-redis-为什么不直接操作内存"><a href="#简单介绍一下-redis-为什么不直接操作内存" class="headerlink" title="简单介绍一下 redis 为什么不直接操作内存"></a>简单介绍一下 redis 为什么不直接操作内存</h4><hr>
+<h4 id="单线程的-Redis-为什么读写速度快"><a href="#单线程的-Redis-为什么读写速度快" class="headerlink" title="单线程的 Redis 为什么读写速度快"></a>单线程的 Redis 为什么读写速度快</h4><hr>
+<h4 id="Redis-为什么是单线程的"><a href="#Redis-为什么是单线程的" class="headerlink" title="Redis 为什么是单线程的"></a>Redis 为什么是单线程的</h4><hr>
+<h4 id="Redis-服务器的内存是多大"><a href="#Redis-服务器的内存是多大" class="headerlink" title="Redis 服务器的内存是多大"></a>Redis 服务器的内存是多大</h4><hr>
+<h4 id="为什么-Redis-的操作是原子性的，怎么保证原子性的"><a href="#为什么-Redis-的操作是原子性的，怎么保证原子性的" class="headerlink" title="为什么 Redis 的操作是原子性的，怎么保证原子性的"></a>为什么 Redis 的操作是原子性的，怎么保证原子性的</h4><hr>
+<h4 id="你还用过其他缓存嘛？这些缓存有什么区别？都在什么场景下去用"><a href="#你还用过其他缓存嘛？这些缓存有什么区别？都在什么场景下去用" class="headerlink" title="你还用过其他缓存嘛？这些缓存有什么区别？都在什么场景下去用"></a>你还用过其他缓存嘛？这些缓存有什么区别？都在什么场景下去用</h4><hr>
+<h4 id="Redis-在你们项目中是怎么用的"><a href="#Redis-在你们项目中是怎么用的" class="headerlink" title="Redis 在你们项目中是怎么用的"></a>Redis 在你们项目中是怎么用的</h4><hr>
+<h4 id="对-Redis-的持久化了解不"><a href="#对-Redis-的持久化了解不" class="headerlink" title="对 Redis 的持久化了解不"></a>对 Redis 的持久化了解不</h4><hr>
+<h4 id="Redis-的过期策略以及内存淘汰机制有了解过嘛"><a href="#Redis-的过期策略以及内存淘汰机制有了解过嘛" class="headerlink" title="Redis 的过期策略以及内存淘汰机制有了解过嘛"></a>Redis 的过期策略以及内存淘汰机制有了解过嘛</h4><hr>
+<h4 id="做过-Redis-的集群嘛，你们做集群的时候搭建了几台，都是怎么搭建的"><a href="#做过-Redis-的集群嘛，你们做集群的时候搭建了几台，都是怎么搭建的" class="headerlink" title="做过 Redis 的集群嘛，你们做集群的时候搭建了几台，都是怎么搭建的"></a>做过 Redis 的集群嘛，你们做集群的时候搭建了几台，都是怎么搭建的</h4><hr>
+<h4 id="说说-Redis-哈希槽的概念"><a href="#说说-Redis-哈希槽的概念" class="headerlink" title="说说 Redis 哈希槽的概念"></a>说说 Redis 哈希槽的概念</h4><hr>
+<h4 id="Redis-有事务嘛"><a href="#Redis-有事务嘛" class="headerlink" title="Redis 有事务嘛"></a>Redis 有事务嘛</h4><hr>
+<h4 id="是否了解过-Redis-的安全机制"><a href="#是否了解过-Redis-的安全机制" class="headerlink" title="是否了解过 Redis 的安全机制"></a>是否了解过 Redis 的安全机制</h4><hr>
+<h4 id="你对-Redis-的哨兵机制了解过多少"><a href="#你对-Redis-的哨兵机制了解过多少" class="headerlink" title="你对 Redis 的哨兵机制了解过多少"></a>你对 Redis 的哨兵机制了解过多少</h4><hr>
+<h4 id="Redis-缓存与-MySQL-数据库之间的数据一致性问题"><a href="#Redis-缓存与-MySQL-数据库之间的数据一致性问题" class="headerlink" title="Redis 缓存与 MySQL 数据库之间的数据一致性问题"></a>Redis 缓存与 MySQL 数据库之间的数据一致性问题</h4><hr>
+<h4 id="什么是-Redis-的缓存穿透？如何防止穿透"><a href="#什么是-Redis-的缓存穿透？如何防止穿透" class="headerlink" title="什么是 Redis 的缓存穿透？如何防止穿透"></a>什么是 Redis 的缓存穿透？如何防止穿透</h4><hr>
+<h4 id="什么是-Redis-的缓存雪崩？如何防止"><a href="#什么是-Redis-的缓存雪崩？如何防止" class="headerlink" title="什么是 Redis 的缓存雪崩？如何防止"></a>什么是 Redis 的缓存雪崩？如何防止</h4><hr>
+<h4 id="什么是-Redis-的缓存击穿？如何防止"><a href="#什么是-Redis-的缓存击穿？如何防止" class="headerlink" title="什么是 Redis 的缓存击穿？如何防止"></a>什么是 Redis 的缓存击穿？如何防止</h4><hr>
+<h4 id="Redis-中对于生命时间的应用"><a href="#Redis-中对于生命时间的应用" class="headerlink" title="Redis 中对于生命时间的应用"></a>Redis 中对于生命时间的应用</h4><hr>
+<h4 id="如何保证消息的可靠性传输-如何处理消息丢失问题"><a href="#如何保证消息的可靠性传输-如何处理消息丢失问题" class="headerlink" title="如何保证消息的可靠性传输/如何处理消息丢失问题"></a>如何保证消息的可靠性传输/如何处理消息丢失问题</h4><hr>
+<h4 id="如何保证消息不被重复消费"><a href="#如何保证消息不被重复消费" class="headerlink" title="如何保证消息不被重复消费"></a>如何保证消息不被重复消费</h4><hr>
+<h4 id="如何解决消息队列的延时以及过期失效问题？消息队列满了之后该如何处理？有几百万的消息持续积压几小时，说说如何解决"><a href="#如何解决消息队列的延时以及过期失效问题？消息队列满了之后该如何处理？有几百万的消息持续积压几小时，说说如何解决" class="headerlink" title="如何解决消息队列的延时以及过期失效问题？消息队列满了之后该如何处理？有几百万的消息持续积压几小时，说说如何解决"></a>如何解决消息队列的延时以及过期失效问题？消息队列满了之后该如何处理？有几百万的消息持续积压几小时，说说如何解决</h4><hr>
+<h4 id="如果让你写一个消息队列，该如何进行架构设计？说一下思路"><a href="#如果让你写一个消息队列，该如何进行架构设计？说一下思路" class="headerlink" title="如果让你写一个消息队列，该如何进行架构设计？说一下思路"></a>如果让你写一个消息队列，该如何进行架构设计？说一下思路</h4><hr>
 
                 
             </div>

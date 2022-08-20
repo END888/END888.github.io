@@ -621,24 +621,23 @@
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2022/08/11/23_JMM/">
+                        <a href="/2022/08/11/22_%E7%BA%BF%E7%A8%8B%E4%B8%AD%E6%96%AD/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="23_JMM">
+                                <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="22_线程中断">
                                 
-                                <span class="card-title">23_JMM</span>
+                                <span class="card-title">22_线程中断</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    JMM–Java 内存模型计算机存储体系：
-本地磁盘 –&gt; 主内存 –&gt; CPU 缓存(一、二、三级) –&gt; CPU
-CPU 在操作数据的时候，会根据缓存一致性协议，将数据读取到缓存中
+                                    
+线程中断
+线程中断并不会使线程立即退出，而是给线程发送一个通知，告知目标线程；至于目标线程接收到通知后如何处理，则完全由目标线程自己决定。
 
-能干嘛：
-1、通过 JMM 来实现
+Thread 的3个与线程中断的方法public void interrupt() //中断线程
                                 
                             </div>
                             <div class="publish-info">
@@ -675,23 +674,24 @@ CPU 在操作数据的时候，会根据缓存一致性协议，将数据读取�
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2022/08/11/22_%E7%BA%BF%E7%A8%8B%E4%B8%AD%E6%96%AD/">
+                        <a href="/2022/08/11/23_JMM/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="22_线程中断">
+                                <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="23_JMM">
                                 
-                                <span class="card-title">22_线程中断</span>
+                                <span class="card-title">23_JMM</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    
-线程中断
-线程中断并不会使线程立即退出，而是给线程发送一个通知，告知目标线程；至于目标线程接收到通知后如何处理，则完全由目标线程自己决定。
+                                    JMM–Java 内存模型计算机存储体系：
+本地磁盘 –&gt; 主内存 –&gt; CPU 缓存(一、二、三级) –&gt; CPU
+CPU 在操作数据的时候，会根据缓存一致性协议，将数据读取到缓存中
 
-Thread 的3个与线程中断的方法public void interrupt() //中断线程
+能干嘛：
+1、通过 JMM 来实现
                                 
                             </div>
                             <div class="publish-info">
@@ -836,21 +836,21 @@ JUC的辅助类
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2022/08/09/10_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%8D%96%E7%A5%A8(lock)/">
+                        <a href="/2022/08/09/09_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%8D%96%E7%A5%A8(synchronized)/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="10_多线程卖票(lock)">
+                                <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="09_多线程卖票(synchronized)">
                                 
-                                <span class="card-title">10_多线程卖票(lock)</span>
+                                <span class="card-title">09_多线程卖票(synchronized)</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    多线程买票–lockpublic class ThreadDemo &#123;
+                                    多线程买票–synchronizedpublic class ThreadDemo &#123;
     public static void main(String[] args) &#123;
-        Ticket ticket = new T
+        Ticket ticket
                                 
                             </div>
                             <div class="publish-info">
@@ -943,6 +943,59 @@ public class CountDownLatchDemo
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
+                        <a href="/2022/08/09/04_%E7%BA%BF%E7%A8%8B%E3%80%81%E8%BF%9B%E7%A8%8B%E3%80%81%E7%AE%A1%E7%A8%8B/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="04_线程、进程、管程">
+                                
+                                <span class="card-title">04_线程、进程、管程</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    
+进程、线程、、管程1、进程：指的是正在运行的应用程序，是系统进行资源分配和调度的基本单位
+2、线程：用来执行进程中的每个任务的单位，是程序运行的最小单元
+3、管程：监视器（Monitor），也就是锁
+
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fas fa-user fa-fw"></i>
+                                    殷存渝
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>09</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
                         <a href="/2022/08/09/02_JUC%20%E5%9B%9B%E5%8F%A5%E5%8F%A3%E8%AF%80/">
                             <div class="card-image">
                                 
@@ -971,62 +1024,6 @@ public class CountDownLatchDemo
                                     
                                     <i class="fas fa-user fa-fw"></i>
                                     yincy
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>09</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2022/08/09/03_Lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="03_Lambda 表达式">
-                                
-                                <span class="card-title">03_Lambda 表达式</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    Lambda 表达式
-使用前提：必须是一个函数式接口
-1、隐士表达：自动识别为函数式接口
-2、显示表达：@FunctionalInterface
-3、可以定义 default 方法
-4、可以定义 static 方法
-
-
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-user fa-fw"></i>
-                                    殷存渝
                                     
                                 </span>
                             </div>
@@ -1109,22 +1106,25 @@ java,util.c
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2022/08/09/04_%E7%BA%BF%E7%A8%8B%E3%80%81%E8%BF%9B%E7%A8%8B%E3%80%81%E7%AE%A1%E7%A8%8B/">
+                        <a href="/2022/08/09/03_Lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="04_线程、进程、管程">
+                                <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="03_Lambda 表达式">
                                 
-                                <span class="card-title">04_线程、进程、管程</span>
+                                <span class="card-title">03_Lambda 表达式</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    
-进程、线程、、管程1、进程：指的是正在运行的应用程序，是系统进行资源分配和调度的基本单位
-2、线程：用来执行进程中的每个任务的单位，是程序运行的最小单元
-3、管程：监视器（Monitor），也就是锁
+                                    Lambda 表达式
+使用前提：必须是一个函数式接口
+1、隐士表达：自动识别为函数式接口
+2、显示表达：@FunctionalInterface
+3、可以定义 default 方法
+4、可以定义 static 方法
+
 
                                 
                             </div>
