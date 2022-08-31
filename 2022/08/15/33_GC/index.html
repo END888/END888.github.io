@@ -5,18 +5,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="33_GC, 殷存渝的个人博客">
-    <meta name="description" content="GC
-1、GC 的分代收集算法1、频繁收集新生代
+    <meta name="description" content="# GC
+
+# 1、GC 的分代收集算法
+1、频繁收集新生代
 2、较少收集老年代
 3、基本不动元空间
 
-2、垃圾判别阶段算法1、引用计数算法
+# 2、垃圾判别阶段算法
+1、引用计数算法
 
 JVM 不采用该算法，缺点：
 1、每次对对象赋值时均要维护引用计数器
-2、较难处理循环引用
-
-2、根可达性分">
+2、较难处理循环引用">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -484,12 +485,15 @@ JVM 不采用该算法，缺点：
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="GC"><a href="#GC" class="headerlink" title="GC"></a>GC</h3><hr>
-<h5 id="1、GC-的分代收集算法"><a href="#1、GC-的分代收集算法" class="headerlink" title="1、GC 的分代收集算法"></a>1、GC 的分代收集算法</h5><p>1、频繁收集新生代</p>
+                <h3 id="gc"><a class="markdownIt-Anchor" href="#gc">#</a> GC</h3>
+<hr>
+<h5 id="1-gc-的分代收集算法"><a class="markdownIt-Anchor" href="#1-gc-的分代收集算法">#</a> 1、GC 的分代收集算法</h5>
+<p>1、频繁收集新生代</p>
 <p>2、较少收集老年代</p>
 <p>3、基本不动元空间</p>
 <hr>
-<h5 id="2、垃圾判别阶段算法"><a href="#2、垃圾判别阶段算法" class="headerlink" title="2、垃圾判别阶段算法"></a>2、垃圾判别阶段算法</h5><p>1、引用计数算法</p>
+<h5 id="2-垃圾判别阶段算法"><a class="markdownIt-Anchor" href="#2-垃圾判别阶段算法">#</a> 2、垃圾判别阶段算法</h5>
+<p>1、引用计数算法</p>
 <blockquote>
 <p>JVM 不采用该算法，缺点：</p>
 <p>1、每次对对象赋值时均要维护引用计数器</p>
@@ -497,7 +501,7 @@ JVM 不采用该算法，缺点：
 </blockquote>
 <p>2、根可达性分析算法</p>
 <blockquote>
-<p>从 GC Roots进行遍历，如果一个对象和 GC Roots 没有任何引用链时，说明此对象不可用</p>
+<p>从 GC Roots 进行遍历，如果一个对象和 GC Roots 没有任何引用链时，说明此对象不可用</p>
 </blockquote>
 <p>Java 中可以作为 GC Roots 的对象：</p>
 <p>1、虚拟机栈（栈桢中的局部变量表）中引用的对象</p>
@@ -505,7 +509,8 @@ JVM 不采用该算法，缺点：
 <p>3、方法区中常量引用的对象</p>
 <p>4、本地方法栈中 JNI （Native 方法）引用的对象</p>
 <hr>
-<h5 id="3、垃圾清除阶段算法"><a href="#3、垃圾清除阶段算法" class="headerlink" title="3、垃圾清除阶段算法"></a>3、垃圾清除阶段算法</h5><p>1、复制算法（新生代）</p>
+<h5 id="3-垃圾清除阶段算法"><a class="markdownIt-Anchor" href="#3-垃圾清除阶段算法">#</a> 3、垃圾清除阶段算法</h5>
+<p>1、复制算法（新生代）</p>
 <blockquote>
 <p><strong>缺点</strong>：</p>
 <p>1、内存空间不能得到充分利用，浪费了 to 区的内存</p>
@@ -520,16 +525,18 @@ JVM 不采用该算法，缺点：
 <p>3、标记压缩算法（老年代）</p>
 <p>标记所有存活的对象，然后将所有存活的对象整理到内存的一个连续区域，然后清除该区域以外的内存，当我们需要再次给新对象分配内存的时候，只需要持有一个内存的起始地址即可</p>
 <blockquote>
-<p><strong>缺点</strong>：<br>1、效率不高，不仅要标记所有存活对象，还要整理所有存活对象的引用地址。</p>
+<p><strong>缺点</strong>：<br>
+1、效率不高，不仅要标记所有存活对象，还要整理所有存活对象的引用地址。</p>
 </blockquote>
 <hr>
 <p><strong>总结</strong></p>
-<p>内存效率：复制算法 &gt; 标记清除算法 &gt;标记整理算法</p>
+<p>内存效率：复制算法 &gt; 标记清除算法 &gt; 标记整理算法</p>
 <p>内存整齐度：复制算法 = 标记整理算法 &gt; 标记清除算法</p>
 <p>内存利用率：标记整理算法 = 标记清除算法 &gt; 复制算法</p>
-<p>效率上来说，复制算法是当之无愧的老大，但是却浪费了太多内存，而为了尽量兼顾上面所提到的三个指标，标记/整理算法相对于来说更平滑一些，但效率上依然不尽人意，它比复制算法多了一个标记的阶段，又比标记/清除多了一个整理内存的过程。</p>
+<p>效率上来说，复制算法是当之无愧的老大，但是却浪费了太多内存，而为了尽量兼顾上面所提到的三个指标，标记 / 整理算法相对于来说更平滑一些，但效率上依然不尽人意，它比复制算法多了一个标记的阶段，又比标记 / 清除多了一个整理内存的过程。</p>
 <hr>
-<h5 id="4、分代收集算法"><a href="#4、分代收集算法" class="headerlink" title="4、分代收集算法"></a>4、分代收集算法</h5><p>1、年轻代（Young Gen）</p>
+<h5 id="4-分代收集算法"><a class="markdownIt-Anchor" href="#4-分代收集算法">#</a> 4、分代收集算法</h5>
+<p>1、年轻代（Young Gen）</p>
 <blockquote>
 <p>年轻代特点是区域相对于老年代较小，对象存活率很低。复制算法的效率只与当前存活对象大小有关。</p>
 </blockquote>
@@ -537,7 +544,8 @@ JVM 不采用该算法，缺点：
 <blockquote>
 <p>老年代的特点是区域较大，对象存活率高。一般是由标记清除或者是标记清除与标记整理的混合实现。</p>
 </blockquote>
-<h5 id="5、面试题"><a href="#5、面试题" class="headerlink" title="5、面试题"></a>5、面试题</h5><p><strong>1、JVM 内存模型以及分区，需要详细到每个区放什么</strong></p>
+<h5 id="5-面试题"><a class="markdownIt-Anchor" href="#5-面试题">#</a> 5、面试题</h5>
+<p><strong>1、JVM 内存模型以及分区，需要详细到每个区放什么</strong></p>
 <hr>
 <p><strong>2、堆里面的分区：Eden、survival from to、老年代各自的特点</strong></p>
 <hr>
@@ -545,9 +553,9 @@ JVM 不采用该算法，缺点：
 <hr>
 <p><strong>4、Minor GC 与 Full GC 分别在什么时候发生</strong></p>
 <hr>
-<h5 id="6、垃圾回收器"><a href="#6、垃圾回收器" class="headerlink" title="6、垃圾回收器"></a>6、垃圾回收器</h5><p><strong>1、查看默认的垃圾回收器</strong></p>
+<h5 id="6-垃圾回收器"><a class="markdownIt-Anchor" href="#6-垃圾回收器">#</a> 6、垃圾回收器</h5>
+<p><strong>1、查看默认的垃圾回收器</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java -XX:+PrintCommandLineFlags -version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p><strong>2、垃圾回收器的组合使用</strong></p>
 <ul>
 <li>单 CPU 或小内存，单击程序（-XX:+UseSerialGC）</li>
@@ -564,7 +572,8 @@ JVM 不采用该算法，缺点：
 <th>老年代算法</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>-XX:+UseSerialGC</td>
 <td>SerialGC</td>
 <td>复制</td>
@@ -590,16 +599,17 @@ JVM 不采用该算法，缺点：
 <td>ParNew</td>
 <td>复制</td>
 <td>CMS + SerialOld 的收集器组合（Serial Old 作为 CMS 出错的后背收集器）</td>
-<td>标清+标整</td>
+<td>标清 + 标整</td>
 </tr>
 <tr>
 <td>-XX:+UseG1GC</td>
-<td>G1 整体采用标记-整理算法</td>
+<td>G1 整体采用标记 - 整理算法</td>
 <td>局部是通过复制算法，不会产生内存碎片</td>
 <td></td>
 <td></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 
                 
             </div>
@@ -746,13 +756,13 @@ JVM 不采用该算法，缺点：
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/16/%E9%9D%A2%E8%AF%95%E9%A2%988_Mybatis/">
+                <a href="/2022/08/16/%E9%9D%A2%E8%AF%95%E9%A2%989_Redis/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="面试题8_Mybatis">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="面试题9_Redis">
                         
-                        <span class="card-title">面试题8_Mybatis</span>
+                        <span class="card-title">面试题9_Redis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -783,13 +793,13 @@ JVM 不采用该算法，缺点：
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/13/32_JVM/">
+                <a href="/2022/08/13/31_%E6%AD%BB%E9%94%81/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="32_JVM">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="31_死锁">
                         
-                        <span class="card-title">32_JVM</span>
+                        <span class="card-title">31_死锁</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

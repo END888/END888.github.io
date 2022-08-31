@@ -5,11 +5,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="25_实现一个自旋锁, 殷存渝的个人博客">
-    <meta name="description" content="实现一个自旋锁/**
+    <meta name="description" content="# 实现一个自旋锁
+/**
  *  自旋锁的好处：循环比较获取没有类似 wait 的阻塞
  *
  *  通过 CAS 操作完成自旋锁，A 线程先进来调用 myLock 方法自己持有锁 5 秒，
- *  B 随后进来发现当前有线程持有锁，不是 nu">
+ *  B 随后进来发现当前有线程持有锁，不是">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -477,7 +478,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="实现一个自旋锁"><a href="#实现一个自旋锁" class="headerlink" title="实现一个自旋锁"></a>实现一个自旋锁</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+                <h3 id="实现一个自旋锁"><a class="markdownIt-Anchor" href="#实现一个自旋锁">#</a> 实现一个自旋锁</h3>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  *  自旋锁的好处：循环比较获取没有类似 wait 的阻塞
  *
  *  通过 CAS 操作完成自旋锁，A 线程先进来调用 myLock 方法自己持有锁 5 秒，
@@ -525,7 +527,6 @@
 <span class="token punctuation">&#125;</span>
 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 
                 
             </div>

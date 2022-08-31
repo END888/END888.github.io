@@ -5,12 +5,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="31_死锁, 殷存渝的个人博客">
-    <meta name="description" content="死锁
+    <meta name="description" content="# 死锁
+
 两个线程互相持有对方锁不释放
 
-1、synchronized 版死锁public class ThreadDemo &amp;#123;
+# 1、synchronized 版死锁
+public class ThreadDemo &amp;#123;
     static Object a = new Object();
-    static Objec">
+    static">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -478,10 +480,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><blockquote>
+                <h3 id="死锁"><a class="markdownIt-Anchor" href="#死锁">#</a> 死锁</h3>
+<blockquote>
 <p><strong>两个线程互相持有对方锁不释放</strong></p>
 </blockquote>
-<h5 id="1、synchronized-版死锁"><a href="#1、synchronized-版死锁" class="headerlink" title="1、synchronized 版死锁"></a>1、synchronized 版死锁</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThreadDemo</span> <span class="token punctuation">&#123;</span>
+<h5 id="1-synchronized-版死锁"><a class="markdownIt-Anchor" href="#1-synchronized-版死锁">#</a> 1、synchronized 版死锁</h5>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThreadDemo</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">static</span> <span class="token class-name">Object</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">static</span> <span class="token class-name">Object</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">&#123;</span>
@@ -515,8 +519,8 @@
         <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token string">"B"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h5 id="2、Lock-版死锁"><a href="#2、Lock-版死锁" class="headerlink" title="2、Lock 版死锁"></a>2、Lock 版死锁</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThreadDemo</span> <span class="token punctuation">&#123;</span>
+<h5 id="2-lock-版死锁"><a class="markdownIt-Anchor" href="#2-lock-版死锁">#</a> 2、Lock 版死锁</h5>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThreadDemo</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">static</span> <span class="token class-name">Lock</span> lock1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ReentrantLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">static</span> <span class="token class-name">Lock</span> lock2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ReentrantLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">&#123;</span>
@@ -558,7 +562,6 @@
         <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token string">"B"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 
                 
             </div>
@@ -705,13 +708,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/13/32_JVM/">
+                <a href="/2022/08/15/33_GC/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="32_JVM">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="33_GC">
                         
-                        <span class="card-title">32_JVM</span>
+                        <span class="card-title">33_GC</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -722,7 +725,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-13
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-15
                         </span>
                         <span class="publish-author">
                             
@@ -742,13 +745,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/12/30_%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
+                <a href="/2022/08/13/32_JVM/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="30_线程池">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="32_JVM">
                         
-                        <span class="card-title">30_线程池</span>
+                        <span class="card-title">32_JVM</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -759,7 +762,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-13
                             </span>
                         <span class="publish-author">
                             

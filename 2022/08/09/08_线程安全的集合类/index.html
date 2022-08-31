@@ -6,9 +6,11 @@
     <meta charset="utf-8">
     <meta name="keywords" content="08_线程安全的集合类, 殷存渝的个人博客">
     <meta name="description" content="
-线程安全的集合类
-1、ListArrayList&amp;lt;String&gt; list1 = new ArrayList&amp;lt;&gt;();
-CopyOnWriteArrayList&amp;lt;String&gt; list2 = new CopyOnWri">
+# 线程安全的集合类
+
+# 1、List
+ArrayList&amp;lt;String&gt; list1 = new ArrayList&amp;lt;&gt;();
+CopyOnWriteArrayList&amp;lt;String&gt; list2 = new Cop">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -477,18 +479,19 @@ CopyOnWriteArrayList&amp;lt;String&gt; list2 = new CopyOnWri">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <hr>
-<h3 id="线程安全的集合类"><a href="#线程安全的集合类" class="headerlink" title="线程安全的集合类"></a>线程安全的集合类</h3><hr>
-<h5 id="1、List"><a href="#1、List" class="headerlink" title="1、List"></a>1、List</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="线程安全的集合类"><a class="markdownIt-Anchor" href="#线程安全的集合类">#</a> 线程安全的集合类</h3>
+<hr>
+<h5 id="1-list"><a class="markdownIt-Anchor" href="#1-list">#</a> 1、List</h5>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">CopyOnWriteArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CopyOnWriteArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <hr>
-<h5 id="2、Set"><a href="#2、Set" class="headerlink" title="2、Set"></a>2、Set</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> set1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h5 id="2-set"><a class="markdownIt-Anchor" href="#2-set">#</a> 2、Set</h5>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> set1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">CopyOnWriteArraySet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> set2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CopyOnWriteArraySet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <hr>
-<h5 id="3、Map"><a href="#3、Map" class="headerlink" title="3、Map"></a>3、Map</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span> map1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h5 id="3-map"><a class="markdownIt-Anchor" href="#3-map">#</a> 3、Map</h5>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span> map1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">ConcurrentHashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span> map2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcurrentHashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <hr>
 <p><strong>原理</strong>：<strong>写时复制技术</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -505,23 +508,20 @@ CopyOnWriteArrayList&amp;lt;String&gt; list2 = new CopyOnWri">
         lock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">return</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token function">getArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <blockquote>
 <p><strong>为什么能保证线程安全：1、读写分离；2、写时复制</strong></p>
 </blockquote>
 <blockquote>
-<p><strong>每一个 add（）添加的操作进到方法中之后，都会先去抢占 lock 锁，当一个线程抢到该锁后，会先拿到原来的 Object[]，然后对原来的数组容量扩容+1，将要添加的这个元素添加到扩容后的数组中，然后将原来的数组的引用指向了当前扩容后的数组；而 get() 方法没有加锁，其他线程依然可以访问该集合中的资源。</strong></p>
+<p><strong>每一个 add（）添加的操作进到方法中之后，都会先去抢占 lock 锁，当一个线程抢到该锁后，会先拿到原来的 Object []，然后对原来的数组容量扩容 + 1，将要添加的这个元素添加到扩容后的数组中，然后将原来的数组的引用指向了当前扩容后的数组；而 get () 方法没有加锁，其他线程依然可以访问该集合中的资源。</strong></p>
 </blockquote>
 <hr>
 <p><strong>当然，还有其他方式能够保证线程安全：</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> list3 <span class="token operator">=</span> <span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">synchronizedList</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> set3 <span class="token operator">=</span> <span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">synchronizedSet</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span> map3 <span class="token operator">=</span> <span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">synchronizedMap</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <blockquote>
 <p><strong>但是通过上面的这种方式，本质上还是加的 synchronized 锁，只不过将为了保证线程安全，它没有将 synchronized 放在方法的位置，而是设置在了方法的代码块中，效率并没有提高多少。</strong></p>
 </blockquote>
@@ -671,13 +671,13 @@ CopyOnWriteArrayList&amp;lt;String&gt; list2 = new CopyOnWri">
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/09/09_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%8D%96%E7%A5%A8(synchronized)/">
+                <a href="/2022/08/09/10_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%8D%96%E7%A5%A8(lock)/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="09_多线程卖票(synchronized)">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="10_多线程卖票(lock)">
                         
-                        <span class="card-title">09_多线程卖票(synchronized)</span>
+                        <span class="card-title">10_多线程卖票(lock)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -708,13 +708,13 @@ CopyOnWriteArrayList&amp;lt;String&gt; list2 = new CopyOnWri">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/09/07_%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E9%94%81/">
+                <a href="/2022/08/09/11_%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%85%AD%E7%A7%8D%E7%8A%B6%E6%80%81/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="07_如何判断锁">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="11_线程的六种状态">
                         
-                        <span class="card-title">07_如何判断锁</span>
+                        <span class="card-title">11_线程的六种状态</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

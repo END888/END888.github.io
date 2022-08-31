@@ -5,10 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="14_synchronized 和 Lock 的区别, 殷存渝的个人博客">
-    <meta name="description" content="synchronized 和 Lock 的区别
+    <meta name="description" content="# synchronized 和 Lock 的区别
 
-synchronized 是 Java 内置的关键字；Lock 是 java.util.concurrent 包下的一个接口;
-synchronized 创建的锁是非公平锁；Lock 默认创">
+
+synchronized 是 Java 内置的关键字；Lock 是 java.util.concurrent 包下的一个接口；
+synchronized 创建的锁是非公平锁；Lock ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -476,12 +477,13 @@ synchronized 创建的锁是非公平锁；Lock 默认创">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="synchronized-和-Lock-的区别"><a href="#synchronized-和-Lock-的区别" class="headerlink" title="synchronized 和 Lock 的区别"></a>synchronized 和 Lock 的区别</h3><hr>
+                <h3 id="synchronized-和-lock-的区别"><a class="markdownIt-Anchor" href="#synchronized-和-lock-的区别">#</a> synchronized 和 Lock 的区别</h3>
+<hr>
 <ol>
-<li>synchronized 是 Java 内置的关键字；Lock 是 java.util.concurrent 包下的一个接口;</li>
-<li>synchronized 创建的锁是非公平锁；Lock 默认创建的锁是非公平锁，但是可以根据需求创建非公平锁;</li>
-<li>synchronized 它的上锁和解锁是自动的（执行完同步代码块会自动释放、出现异常会自动释放）；Lock 是需要程序员手动上锁和手动释放锁（在finally中手动释放）</li>
-<li>synchronized 无法判断是否获取锁的状态；Lock 可以根据 tryLock() 判断是否获取锁的状态</li>
+<li>synchronized 是 Java 内置的关键字；Lock 是 java.util.concurrent 包下的一个接口；</li>
+<li>synchronized 创建的锁是非公平锁；Lock 默认创建的锁是非公平锁，但是可以根据需求创建非公平锁；</li>
+<li>synchronized 它的上锁和解锁是自动的（执行完同步代码块会自动释放、出现异常会自动释放）；Lock 是需要程序员手动上锁和手动释放锁（在 finally 中手动释放）</li>
+<li>synchronized 无法判断是否获取锁的状态；Lock 可以根据 tryLock () 判断是否获取锁的状态</li>
 <li>synchronized 是不可中断锁，Lock 是可中断锁</li>
 <li>synchronized 适用于少量的同步代码问题，Lock 适用于大量的同步代码问题</li>
 </ol>
@@ -668,13 +670,13 @@ synchronized 创建的锁是非公平锁；Lock 默认创">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/08/Java%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%AF%87/">
+                <a href="/2020/08/08/16_%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="3_实现多线程的四种方式">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="16_实现多线程的四种方式">
                         
-                        <span class="card-title">3_实现多线程的四种方式</span>
+                        <span class="card-title">16_实现多线程的四种方式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

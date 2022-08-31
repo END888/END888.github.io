@@ -5,12 +5,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="面试题2_MySQL, 殷存渝的个人博客">
-    <meta name="description" content="面试题2_MySQL
-1、什么是事务？在一次 SQL 连接会话过程中执行的所有 SQL，要么都成功，要么都失败
+    <meta name="description" content="# 面试题 2_MySQL
 
-2、事务的四大特性1、(Atomicity) 原子性
-2、(Consistency) 一致性
-3、(Isolation) 独立">
+# 1、什么是事务？
+在一次 SQL 连接会话过程中执行的所有 SQL，要么都成功，要么都失败
+
+# 2、事务的四大特性
+1、原子性（Atomicity）：事务开始后所有操作，要么全部做完，要么全部不做，不可能">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -478,15 +479,19 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="面试题2-MySQL"><a href="#面试题2-MySQL" class="headerlink" title="面试题2_MySQL"></a>面试题2_MySQL</h3><hr>
-<h4 id="1、什么是事务？"><a href="#1、什么是事务？" class="headerlink" title="1、什么是事务？"></a>1、什么是事务？</h4><p>在一次 SQL 连接会话过程中执行的所有 SQL，要么都成功，要么都失败</p>
+                <h3 id="面试题2_mysql"><a class="markdownIt-Anchor" href="#面试题2_mysql">#</a> 面试题 2_MySQL</h3>
 <hr>
-<h4 id="2、事务的四大特性"><a href="#2、事务的四大特性" class="headerlink" title="2、事务的四大特性"></a>2、事务的四大特性</h4><p>1、(Atomicity) 原子性</p>
-<p>2、(Consistency) 一致性</p>
-<p>3、(Isolation) 独立性</p>
-<p>4、(Durability) 持久性</p>
+<h4 id="1-什么是事务"><a class="markdownIt-Anchor" href="#1-什么是事务">#</a> 1、什么是事务？</h4>
+<p>在一次 SQL 连接会话过程中执行的所有 SQL，要么都成功，要么都失败</p>
 <hr>
-<h4 id="3、事务的隔离级别"><a href="#3、事务的隔离级别" class="headerlink" title="3、事务的隔离级别"></a>3、事务的隔离级别</h4><table>
+<h4 id="2-事务的四大特性"><a class="markdownIt-Anchor" href="#2-事务的四大特性">#</a> 2、事务的四大特性</h4>
+<p>1、原子性（Atomicity）：事务开始后所有操作，要么全部做完，要么全部不做，不可能停滞在中间环节。事务执行过程中出错，会回滚到事务开始前的状态，所有的操作就像没有发生一样。也就是说事务是一个不可分割的整体，就像化学中学过的原子，是物质构成的基本单位</p>
+<p>2、一致性（Consistency）：事务开始前和结束后，数据库的完整性约束没有被破坏 。比如 A 向 B 转账，不可能 A 扣了钱，B 却没收到。</p>
+<p>3、隔离性（Isolation）：同一时间，只允许一个事务请求同一数据，不同的事务之间彼此没有任何干扰。比如 A 正在从一张银行卡中取钱，在 A 取钱的过程结束前，B 不能向这张卡转账。</p>
+<p>4、持久性（Durability）：事务完成后，事务对数据库的所有更新将被保存到数据库，不能回滚。</p>
+<hr>
+<h4 id="3-事务的隔离级别"><a class="markdownIt-Anchor" href="#3-事务的隔离级别">#</a> 3、事务的隔离级别</h4>
+<table>
 <thead>
 <tr>
 <th>读数据一致性及允许的并发副作用隔离级别</th>
@@ -496,7 +501,8 @@
 <th>幻读</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>读未提交（Read uncommitted）</td>
 <td>最低级别，只能保证不读取物理上损坏的数据</td>
 <td>是</td>
@@ -524,9 +530,11 @@
 <td>否</td>
 <td>否</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <hr>
-<h4 id="4、脏读、不可重复读、幻读"><a href="#4、脏读、不可重复读、幻读" class="headerlink" title="4、脏读、不可重复读、幻读"></a>4、脏读、不可重复读、幻读</h4><p>1、脏读</p>
+<h4 id="4-脏读-不可重复读-幻读"><a class="markdownIt-Anchor" href="#4-脏读-不可重复读-幻读">#</a> 4、脏读、不可重复读、幻读</h4>
+<p>1、脏读</p>
 <blockquote>
 <p>一个事务读取到其他事务未提交的数据</p>
 </blockquote>
@@ -538,20 +546,22 @@
 <blockquote>
 <p>一个事务读取到另一个事务新提交的新数据，导致两次读取数据不一致</p>
 </blockquote>
-<p>在Innodb引擎下MySQL里执行的事务,默认情况下不会发生脏读、不可重复读和幻读的问题</p>
+<p>在 Innodb 引擎下 MySQL 里执行的事务，默认情况下不会发生脏读、不可重复读和幻读的问题</p>
 <hr>
-<h4 id="5、MySQL-的逻辑架构"><a href="#5、MySQL-的逻辑架构" class="headerlink" title="5、MySQL 的逻辑架构"></a>5、MySQL 的逻辑架构</h4><p>1、连接层</p>
+<h4 id="5-mysql-的逻辑架构"><a class="markdownIt-Anchor" href="#5-mysql-的逻辑架构">#</a> 5、MySQL 的逻辑架构</h4>
+<p>1、连接层</p>
 <p>2、服务层</p>
 <p>3、引擎层</p>
 <p>4、存储层</p>
 <hr>
-<h4 id="6、查看-MySQL-已提供的存储引擎"><a href="#6、查看-MySQL-已提供的存储引擎" class="headerlink" title="6、查看 MySQL 已提供的存储引擎"></a>6、查看 MySQL 已提供的存储引擎</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">show engines<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<h4 id="6-查看-mysql-已提供的存储引擎"><a class="markdownIt-Anchor" href="#6-查看-mysql-已提供的存储引擎">#</a> 6、查看 MySQL 已提供的存储引擎</h4>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">show engines<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <hr>
-<h4 id="7、查看-MySQL-当前默认的存储引擎"><a href="#7、查看-MySQL-当前默认的存储引擎" class="headerlink" title="7、查看 MySQL 当前默认的存储引擎"></a>7、查看 MySQL 当前默认的存储引擎</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">show variables like <span class="token string">'%storage_engine%'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<h4 id="7-查看-mysql-当前默认的存储引擎"><a class="markdownIt-Anchor" href="#7-查看-mysql-当前默认的存储引擎">#</a> 7、查看 MySQL 当前默认的存储引擎</h4>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">show variables like <span class="token string">'%storage_engine%'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <hr>
-<h4 id="8、InnoDB-和-MyISAM-的区别"><a href="#8、InnoDB-和-MyISAM-的区别" class="headerlink" title="8、InnoDB 和 MyISAM 的区别"></a>8、InnoDB 和 MyISAM 的区别</h4><table>
+<h4 id="8-innodb-和-myisam-的区别"><a class="markdownIt-Anchor" href="#8-innodb-和-myisam-的区别">#</a> 8、InnoDB 和 MyISAM 的区别</h4>
+<table>
 <thead>
 <tr>
 <th>对比项</th>
@@ -559,7 +569,8 @@
 <th>InnoDB</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>主外键</td>
 <td>不支持</td>
 <td>支持</td>
@@ -589,110 +600,406 @@
 <td>查询性能</td>
 <td>事务</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <hr>
-<h4 id="9、索引是什么？"><a href="#9、索引是什么？" class="headerlink" title="9、索引是什么？"></a>9、索引是什么？</h4><p>索引就是一个排好序的可以快速查找的一个B+树数据结构</p>
+<h4 id="9-索引是什么"><a class="markdownIt-Anchor" href="#9-索引是什么">#</a> 9、索引是什么？</h4>
+<p>索引就是一个排好序的可以快速查找的一个 B + 树数据结构</p>
 <hr>
-<h4 id="10、InnoDB-为什么要使用-B-树？"><a href="#10、InnoDB-为什么要使用-B-树？" class="headerlink" title="10、InnoDB 为什么要使用 B+ 树？"></a>10、InnoDB 为什么要使用 B+ 树？</h4><p>如果 InnoDB 不使用 B+ 树，首先，如果使用数组进行存储的话，由于数组中的元素在内存空间上是连续的，并且支持随机访问，所以查找或修改指定下标元素的时间复杂度为 O(1)，效率很高，但是如果要插入和删除数组中的某个元素的时候，就需要移动数组中的元素，所以它在插入和删除指定下标元素的时间复杂度为 O(n)，这样分析下来，数组的查询和修改效率高但是插入和删除效率却很低，性能不稳定，所以不能使用数组；</p>
-<p>如果使用 Hash 表存储元素的话，由于 Hash 表它的增删改查的时间复杂度均为 O(1)，但是 Hash 表存储的元素是无序的，无法对元素进行排序和范围查询，并且 InnoDB 也并不支持 Hash 表来存储索引，所以不能使用 Hash 表；</p>
-<p>如果使用普通二叉树的话，由于二叉树查找元素时使用二分查找法，所以它在进行查找方面的时间复杂度为 O(logn)，但是由于普通二叉树可能会出现数据倾斜从而导致普通二叉树退化为链表，所以不能使用普通二叉树；</p>
-<p>如果使用平衡二叉树的话，由于平衡二叉树能够通过旋转的方式来防止出现数据倾斜，所以它的性能稳定，平均访问、搜索、插入、删除的时间复杂度均为 O(logn)，但是平衡二叉树的深度会很容易随着元素的增长而增长，导致我们查询叶子节点的次数增多，而树的深度又决定了对磁盘的IO次数，所以不能使用平衡二叉树；</p>
-<p>如果使用B树的话，就可以降低树的高度，从而减少磁盘IO次数；而 InnoDB 使用的是 B+ 树，是因为 B+ 树相较于 B 树而言，B+ 树的所有数据都存储在叶子节点上，非叶子节点上仅存储键值，而B树不仅叶子节点上可以存储数据，它的非叶子节点上也可以存储数据，但是由于InnoDB中的磁盘页的默认大小是16kB，空间有限，为了能够在一个磁盘页中存储更多的键值，从而再次降低树的深度减少磁盘IO，这样一来数据查询的效率也会提高，并且B+树的所有数据均存储在叶子节点，而且数据是按照顺序以链表的方式连接着的，所以使用B+树可以让 InnoDB 更高效地进行范围查找、排序查找、分组查找以及去重查找。</p>
+<h4 id="10-innodb-为什么要使用-b-树"><a class="markdownIt-Anchor" href="#10-innodb-为什么要使用-b-树">#</a> 10、InnoDB 为什么要使用 B+ 树？</h4>
+<p>如果 InnoDB 不使用 B+ 树，首先，如果使用数组进行存储的话，由于数组中的元素在内存空间上是连续的，并且支持随机访问，所以查找或修改指定下标元素的时间复杂度为 O (1)，效率很高，但是如果要插入和删除数组中的某个元素的时候，就需要移动数组中的元素，所以它在插入和删除指定下标元素的时间复杂度为 O (n)，这样分析下来，数组的查询和修改效率高但是插入和删除效率却很低，性能不稳定，所以不能使用数组；</p>
+<p>如果使用 Hash 表存储元素的话，由于 Hash 表它的增删改查的时间复杂度均为 O (1)，但是 Hash 表存储的元素是无序的，无法对元素进行排序和范围查询，并且 InnoDB 也并不支持 Hash 表来存储索引，所以不能使用 Hash 表；</p>
+<p>如果使用普通二叉树的话，由于二叉树查找元素时使用二分查找法，所以它在进行查找方面的时间复杂度为 O (logn)，但是由于普通二叉树可能会出现数据倾斜从而导致普通二叉树退化为链表，所以不能使用普通二叉树；</p>
+<p>如果使用平衡二叉树的话，由于平衡二叉树能够通过旋转的方式来防止出现数据倾斜，所以它的性能稳定，平均访问、搜索、插入、删除的时间复杂度均为 O (logn)，但是平衡二叉树的深度会很容易随着元素的增长而增长，导致我们查询叶子节点的次数增多，而树的深度又决定了对磁盘的 IO 次数，所以不能使用平衡二叉树；</p>
+<p>如果使用 B 树的话，就可以降低树的高度，从而减少磁盘 IO 次数；而 InnoDB 使用的是 B+ 树，是因为 B+ 树相较于 B 树而言，B+ 树的所有数据都存储在叶子节点上，非叶子节点上仅存储键值，而 B 树不仅叶子节点上可以存储数据，它的非叶子节点上也可以存储数据，但是由于 InnoDB 中的磁盘页的默认大小是 16kB，空间有限，为了能够在一个磁盘页中存储更多的键值，从而再次降低树的深度减少磁盘 IO，这样一来数据查询的效率也会提高，并且 B + 树的所有数据均存储在叶子节点，而且数据是按照顺序以链表的方式连接着的，所以使用 B + 树可以让 InnoDB 更高效地进行范围查找、排序查找、分组查找以及去重查找。</p>
 <hr>
-<h4 id="11、索引的优点"><a href="#11、索引的优点" class="headerlink" title="11、索引的优点"></a>11、索引的优点</h4><p>1、提高数据检索的效率，降低数据库的IO成本；</p>
-<p>2、降低数据排序的成本，降低了CPU的消耗</p>
+<h4 id="11-索引的优点"><a class="markdownIt-Anchor" href="#11-索引的优点">#</a> 11、索引的优点</h4>
+<p>1、提高数据检索的效率，降低数据库的 IO 成本；</p>
+<p>2、降低数据排序的成本，降低了 CPU 的消耗</p>
 <hr>
-<h4 id="11、索引的缺点"><a href="#11、索引的缺点" class="headerlink" title="11、索引的缺点"></a>11、索引的缺点</h4><p>1、创建索引和维护索引需要耗费时间，并且随着数据量的增加，所耗费的时间也会增加</p>
+<h4 id="11-索引的缺点"><a class="markdownIt-Anchor" href="#11-索引的缺点">#</a> 11、索引的缺点</h4>
+<p>1、创建索引和维护索引需要耗费时间，并且随着数据量的增加，所耗费的时间也会增加</p>
 <p>2、索引需要占磁盘空间，除了数据表占数据空间之外，每一个索引还要占一定的物理空间，存储在磁盘上，如果有大量的索引，索引文件就可能比数据文件更快达到最大文件尺寸</p>
 <p>3、虽然索引大大提高了查询速度，同时却会降低更新表的速度。当对表中的数据进行增加、删除和修改的时候，索引也要动态地维护，这样就降低了数据的维护速度。</p>
 <hr>
-<h4 id="12、如何避免索引失效"><a href="#12、如何避免索引失效" class="headerlink" title="12、如何避免索引失效"></a>12、如何避免索引失效</h4><p>1、全值匹配我最爱</p>
-<p>2、最佳左前缀法则    </p>
-<p>3、不在索引列上做任何操作（计算、函数、(自动or手动)类型转换），会导致索引失效而转向全表扫描</p>
+<h4 id="12-如何避免索引失效"><a class="markdownIt-Anchor" href="#12-如何避免索引失效">#</a> 12、如何避免索引失效</h4>
+<p>1、全值匹配我最爱</p>
+<p>2、最佳左前缀法则</p>
+<p>3、不在索引列上做任何操作（计算、函数、(自动 or 手动) 类型转换），会导致索引失效而转向全表扫描</p>
 <p>4、存储引擎不能使用索引中范围条件右边的列</p>
-<p>5、尽量使用覆盖索引(只访问索引的查询(索引列和查询列一致))，减少select </p>
-<p>6、注意null/not null对索引的可能影响</p>
-<p>7、like以通配符开头(‘%abc…’)mysql索引失效会变成全表扫描的操作</p>
+<p>5、尽量使用覆盖索引 (只访问索引的查询 (索引列和查询列一致))，减少 select</p>
+<p>6、注意 null/not null 对索引的可能影响</p>
+<p>7、like 以通配符开头 (’% abc…’) mysql 索引失效会变成全表扫描的操作</p>
 <p>8、字符串不加单引号索引失效</p>
-<p>9、mysql 在使用不等于(!= 或者&lt;&gt;)的时候有时候无法使用索引会导致全表扫描</p>
-<p>10、少用or,用它来连接时会索引失效</p>
-<p>11、上面9/10情况如何处理？最后使用索引的手段：覆盖索引</p>
+<p>9、mysql 在使用不等于 (!= 或者 &lt;&gt;) 的时候有时候无法使用索引会导致全表扫描</p>
+<p>10、少用 or, 用它来连接时会索引失效</p>
+<p>11、上面 9/10 情况如何处理？最后使用索引的手段：覆盖索引</p>
 <blockquote>
 <p>【优化口诀】select * 前提下</p>
-<p>全职匹配我最爱，最左前缀要遵守；<br>带头大哥不能死，中间兄弟不能断；<br>索引列上少计算，范围之后全失效；<br>LIKE百分写最右，覆盖索引不写*；<br>不等空值还有OR，索引影响要注意；<br>VAR引号不可丢， SQL优化有诀窍。</p>
+<p>全职匹配我最爱，最左前缀要遵守；<br>
+带头大哥不能死，中间兄弟不能断；<br>
+索引列上少计算，范围之后全失效；<br>
+LIKE 百分写最右，覆盖索引不写 *；<br>
+不等空值还有 OR，索引影响要注意；<br>
+VAR 引号不可丢， SQL 优化有诀窍。</p>
 </blockquote>
 <hr>
-<h4 id="13、InnoDB-的行锁到底锁了什么"><a href="#13、InnoDB-的行锁到底锁了什么" class="headerlink" title="13、InnoDB 的行锁到底锁了什么"></a>13、InnoDB 的行锁到底锁了什么</h4><p>InnoDB的行锁，是通过锁住索引来实现的，如果加锁查询的时候没有使用到索引，会将整个聚簇索引都锁住，相当于锁表了。</p>
+<h4 id="13-innodb-的行锁到底锁了什么"><a class="markdownIt-Anchor" href="#13-innodb-的行锁到底锁了什么">#</a> 13、InnoDB 的行锁到底锁了什么</h4>
+<p>InnoDB 的行锁，是通过锁住索引来实现的，如果加锁查询的时候没有使用到索引，会将整个聚簇索引都锁住，相当于锁表了。</p>
 <p>命中索引锁行，没有命中锁表，问题会扩大化，小心</p>
 <hr>
-<h4 id="14、如何查看死锁"><a href="#14、如何查看死锁" class="headerlink" title="14、如何查看死锁"></a>14、如何查看死锁</h4><p>1、查看表被锁状态和结束死锁：</p>
+<h4 id="14-如何查看死锁"><a class="markdownIt-Anchor" href="#14-如何查看死锁">#</a> 14、如何查看死锁</h4>
+<p>1、查看表被锁状态和结束死锁：</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">use</span> 数据库名<span class="token punctuation">;</span> <span class="token comment">// 切换到具体的数据库</span>
 
 <span class="token keyword">show</span> <span class="token keyword">engine</span> <span class="token keyword">innodb</span> <span class="token keyword">status</span><span class="token punctuation">;</span>	<span class="token comment">// 查询数据库是否发生死锁</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>2、查看数据表被锁状态</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">open</span> <span class="token keyword">table</span> <span class="token keyword">where</span> In_use<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>3、分析锁表的SQL，通过SQL日志，分析相应SQL，给表加索引，常用字段加索引，表关联子弹加索引等方式对SQL进行优化</p>
+<p>3、分析锁表的 SQL，通过 SQL 日志，分析相应 SQL，给表加索引，常用字段加索引，表关联子弹加索引等方式对 SQL 进行优化</p>
 <p>4、查看运行的所有事务</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span>  information_schema<span class="token punctuation">.</span>innodb_trx<span class="token punctuation">;</span>
 
 <span class="token keyword">kill</span> 线程id  <span class="token comment"># 线程id就是查询出来的 trx_mysql_thread_id</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>5、查询进程</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> processlist<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
 <hr>
-<h4 id="15、有没有设计过数据库表？你是如何设计的？"><a href="#15、有没有设计过数据库表？你是如何设计的？" class="headerlink" title="15、有没有设计过数据库表？你是如何设计的？"></a>15、有没有设计过数据库表？你是如何设计的？</h4><table>
+<h4 id="15-有没有设计过数据库表你是如何设计的"><a class="markdownIt-Anchor" href="#15-有没有设计过数据库表你是如何设计的">#</a> 15、有没有设计过数据库表？你是如何设计的？</h4>
+<table>
 <thead>
 <tr>
 <th>第一范式</th>
-<th>每一列属性(字段)不可分割的,字段必须保证原子性两列的属性值相近或者一样的,尽量合并到一列或者分表,确保数据不冗余</th>
+<th>每一列属性 (字段) 不可分割的，字段必须保证原子性两列的属性值相近或者一样的，尽量合并到一列或者分表，确保数据不冗余</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>第二范式</td>
-<td>每一行的数据只能与其中一行有关 即 主键  一行数据只能做一件事情或者表达一个意思,只要数据出现重复,就要进行表的拆分</td>
+<td>每一行的数据只能与其中一行有关 即 主键  一行数据只能做一件事情或者表达一个意思，只要数据出现重复，就要进行表的拆分</td>
 </tr>
 <tr>
 <td>第三范式</td>
-<td>数据不能存在传递关系,每个属性都跟主键有直接关联而不是间接关联</td>
+<td>数据不能存在传递关系，每个属性都跟主键有直接关联而不是间接关联</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <hr>
-<h4 id="16、聚簇索引与非聚簇索引有什么区别"><a href="#16、聚簇索引与非聚簇索引有什么区别" class="headerlink" title="16、聚簇索引与非聚簇索引有什么区别"></a>16、聚簇索引与非聚簇索引有什么区别</h4><p>聚簇索引一个表只能有一个，聚簇索引是将表的数据行都存放在索引树的叶子节点上，InnoDB的聚簇索引实际上是将索引和数据保存在同一个B+Tree中，InnoDB通过主键聚集数据，如果没有定义主键，InnoDB会选择一个唯一且非空的索引，如果没有这样的索引，InnoDB会隐式定义一个主键来作为聚簇索引。</p>
-<p>非聚簇索引的叶子节点中保存的不是指向数据行的物理指针，而是行的主键值，当通过非聚簇索引查找数据行的时候，存储引擎需要在非聚簇索引中找到相应的叶子节点，获得行的主键值，然后使用主键去聚簇索引中查找数据行，这就需要两次B+Tree查找。</p>
-<p>都是B+树的数据结构</p>
-<p>聚簇索引:将数据存储与索引放到了一块、并且是按照一定的顺序组织的，找到索引也就找到了数据，数据的物理存放顺序与索引顺序是一致的，即:只要索引是相邻的，那么对应的数据一定也是相邻地存放在磁盘上的</p>
+<h4 id="16-聚簇索引与非聚簇索引有什么区别"><a class="markdownIt-Anchor" href="#16-聚簇索引与非聚簇索引有什么区别">#</a> 16、聚簇索引与非聚簇索引有什么区别</h4>
+<p>聚簇索引一个表只能有一个，聚簇索引是将表的数据行都存放在索引树的叶子节点上，InnoDB 的聚簇索引实际上是将索引和数据保存在同一个 B+Tree 中，InnoDB 通过主键聚集数据，如果没有定义主键，InnoDB 会选择一个唯一且非空的索引，如果没有这样的索引，InnoDB 会隐式定义一个主键来作为聚簇索引。</p>
+<p>非聚簇索引的叶子节点中保存的不是指向数据行的物理指针，而是行的主键值，当通过非聚簇索引查找数据行的时候，存储引擎需要在非聚簇索引中找到相应的叶子节点，获得行的主键值，然后使用主键去聚簇索引中查找数据行，这就需要两次 B+Tree 查找。</p>
+<p>都是 B + 树的数据结构</p>
+<p>聚簇索引：将数据存储与索引放到了一块、并且是按照一定的顺序组织的，找到索引也就找到了数据，数据的物理存放顺序与索引顺序是一致的，即：只要索引是相邻的，那么对应的数据一定也是相邻地存放在磁盘上的</p>
 <p>非聚簇索引叶子节点不存储数据、存储的是数据行地址，也就是说根据索引查找到数据行的位置再取磁盘查找数据，这个就有点类似一本书的目录，比如我们要找第三章第一节，那我们先在这个目录里面找，找到对应的页码后再去对应的页码看文章。</p>
 <p>优势:</p>
-<p>1、查询通过聚簇索引可以直接获取数据，相比非聚簇索引需要第二次查询(非覆盖索引的情况下)效率要高</p>
+<p>1、查询通过聚簇索引可以直接获取数据，相比非聚簇索引需要第二次查询 (非覆盖索引的情况下) 效率要高</p>
 <p>2、聚簇索引对于范围查询的效率很高，因为其数据是按照大小排列的</p>
 <p>3、聚簇索引适合用在排序的场合，非聚簇索引不适合</p>
 <hr>
-<h4 id="17、B-tree-与-B-tree-的区别"><a href="#17、B-tree-与-B-tree-的区别" class="headerlink" title="17、B+tree 与 B-tree 的区别"></a>17、B+tree 与 B-tree 的区别</h4><hr>
-<h4 id="18、以-mysql-为例，linux-如何排查问题"><a href="#18、以-mysql-为例，linux-如何排查问题" class="headerlink" title="18、以 mysql 为例，linux 如何排查问题"></a>18、以 mysql 为例，linux 如何排查问题</h4><p>类似提问方式:如果线上环境出现问题比如网站卡顿重则瘫痪 如何是好?</p>
-<p>—&gt;linux—&gt;mysql/redis/nacos/sentinel/sluth—&gt;可以从以上提到的技术点中选择一个自己熟悉单技术点进行分析</p>
-<p>以mysql为例</p>
-<p>1,架构层面 是否使用主从</p>
-<p>2,表结构层面 是否满足常规的表设计规范(大量冗余字段会导致查询会变得很复杂)</p>
-<p>3,sql语句层面(⭐)</p>
-<p>前提:由于慢查询日志记录默认是关闭的,所以开启数据库mysql的慢查询记录 的功能 从慢查询日志中去获取哪些sql语句时慢查询  默认10S ,从中获取到sql语句进行分析</p>
-<p>3.1 explain 分析一条sql</p>
-<p>还可能这样去提问：sql语句中哪些位置适合建索引/索引建立在哪个位置</p>
+<h4 id="17-btree-与-b-tree-的区别"><a class="markdownIt-Anchor" href="#17-btree-与-b-tree-的区别">#</a> 17、B+tree 与 B-tree 的区别</h4>
+<hr>
+<h4 id="18-以-mysql-为例linux-如何排查问题"><a class="markdownIt-Anchor" href="#18-以-mysql-为例linux-如何排查问题">#</a> 18、以 mysql 为例，linux 如何排查问题</h4>
+<p>类似提问方式：如果线上环境出现问题比如网站卡顿重则瘫痪 如何是好？</p>
+<p>—&gt;linux—&gt;mysql/redis/nacos/sentinel/sluth—&gt; 可以从以上提到的技术点中选择一个自己熟悉单技术点进行分析</p>
+<p>以 mysql 为例</p>
+<p>1, 架构层面 是否使用主从</p>
+<p>2, 表结构层面 是否满足常规的表设计规范 (大量冗余字段会导致查询会变得很复杂)</p>
+<p>3,sql 语句层面 (⭐)</p>
+<p>前提：由于慢查询日志记录默认是关闭的，所以开启数据库 mysql 的慢查询记录 的功能 从慢查询日志中去获取哪些 sql 语句时慢查询  默认 10S , 从中获取到 sql 语句进行分析</p>
+<p>3.1 explain 分析一条 sql</p>
+<p>还可能这样去提问：sql 语句中哪些位置适合建索引 / 索引建立在哪个位置</p>
 <p>Select id,name,age from user where id=1 and name=”xxx” order by age</p>
-<p>总结:  查询字段  查询条件(最常用)   排序/分组字段</p>
+<p>总结：查询字段  查询条件 (最常用)   排序 / 分组字段</p>
 <hr>
-<h4 id="19、如何处理慢查询"><a href="#19、如何处理慢查询" class="headerlink" title="19、如何处理慢查询"></a>19、如何处理慢查询</h4><p>在业务系统中，除了使用主键进行的查询，其他的都会在测试库上测试其耗时，慢查询的统计主要由运维在做，会定期将业务中的慢查询反馈给我们。</p>
-<p>慢查询的优化首先要搞明白慢的原因是什么?是查询条件没有命中索引?是加载了不需要的数据列?还是数据量太大?</p>
-<p>首先分析语句，看看是否加载了额外的数据，可能是查询了多余的行并且抛弃掉了，可能是加载了许多结果中并不需要的列，对语句进行分析以及重写。</p>
-<p>分析语句的执行计划，然后获得其使用索引的情况，之后修改语句或者修改索引，使得语句可以尽可能的命中索引。</p>
-<p>如果对语句的优化已经无法进行，可以考虑表中的数据量是否太大，如果是的话可以进行横向或者纵向的分表。</p>
+<h4 id="19-如何处理慢查询"><a class="markdownIt-Anchor" href="#19-如何处理慢查询">#</a> 19、如何处理慢查询</h4>
+<p>慢查询的优化首先要搞明白慢的原因是什么？</p>
+<p>① 是查询条件没有命中索引？</p>
+<p>② 是 load 了不需要的数据列？</p>
+<p>③ 还是数据量太大？</p>
+<p>所以优化也是针对这三个方向来的：</p>
+<p>1、分析语句的执行计划，然后获得其使用索引的情况，之后修改语句或者修改索引，使得语句可以尽可能的命中索引。</p>
+<p>2、分析语句，看看是否 load 了额外的数据，可能是查询了多余的行并且抛弃掉了，可能是加载了许多结果中并不需要的列，对语句进行分析以及重写。</p>
+<p>3、如果是表中的数据量是否太大导致查询慢，可以进行横向或者纵向的分表.</p>
 <hr>
-<h4 id="20、MySQL的主从复制原理"><a href="#20、MySQL的主从复制原理" class="headerlink" title="20、MySQL的主从复制原理"></a>20、MySQL的主从复制原理</h4>
+<h4 id="20-mysql的主从复制原理"><a class="markdownIt-Anchor" href="#20-mysql的主从复制原理">#</a> 20、MySQL 的主从复制原理</h4>
+<p>1、master 将写操作记录到二进制日志（binary log）。这些记录过程叫做二进制日志事件，binary log events；</p>
+<p>2、slave 将 master 的 binary log events 拷贝到它的中继日志（relay log）；</p>
+<p>从服务器 I/O 线程将主服务器的二进制日志读取过来记录到从服务器本地文件，然后 SQL 线程会读取 relay-log 日志的内容并应用到从服务器，从而使从服务器和主服务器的数据保持一致！</p>
+<p>3、slave 重做中继日志中的事件，将改变应用到自己的数据库中。 MySQL 复制是<strong>异步的且串行化的，而且重启后从接入点开始复制。</strong></p>
+<p>复制的最大问题（<strong>延时</strong>）</p>
+<hr>
+<p>复制的基本原则：</p>
+<p>每个 slave 只有一个 master</p>
+<p>每个 slave 只能有一个唯一的服务器 ID</p>
+<p>每个 master 可以有多个 salve</p>
+<hr>
+<h4 id="21-mysql-的内部结构"><a class="markdownIt-Anchor" href="#21-mysql-的内部结构">#</a> 21、MySQL 的内部结构</h4>
+<p>大体来说，MySQL 可以分为<strong> server 层</strong>和<strong>存储引擎层</strong>两部分。</p>
+<p>① server 层包括连接器、查询缓存、分析器、优化器、执行器等，涵盖 MySQL 的大多数核心服务功能</p>
+<p>② 存储引擎层：<strong>存储引擎层负责数据的存储和提取</strong>。其架构模式是插件式的，支持 InnoDB、MyISAM、Memory 等多个存储引擎</p>
+<p><strong>连接器</strong>：连接器负责跟客户端建立连接、获取权限、维持和管理连接。</p>
+<p><strong>查询缓存</strong>：连接建立完成后，你就可以执行 select 语句了，此时会先进行查询缓存 (缓存是 key-value 格式；key 是 sql 语句，value 是 sql 语句的查询结果)。</p>
+<p><strong>分析器</strong>：</p>
+<p>​	1、词法分析： MySQL 需要识别出里面的字符串分别是什么，代表什么。</p>
+<p>​	2、语法分析：根据词法分析的结果，语法分析器会根据语法规则，判断你输入的这个 SQL 语句是否满足 MySQL 语法。</p>
+<p><strong>优化器</strong>：优化器是在表里面有多个索引的时候，决定使用哪个索引；或者在一个语句有多表关联（join）的时候，决定各个表的连接顺序。</p>
+<p><strong>执行器</strong>：调用存储引擎接口，执行 sql 语句，得到结果</p>
+<hr>
+<h4 id="22-常见的索引约束有哪些"><a class="markdownIt-Anchor" href="#22-常见的索引约束有哪些">#</a> 22、常见的索引约束有哪些？</h4>
+<p>1、UNIQUE：唯一索引</p>
+<p>​	表示唯一的，不允许重复的索引，如果该字段信息保证不会重复例如身份证号用作索引时，可设置为 UNIQUE。</p>
+<p>2、FULLTEXT: 全文索引</p>
+<p>​	表示全文搜索，在检索长文本的时候，效果最好，短文本建议使用普通索引，但是在检索的时候数据量比较大的时候，现将数据放入一个没有全局索引的表中，然后在用 Create Index 创</p>
+<p>​	建的 Full Text 索</p>
+<p>​	引，要比先为一张表建立 Full Text 然后在写入数据要快的很多。FULLTEXT 用于搜索很长一篇文章的时候，效果最好。用在比较短的文本，如果就一两行字的，普通的 INDEX 也可以。</p>
+<p>3、SPATIAL: 空间索引</p>
+<p>​	空间索引是对空间数据类型的字段建立的索引，MYSQL 中的空间数据类型有 4 种，分别是 GEOMETRY、POINT、LINESTRING、POLYGON。MYSQL 使用</p>
+<p>SPATIAL 关键字进行扩展，使得能够用于</p>
+<p>创建正规索引类型的语法创建空间索引。创建空间索引的列，必须将其声明为 NOT NULL，空间索引只能在存储引擎为 MYISAM 的表中创建。</p>
+<p>如果没有指定索引约束，此时创建的索引就是普通索引。而一般情况下只需要创建普通索引。</p>
+<hr>
+<h4 id="23-常见的索引类型有哪些"><a class="markdownIt-Anchor" href="#23-常见的索引类型有哪些">#</a> 23、常见的索引类型有哪些？</h4>
+<p>索引是在 MySQL 的存储引擎层中实现的，而不是在服务器层实现的。所以每种存储引擎的索引都不一定完全相同，也不是所有的存储引擎都支持所有的索引类型的。</p>
+<p>MySQL 目前提供了以下 4 种索引：</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_0" checked="true" disabled="true"><label for="cbx_0"> BTREE 索引： 最常见的索引类型，大部分索引都支持 B 树索引。</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_1" checked="true" disabled="true"><label for="cbx_1"> HASH 索引：只有 Memory 引擎支持 ， 使用场景简单 。</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_2" checked="true" disabled="true"><label for="cbx_2"> R-tree 索引（空间索引）：空间索引是 MyISAM 引擎的一个特殊索引类型，主要用于地理空间数据类型，通常使用较少，不做特别介绍。</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_3" checked="true" disabled="true"><label for="cbx_3"> Full-text （全文索引） ：全文索引也是 MyISAM 的一个特殊索引类型，主要用于全文索引，InnoDB 从 Mysql5.6 版本开始支持全文索引。</label></li>
+</ul>
+<p>各种存储引擎对索引的支持：</p>
+<table>
+<thead>
+<tr>
+<th>索引</th>
+<th>InnoDB 引擎</th>
+<th>MyISAM 引擎</th>
+<th>Memory 引擎</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BTREE 索引</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>HASH 索引</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>R-tree 索引</td>
+<td>不支持</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>Full-text</td>
+<td>5.6 版本之后支持</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+</tbody>
+</table>
+<p>我们平常所说的索引，如果没有特别指明，都是指 B + 树（多路搜索树，并不一定是二叉的）结构组织的索引。</p>
+<hr>
+<h4 id="24-唯一索引比普通索引快吗-为什么"><a class="markdownIt-Anchor" href="#24-唯一索引比普通索引快吗-为什么">#</a> 24、唯一索引比普通索引快吗，为什么？</h4>
+<p>唯一索引不一定比普通索引快，还可能慢。</p>
+<p>1、<strong>查询时</strong>，在未使用 limit 1 的情况下，在匹配到一条数据后，唯一索引即返回，普通索引会继续匹配下一条数据，发现不匹配后返回。如此看来唯一索引少了一次匹配，</p>
+<p>但实际上这个消耗微乎其微。</p>
+<p>2、<strong>更新时</strong>，这个情况就比较复杂了。普通索引将记录放到 change buffer 中语句就执行完毕了。而对唯一索引而言，它必须要校验唯一性，因此，必须将数据页读入内</p>
+<p>存确定没有冲突，然后才能继续操作。</p>
+<p>对于写多读少的情况，普通索引利用 change buffer 有效减少了对磁盘的访问次数，因此普通索引性能要高于唯一索引.</p>
+<hr>
+<h4 id="25-什么情况下设置了索引但无法使用"><a class="markdownIt-Anchor" href="#25-什么情况下设置了索引但无法使用">#</a> 25、什么情况下设置了索引但无法使用？</h4>
+<p>1、如果条件中有 or，即使其中有条件带索引也不会使用 (这也是为什么尽量少用 or 的原因)，要想使用 or，又想让索引生效，只能将 or 条件中的每个列都加上索引</p>
+<p>2、对于多列索引，不是使用的第一部分，则不会使用索引</p>
+<p>3、like 查询以 % 开头</p>
+<p>4、如果列类型是字符串，那一定要在条件中将数据使用引号引用起来，否则不使用索引</p>
+<p>5、如果 mysql 估计使用全表扫描要比使用索引快，则不使用索引</p>
+<p>6、组合索引要遵循 最左匹配原则</p>
+<p>解决方案 ： 通过覆盖索引来解决</p>
+<hr>
+<h4 id="26-在建立索引的时候都有哪些需要考虑的因素呢"><a class="markdownIt-Anchor" href="#26-在建立索引的时候都有哪些需要考虑的因素呢">#</a> 26、在建立索引的时候，都有哪些需要考虑的因素呢？</h4>
+<p>① 建立索引的时候一般要考虑到字段的使用频率，经常作为条件进行查询的字段比较适合。</p>
+<p>② 如果需要建立联合索引的话，还需要考虑联合索引中的顺序。</p>
+<p>③ 此外也要考虑其他方面，比如防止过多的索引对表造成太大的压力</p>
+<hr>
+<h4 id="27-创建的索引有没有被使用到或者说怎么才可以知道这条语句运行很慢的原因"><a class="markdownIt-Anchor" href="#27-创建的索引有没有被使用到或者说怎么才可以知道这条语句运行很慢的原因">#</a> 27、创建的索引有没有被使用到？或者说怎么才可以知道这条语句运行很慢的原因？</h4>
+<p>MySQL 提供了<strong> explain</strong> 命令来查看语句的执行计划，MySQL 在执行某个语句之前，会将该语句过一遍查询优化器，之后会拿到对语句的分析，也就是执行计划，其中包含了许多信息。可以通过其中和索引有关的信息来分析是否命中了索引，例如 possilbe_key,key,key_len 等字段，分别说明了此语句可能会使用的索引，实际使用的索引以及使用的索引长度。</p>
+<hr>
+<h4 id="28-如何优化sql"><a class="markdownIt-Anchor" href="#28-如何优化sql">#</a> 28、如何优化 SQL？</h4>
+<p>（1）尽量选择较小的列</p>
+<p>（2）将 where 中用的比较频繁的字段建立索引</p>
+<p>（3）select 子句中避免使用‘*’</p>
+<p>（4）避免在索引列上使用计算、not in 和 &lt;&gt; 等操作</p>
+<p>（5）当只需要一行数据的时候使用 limit 1</p>
+<p>（6）保证单表数据不超过 200W，适时分割表。针对查询较慢的语句，可以使用 explain 来分析该语句具体的执行情况。</p>
+<p>（7）避免改变索引列的类型。</p>
+<p>（8）选择最有效的表名顺序，from 字句中写在最后的表是基础表，将被最先处理，在 from 子句中包含多个表的情况下，你必须选择记录条数最少的表作为基础表。</p>
+<p>（9）避免在索引列上面进行计算。</p>
+<p>（10）尽量缩小子查询的结果</p>
+<hr>
+<h4 id="29-超大分页怎么处理"><a class="markdownIt-Anchor" href="#29-超大分页怎么处理">#</a> 29、超大分页怎么处理？</h4>
+<p>一般分页查询时，通过创建覆盖索引能够比较好地提高性能。一个常见又非常头疼的问题就是 limit 1000000 , 10，此时需要 MySQL 排序前 1000010 记录，仅仅返回 1000000 - 1000010 的记录，其他记录丢弃，查询排序的代价非常大 。</p>
+<p>优化思路一：<strong>在索引上完成排序分页操作，最后根据主键关联回原表查询所需要的其他列内容。</strong></p>
+<p>优化思路二：<strong>该方案适用于主键自增的表，可以把 limit 查询转换成某个位置的查询 。</strong></p>
+<hr>
+<h4 id="30-mysql数据库作发布系统的存储一天五万条以上的增量预计运维三年怎么优化"><a class="markdownIt-Anchor" href="#30-mysql数据库作发布系统的存储一天五万条以上的增量预计运维三年怎么优化">#</a> 30、MySQL 数据库作发布系统的存储，一天五万条以上的增量，预计运维三年，怎么优化？</h4>
+<p>1、设计良好的数据库结构， 允许部分数据冗余， 尽量避免 join 查询， 提高效率。</p>
+<p>2、选择合适的表字段数据类型和存储引擎， 适当的添加索引。</p>
+<p>3、MySQL 库主从读写分离。</p>
+<p>4、找规律分表， 减少单表中的数据量 ，提高查询速度。</p>
+<p>5、添加缓存机制， 比如 memcached， redis 等。</p>
+<p>6、不经常改动的页面， 生成静态页面。</p>
+<p>7、书写高效率的 SQL。比如 SELECT * FROM TABEL 改为 SELECT field_1, field_2, field_3 FROM TABLE。</p>
+<hr>
+<h4 id="31-mysql中有哪几种锁"><a class="markdownIt-Anchor" href="#31-mysql中有哪几种锁">#</a> 31、MySQL 中有哪几种锁？</h4>
+<p>从对数据操作的粒度分 ：</p>
+<p>1） 表锁：操作时，会锁定整个表。</p>
+<p>2） 行锁：操作时，会锁定当前操作行。</p>
+<p>3） 页面锁：会锁定一部分的数据</p>
+<p>从对数据操作的类型分：</p>
+<p>1） 读锁（共享锁）：针对同一份数据，多个读操作可以同时进行而不会互相影响。</p>
+<p>2） 写锁（排它锁）：当前操作没有完成之前，它会阻断其他写锁和读锁。</p>
+<hr>
+<h4 id="32-关系数据库中连接池的机制是什么"><a class="markdownIt-Anchor" href="#32-关系数据库中连接池的机制是什么">#</a> 32、关系数据库中连接池的机制是什么？</h4>
+<p>前提：为数据库连接建立一个缓冲池。</p>
+<p>（1）从连接池获取或创建可用连接</p>
+<p>（2）使用完毕之后，把连接返回给连接池</p>
+<p>（3）在系统关闭前，断开所有连接并释放连接占用的系统资源</p>
+<p>（4）能够处理无效连接，限制连接池中的连接总数不低于或者不超过某个限定值。</p>
+<p>其中有几个概念需要大家理解：</p>
+<p>最小连接数是连接池一直保持的数据连接。如果应用程序对数据库连接的使用量不大，将会有大量的数据库连接资源被浪费掉。</p>
+<p>最大连接数是连接池能申请的最大连接数。如果数据连接请求超过此数，后面的数据连接请求将被加入到等待队列中，这会影响之后的数据库操作。</p>
+<p>如果最小连接数与最大连接数相差太大，那么，最先的连接请求将会获利，之后超过最小连接数量的连接请求等价于建立一个新的数据库连接。不过，这些大于最小连接数的数据库连接在使用完不会马上被释放，它将被放到连接池中等待重复使用或是空闲超时后被释放。</p>
+<p>上面的解释，可以这样理解：数据库池连接数量一直保持一个不少于最小连接数的数量，当数量不够时，数据库会创建一些连接，直到一个最大连接数，之后连接数据库就会等待。</p>
+<hr>
+<h4 id="33-sql-的select-语句完整的执行顺序"><a class="markdownIt-Anchor" href="#33-sql-的select-语句完整的执行顺序">#</a> 33、SQL 的 select 语句完整的执行顺序</h4>
+<p>SQL Select 语句完整的执行顺序：</p>
+<p>（1）from 子句组装来自不同数据源的数据；</p>
+<p>（2）where 子句基于指定的条件对记录行进行筛选；</p>
+<p>（3）group by 子句将数据划分为多个分组；</p>
+<p>（4）使用聚集函数进行计算；</p>
+<p>（5）使用 having 子句筛选分组；</p>
+<p>（6）计算所有的表达式；</p>
+<p>（7）select 的字段；</p>
+<p>（8）使用 order by 对结果集进行排序。</p>
+<hr>
+<h4 id="34-悲观锁和乐观锁怎么实现"><a class="markdownIt-Anchor" href="#34-悲观锁和乐观锁怎么实现">#</a> 34、悲观锁和乐观锁怎么实现？</h4>
+<p>** 悲观锁：**select…for update 是 MySQL 提供的实现悲观锁的方式。</p>
+<p>​		例如：select price from item where id=100 for update</p>
+<p>此时在 items 表中，id 为 100 的那条数据就被我们锁定了，其它的要执行 select price from items where id=100 for update 的事务必须等本次事务提交之后才能执行。这样我们可以保证当前的数据不会被其它事务修改。MySQL 有个问题是 select…for update 语句执行中所有扫描过的行都会被锁上，因此在 MySQL 中用悲观锁务必须确定走了索引，而不是全表扫描，否则将会将整个数据表锁住。</p>
+<p>** 乐观锁：** 乐观锁相对悲观锁而言，它认为数据一般情况下不会造成冲突，所以在数据进行提交更新的时候，才会正式对数据的冲突与否进行检测，如果发现冲突了，则让返回错误信息，让用户决定如何去做。</p>
+<p>利用数据版本号（version）机制是乐观锁最常用的一种实现方式。一般通过为数据库表增加一个数字类型的 “version” 字段，当读取数据时，将 version 字段的值一同读出，数据每更新一次，对此 version 值 + 1。当我们提交更新的时候，判断数据库表对应记录的当前版本信息与第一次取出来的 version 值进行比对，如果数据库表当前版本号与第一次取出来的 version 值相等，则予以更新，否则认为是过期数据，返回更新失败。</p>
+<p>举例：</p>
+<p>//1: 查询出商品信息</p>
+<p>select (quantity,version) from items where id=100;</p>
+<p>//2: 根据商品信息生成订单</p>
+<p>insert into orders(id,item_id) values(null,100);</p>
+<p>//3: 修改商品的库存</p>
+<p>update items set quantity=quantity-1,version=version+1 where id=100 and version=#{version};</p>
+<hr>
+<h4 id="35-你们公司有哪些数据库设计规范"><a class="markdownIt-Anchor" href="#35-你们公司有哪些数据库设计规范">#</a> 35、你们公司有哪些数据库设计规范</h4>
+<p><strong>（一）基础规范</strong></p>
+<p>1、表存储引擎必须使用 InnoD，表字符集默认使用 utf8，必要时候使用 utf8mb4</p>
+<p>解读：</p>
+<p>（1）通用，无乱码风险，汉字 3 字节，英文 1 字节</p>
+<p>（2）utf8mb4 是 utf8 的超集，有存储 4 字节例如表情符号时，使用它</p>
+<p>2、禁止使用存储过程，视图，触发器，Event</p>
+<p>解读：</p>
+<p>（1）对数据库性能影响较大，互联网业务，能让站点层和服务层干的事情，不要交到数据库层</p>
+<p>（2）调试，排错，迁移都比较困难，扩展性较差</p>
+<p>3、禁止在数据库中存储大文件，例如照片，可以将大文件存储在对象存储系统，数据库中存储路径</p>
+<p>4、禁止在线上环境做数据库压力测试</p>
+<p>5、测试，开发，线上数据库环境必须隔离</p>
+<p><strong>（二）命名规范</strong></p>
+<p>1、库名，表名，列名必须用小写，采用下划线分隔</p>
+<p>解读：abc，Abc，ABC 都是给自己埋坑</p>
+<p>2、库名，表名，列名必须见名知义，长度不要超过 32 字符</p>
+<p>解读：tmp，wushan 谁知道这些库是干嘛的</p>
+<p>3、库备份必须以 bak 为前缀，以日期为后缀</p>
+<p>4、从库必须以 - s 为后缀</p>
+<p>5、备库必须以 - ss 为后缀</p>
+<p><strong>（三）表设计规范</strong></p>
+<p>1、单实例表个数必须控制在 2000 个以内</p>
+<p>2、单表分表个数必须控制在 1024 个以内</p>
+<p>3、表必须有主键，推荐使用 UNSIGNED 整数为主键</p>
+<p>潜在坑：删除无主键的表，如果是 row 模式的主从架构，从库会挂住</p>
+<p>4、禁止使用外键，如果要保证完整性，应由应用程式实现</p>
+<p>解读：外键使得表之间相互耦合，影响 update/delete 等 SQL 性能，有可能造成死锁，高并发情况下容易成为数据库瓶颈</p>
+<p>5、建议将大字段，访问频度低的字段拆分到单独的表中存储，分离冷热数据</p>
+<p><strong>（四）列设计规范</strong></p>
+<p>1、根据业务区分使用 tinyint/int/bigint，分别会占用 1/4/8 字节</p>
+<p>2、根据业务区分使用 char/varchar</p>
+<p>解读：</p>
+<p>（1）字段长度固定，或者长度近似的业务场景，适合使用 char，能够减少碎片，查询性能高</p>
+<p>（2）字段长度相差较大，或者更新较少的业务场景，适合使用 varchar，能够减少空间</p>
+<p>3、根据业务区分使用 datetime/timestamp</p>
+<p>解读：前者占用 5 个字节，后者占用 4 个字节，存储年使用 YEAR，存储日期使用 DATE，存储时间使用 datetime</p>
+<p>4、必须把字段定义为 NOT NULL 并设默认值</p>
+<p>解读：</p>
+<p>（1）NULL 的列使用索引，索引统计，值都更加复杂，MySQL 更难优化</p>
+<p>（2）NULL 需要更多的存储空间</p>
+<p>（3）NULL 只能采用 IS NULL 或者 IS NOT NULL，而在 =/!=/in/not in 时有大坑</p>
+<p>5、使用 INT UNSIGNED 存储 IPv4，不要用 char (15)</p>
+<p>6、使用 varchar (20) 存储手机号，不要使用整数</p>
+<p>解读：</p>
+<p>（1）牵扯到国家代号，可能出现 +/-/() 等字符，例如 + 86</p>
+<p>（2）手机号不会用来做数学运算</p>
+<p>（3）varchar 可以模糊查询，例如 like ‘138%’</p>
+<p>7、使用 TINYINT 来代替 ENUM</p>
+<p>解读：ENUM 增加新值要进行 DDL 操作</p>
+<p><strong>（五）索引规范</strong></p>
+<p>1、唯一索引使用 uniq_[字段名] 来命名</p>
+<p>2、非唯一索引使用 idx_[字段名] 来命名</p>
+<p>3、单张表索引数量建议控制在 5 个以内</p>
+<p>解读：</p>
+<p>（1）互联网高并发业务，太多索引会影响写性能</p>
+<p>（2）生成执行计划时，如果索引太多，会降低性能，并可能导致 MySQL 选择不到最优索引</p>
+<p>（3）异常复杂的查询需求，可以选择 ES 等更为适合的方式存储</p>
+<p>4、组合索引字段数不建议超过 5 个</p>
+<p>解读：如果 5 个字段还不能极大缩小 row 范围，八成是设计有问题</p>
+<p>5、不建议在频繁更新的字段上建立索引</p>
+<p>6、非必要不要进行 JOIN 查询，如果要进行 JOIN 查询，被 JOIN 的字段必须类型相同，并建立索引</p>
+<p>解读：踩过因为 JOIN 字段类型不一致，而导致全表扫描的坑么？</p>
+<p>7、理解组合索引最左前缀原则，避免重复建设索引，如果建立了 (a,b,c)，相当于建立了 (a), (a,b), (a,b,c)</p>
+<p><strong>（六）SQL 规范</strong></p>
+<p>1、禁止使用 select *，只获取必要字段</p>
+<p>解读：</p>
+<p>（1）select * 会增加 cpu/io/ 内存 / 带宽的消耗</p>
+<p>（2）指定字段能有效利用索引覆盖</p>
+<p>（3）指定字段查询，在表结构变更时，能保证对应用程序无影响</p>
+<p>2、insert 必须指定字段，禁止使用 insert into T values ()</p>
+<p>解读：指定字段插入，在表结构变更时，能保证对应用程序无影响</p>
+<p>3、隐式类型转换会使索引失效，导致全表扫描</p>
+<p>4、禁止在 where 条件列使用函数或者表达式</p>
+<p>解读：导致不能命中索引，全表扫描</p>
+<p>5、禁止负向查询以及 % 开头的模糊查询</p>
+<p>解读：导致不能命中索引，全表扫描</p>
+<p>6、禁止大表 JOIN 和子查询</p>
+<p>7、同一个字段上的 OR 必须改写问 IN，IN 的值必须少于 50 个</p>
+<p>8、应用程序必须捕获 SQL 异常</p>
+<p>解读：方便定位线上问题</p>
+<p>说明：本规范适用于并发量大，数据量大的典型互联网业务，可直接参考。</p>
+<hr>
+<h4 id="36-sql-语句优化案例"><a class="markdownIt-Anchor" href="#36-sql-语句优化案例">#</a> 36、SQL 语句优化案例</h4>
+<p><strong>例 1：where 子句中可以对字段进行 null 值判断吗？</strong></p>
+<p>可以，比如 select id from t where num is null 这样的 sql 也是可以的。但是最好不要给数据库留 NULL，尽可能的使用 NOT NULL 填充数据库。不要以为 NULL 不需要空间，比如：char (100) 型，在字段建立时，空间就固定了， 不管是否插入值（NULL 也包含在内），都是占用 100 个字符的空间的，如果是 varchar 这样的变长字段，null 不占用空间。可以在 num 上设置默认值 0，确保表中 num 列没有 null 值，然后这样查询：select id from t where num= 0。</p>
+<p><strong>例 2：如何优化？下面的语句？</strong></p>
+<p>select * from admin left join log on admin.admin_id = log.admin_id where log.admin_id&gt;10</p>
+<p>优化为：select * from (select * from admin where admin_id&gt;10) T1 lef join log on T1.admin_id = log.admin_id。</p>
+<p>使用 JOIN 时候，应该用小的结果驱动大的结果（left join 左边表结果尽量小如果有条件应该放到左边先处理， right join 同理反向），同时尽量把牵涉到多表联合的查询拆分多个 query（多个连表查询效率低，容易到之后锁表和阻塞）。</p>
+<p><strong>例 3：limit 的基数比较大时使用 between</strong></p>
+<p>例如：select * from admin order by admin_id limit 100000,10</p>
+<p>优化为：select * from admin where admin_id between 100000 and 100010 order by admin_id。</p>
+<p><strong>例 4：尽量避免在列上做运算，这样导致索引失效</strong></p>
+<p>例如：select * from admin where year (admin_time)&gt;2014</p>
+<p>优化为： select * from admin where admin_time&gt; '2014-01-01′</p>
+<hr>
+
                 
             </div>
             <hr/>
@@ -838,13 +1145,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/16/%E9%9D%A2%E8%AF%95%E9%A2%983_JUC/">
+                <a href="/2022/08/16/%E9%9D%A2%E8%AF%95%E9%A2%9812_%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="面试题3_JUC">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="面试题12_项目问题">
                         
-                        <span class="card-title">面试题3_JUC</span>
+                        <span class="card-title">面试题12_项目问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -875,13 +1182,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/16/%E9%9D%A2%E8%AF%95%E9%A2%9812_%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/">
+                <a href="/2022/08/16/%E9%9D%A2%E8%AF%95%E9%A2%981_Java%E5%9F%BA%E7%A1%80/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="面试题12_项目问题">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="面试题1_Java基础">
                         
-                        <span class="card-title">面试题12_项目问题</span>
+                        <span class="card-title">面试题1_Java基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

@@ -5,10 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="21_原子类, 殷存渝的个人博客">
-    <meta name="description" content="原子类
-1、不使用原子类public class CountDownLatchDemo &amp;#123;
-    public static void main(String[] args) throws Exception &amp;#123;
-  ">
+    <meta name="description" content="# 原子类
+
+# 1、不使用原子类
+public class CountDownLatchDemo &amp;#123;
+    public static void main(String[] args) throws Exception &amp;#1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -476,8 +477,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="原子类"><a href="#原子类" class="headerlink" title="原子类"></a>原子类</h3><hr>
-<h5 id="1、不使用原子类"><a href="#1、不使用原子类" class="headerlink" title="1、不使用原子类"></a>1、不使用原子类</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CountDownLatchDemo</span> <span class="token punctuation">&#123;</span>
+                <h3 id="原子类"><a class="markdownIt-Anchor" href="#原子类">#</a> 原子类</h3>
+<hr>
+<h5 id="1-不使用原子类"><a class="markdownIt-Anchor" href="#1-不使用原子类">#</a> 1、不使用原子类</h5>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CountDownLatchDemo</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">CASDemo</span> casDemo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CASDemo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">CountDownLatch</span> countDownLatch <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CountDownLatch</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -505,9 +508,9 @@
         <span class="token keyword">this</span><span class="token punctuation">.</span>number<span class="token operator">++</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <hr>
-<h5 id="2、使用原子类"><a href="#2、使用原子类" class="headerlink" title="2、使用原子类"></a>2、使用原子类</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CountDownLatchDemo</span> <span class="token punctuation">&#123;</span>
+<h5 id="2-使用原子类"><a class="markdownIt-Anchor" href="#2-使用原子类">#</a> 2、使用原子类</h5>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CountDownLatchDemo</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">CASDemo</span> casDemo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CASDemo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">CountDownLatch</span> countDownLatch <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CountDownLatch</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -537,9 +540,9 @@
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <hr>
-<h5 id="3、原子类为什么能够保证线程安全"><a href="#3、原子类为什么能够保证线程安全" class="headerlink" title="3、原子类为什么能够保证线程安全"></a>3、原子类为什么能够保证线程安全</h5><blockquote>
+<h5 id="3-原子类为什么能够保证线程安全"><a class="markdownIt-Anchor" href="#3-原子类为什么能够保证线程安全">#</a> 3、原子类为什么能够保证线程安全</h5>
+<blockquote>
 <p><strong>CAS: Compare And Swap（比较并交换）</strong></p>
 <p>1、内存地址值</p>
 <p>2、预期原值</p>
@@ -552,17 +555,15 @@
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>atomicInteger<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <blockquote>
 <p>atomicInteger.getAndIncrement(); // i++</p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">getAndIncrement</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">return</span> unsafe<span class="token punctuation">.</span><span class="token function">getAndAddInt</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> valueOffset<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>参数1：当前对象（AtomicInteger）</p>
-<p>参数2：内存地址偏移量</p>
-<p>参数3：递增量（每次加一）</p>
+<p>参数 1：当前对象（AtomicInteger）</p>
+<p>参数 2：内存地址偏移量</p>
+<p>参数 3：递增量（每次加一）</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">getAndAddInt</span><span class="token punctuation">(</span><span class="token class-name">Object</span> var1<span class="token punctuation">,</span> <span class="token keyword">long</span> var2<span class="token punctuation">,</span> <span class="token keyword">int</span> var4<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">int</span> var5<span class="token punctuation">;</span>
     <span class="token keyword">do</span> <span class="token punctuation">&#123;</span>
@@ -571,22 +572,21 @@
 
     <span class="token keyword">return</span> var5<span class="token punctuation">;</span><span class="token comment">// 返回原来的值</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <blockquote>
 <p>Unsafe：jre/lib/rt.jar/sun/misc/Unsafe.class</p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">native</span> <span class="token keyword">boolean</span> <span class="token function">compareAndSwapInt</span><span class="token punctuation">(</span><span class="token class-name">Object</span> var1<span class="token punctuation">,</span> <span class="token keyword">long</span> var2<span class="token punctuation">,</span> <span class="token keyword">int</span> var4<span class="token punctuation">,</span> <span class="token keyword">int</span> var5<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>参数1：当前对象</p>
-<p>参数2：内存地址偏移量</p>
-<p>参数3：预期原值</p>
-<p>参数4：更新值</p>
+<p>参数 1：当前对象</p>
+<p>参数 2：内存地址偏移量</p>
+<p>参数 3：预期原值</p>
+<p>参数 4：更新值</p>
 <blockquote>
 <p><strong>总结：原子类能够保证线程安全的原因是它底层是通过 Unsafe 类和 volatile 以及 CAS + 自旋锁的方式来实现的；Unsafe 类中的方法为 native 方法，可以直接操作内存，volatile 能保证读取到的是最新的数据，而 CAS 能够保证有且只有一个线程对一个共享数据操作成功，自旋锁会一直进行 CAS 操作，直到操作成功，并且不会导致线程阻塞。</strong></p>
 </blockquote>
 <hr>
-<h5 id="4、CAS-的缺点"><a href="#4、CAS-的缺点" class="headerlink" title="4、CAS 的缺点"></a>4、CAS 的缺点</h5><p>1、ABA 问题：</p>
-<p>在并发环境下，假设初识条件是A，去修改数据时发现是A就会执行修改；但是看到的虽然是A，中间可能发生了A变B，但又变回A的情况；此时即使数据修改成功了，但也可能有问题。</p>
+<h5 id="4-cas-的缺点"><a class="markdownIt-Anchor" href="#4-cas-的缺点">#</a> 4、CAS 的缺点</h5>
+<p>1、ABA 问题：</p>
+<p>在并发环境下，假设初识条件是 A，去修改数据时发现是 A 就会执行修改；但是看到的虽然是 A，中间可能发生了 A 变 B，但又变回 A 的情况；此时即使数据修改成功了，但也可能有问题。</p>
 <p>解决方案：通过 AtomicStampedReference 添加版本号，即使值相同也可以通过版本号来识别</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CountDownLatchDemo</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
@@ -608,13 +608,11 @@
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"修改成功之后的值："</span> <span class="token operator">+</span> atomicStampedReference<span class="token punctuation">.</span><span class="token function">getReference</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">atomicStampedReference<span class="token punctuation">.</span><span class="token function">compareAndSet</span><span class="token punctuation">(</span>oldReference<span class="token punctuation">,</span>newReference<span class="token punctuation">,</span>oldStamp<span class="token punctuation">,</span>oldStamp <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>参数1：预期原值</p>
-<p>参数2：更新值</p>
-<p>参数3：预期版本号</p>
-<p>参数4：更新成功后的版本号</p>
+<p>参数 1：预期原值</p>
+<p>参数 2：更新值</p>
+<p>参数 3：预期版本号</p>
+<p>参数 4：更新成功后的版本号</p>
 <hr>
 <p>2、自旋时间过长：</p>
 <p>如果条件一直不满足，CAS 会持续自旋，浪费 CPU 资源</p>
@@ -642,9 +640,9 @@
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <hr>
-<h5 id="5、AtomicLong-和-LongAdder"><a href="#5、AtomicLong-和-LongAdder" class="headerlink" title="5、AtomicLong 和 LongAdder"></a>5、AtomicLong 和 LongAdder</h5><p><strong>AtomicLong</strong>：</p>
+<h5 id="5-atomiclong-和-longadder"><a class="markdownIt-Anchor" href="#5-atomiclong-和-longadder">#</a> 5、AtomicLong 和 LongAdder</h5>
+<p><strong>AtomicLong</strong>：</p>
 <p>1、线程安全，可允许一些性能损耗，要求高精度时可使用</p>
 <p>2、保证精度，性能代价</p>
 <p>3、AtomicLong 是多个线程针对单个热点值 value 进行原子操作</p>
@@ -835,13 +833,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/11/23_JMM/">
+                <a href="/2022/08/11/20_equals%E5%92%8C==%E7%9A%84%E5%8C%BA%E5%88%AB/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="23_JMM">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="20_equals() 和 == 的区别">
                         
-                        <span class="card-title">23_JMM</span>
+                        <span class="card-title">20_equals() 和 == 的区别</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

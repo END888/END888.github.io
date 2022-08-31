@@ -4,11 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="30_线程池, 殷存渝的个人博客">
-    <meta name="description" content="# 线程池
-# 1、为什么要使用线程池？
-1、线程也是系统资源的一种，频繁地创建和销毁线程会消耗系统资源，可以通过线程池对线程进行复用
-2、创建线程的这个操作比较耗时，使用线程池可以提高响应速度，当任务到达时，可以不需要等待线程创建而直接执">
+    <meta name="keywords" content="面试题12_Linux与Git, 殷存渝的个人博客">
+    <meta name="description" content="# 面试题 12_Linux 与 Git
+# 1、常用 Linux 命令
+1、查看应用进程：lsof -i: 端口号
+2、查看应用位置：whereis 应用名
+3、查看内存：free -m 或 top
+4、查看磁盘存储情况：df -h
+5、">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +23,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>30_线程池 | 殷存渝的个人博客</title>
+    <title>面试题12_Linux与Git | 殷存渝的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -411,12 +414,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">30_线程池</h1>
+                    <h1 class="description center-align post-title">面试题12_Linux与Git</h1>
                 </div>
             </div>
         </div>
@@ -452,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-12
+                    2022-08-16
                 </div>
                 
 
@@ -476,115 +479,26 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="线程池"><a class="markdownIt-Anchor" href="#线程池">#</a> 线程池</h3>
-<h5 id="1-为什么要使用线程池"><a class="markdownIt-Anchor" href="#1-为什么要使用线程池">#</a> 1、为什么要使用线程池？</h5>
-<p>1、线程也是系统资源的一种，频繁地创建和销毁线程会消耗系统资源，可以通过线程池对线程进行复用</p>
-<p>2、创建线程的这个操作比较耗时，使用线程池可以提高响应速度，当任务到达时，可以不需要等待线程创建而直接执行</p>
-<p>3、为了提高系统的稳定性，对线程进行统一的管理</p>
+                <h3 id="面试题12_linux与git"><a class="markdownIt-Anchor" href="#面试题12_linux与git">#</a> 面试题 12_Linux 与 Git</h3>
+<h4 id="1-常用-linux-命令"><a class="markdownIt-Anchor" href="#1-常用-linux-命令">#</a> 1、常用 Linux 命令</h4>
+<p>1、查看应用进程：lsof -i: 端口号</p>
+<p>2、查看应用位置：whereis 应用名</p>
+<p>3、查看内存：free -m 或 top</p>
+<p>4、查看磁盘存储情况：df -h</p>
+<p>5、查看端口占用情况：netstat -anp | grep 端口号</p>
+<p>6、查看报告系统运行时长及平均负载：uptime</p>
+<p>7、查看进程：ps aux</p>
+<p>8、查看当前所有已经使用的端口情况：netstat -nultp</p>
 <hr>
-<h5 id="2-为什么不用-executor-创建线程池"><a class="markdownIt-Anchor" href="#2-为什么不用-executor-创建线程池">#</a> 2、为什么不用 Executor 创建线程池？</h5>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 1、创建拥有固定的线程数的线程池，使用的阻塞队列：LinkedBlockingQueue（默认长度为Integer.MAX_VALUE）</span>
-<span class="token class-name">ExecutorService</span> pool1 <span class="token operator">=</span> <span class="token class-name">Executors</span><span class="token punctuation">.</span><span class="token function">newFixedThreadPool</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">ExecutorService</span> <span class="token function">newFixedThreadPool</span><span class="token punctuation">(</span><span class="token keyword">int</span> nThreads<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ThreadPoolExecutor</span><span class="token punctuation">(</span>nThreads<span class="token punctuation">,</span> nThreads<span class="token punctuation">,</span>
-                                  <span class="token number">0L</span><span class="token punctuation">,</span> <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>MILLISECONDS<span class="token punctuation">,</span>
-                                  <span class="token keyword">new</span> <span class="token class-name">LinkedBlockingQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Runnable</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">public</span> <span class="token class-name">LinkedBlockingQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">this</span><span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 2、创建只有一个线程的线程池，使用的阻塞队列：LinkedBlockingQueue（默认长度为Integer.MAX_VALUE）</span>
-<span class="token class-name">ExecutorService</span> pool2 <span class="token operator">=</span> <span class="token class-name">Executors</span><span class="token punctuation">.</span><span class="token function">newSingleThreadExecutor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">ExecutorService</span> <span class="token function">newSingleThreadExecutor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">FinalizableDelegatedExecutorService</span>
-        <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ThreadPoolExecutor</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span>
-                                <span class="token number">0L</span><span class="token punctuation">,</span> <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>MILLISECONDS<span class="token punctuation">,</span>
-                                <span class="token keyword">new</span> <span class="token class-name">LinkedBlockingQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Runnable</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 3、创建可扩容的线程池，核心线程数为0，最大线程数为Integer.MAX_VALUE；使用的阻塞队列：SynchronousQueue（单个元素的队列）</span>
-<span class="token class-name">ExecutorService</span> pool3 <span class="token operator">=</span> <span class="token class-name">Executors</span><span class="token punctuation">.</span><span class="token function">newCachedThreadPool</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">ExecutorService</span> <span class="token function">newCachedThreadPool</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ThreadPoolExecutor</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">,</span>
-                                  <span class="token number">60L</span><span class="token punctuation">,</span> <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>SECONDS<span class="token punctuation">,</span>
-                                  <span class="token keyword">new</span> <span class="token class-name">SynchronousQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Runnable</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>1、阿里巴巴开发手册中明确指定不允许使用 Executor 创建线程池，而是通过 ThreadPoolExecutor 创建线程池；</p>
-<p>2、FixedThreadPool 和 SingleThreaPool：允许的请求队列长度为 Integer.MAX_VALUE，可能会堆积大量的请求，从而导致 OOM；</p>
-<p>3、CachedThreaPool：允许的创建线程数量为 Integer.MAX_VALUE，可能会创建大量的线程，从而导致 OOM；</p>
+<h4 id="2-如何查看测试项目的日志"><a class="markdownIt-Anchor" href="#2-如何查看测试项目的日志">#</a> 2、如何查看测试项目的日志</h4>
+<p>一般测试的项目里面，有个 logs 的目录文件，会存放日志文件，有个 xxx.out 的文件，可以用 tail -f 动态实时查看后端日志</p>
+<p>先 cd 到 logs 目录 (里面有 xx.out 文件)</p>
+<p>tail -f xx.out</p>
+<p>这时屏幕上会动态实时显示当前的日志，ctr+c 停止</p>
 <hr>
-<h5 id="3-创建线程池的7大参数"><a class="markdownIt-Anchor" href="#3-创建线程池的7大参数">#</a> 3、创建线程池的 7 大参数</h5>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ThreadPoolExecutor</span> pool <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadPoolExecutor</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token comment">// 1、常驻核心线程数</span>
-                                                 <span class="token number">5</span><span class="token punctuation">,</span> <span class="token comment">// 2、最大线程数</span>
-                                                 <span class="token number">10</span><span class="token punctuation">,</span> <span class="token comment">// 3、保持活跃时间</span>
-                                                 <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>MINUTES<span class="token punctuation">,</span> <span class="token comment">// 4、时间单位</span>
-                                                 <span class="token keyword">new</span> <span class="token class-name">LinkedBlockingQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 5、阻塞队列</span>
-                                                 <span class="token class-name">Executors</span><span class="token punctuation">.</span><span class="token function">defaultThreadFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 6、线程工厂</span>
-                                                 <span class="token keyword">new</span> <span class="token class-name">ThreadPoolExecutor<span class="token punctuation">.</span>AbortPolicy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 7、拒绝策略</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-如何查看最近1000行日志"><a class="markdownIt-Anchor" href="#3-如何查看最近1000行日志">#</a> 3、如何查看最近 1000 行日志</h4>
+<p>tail -1000 xx.out</p>
 <hr>
-<h5 id="4-线程池的拒绝策略"><a class="markdownIt-Anchor" href="#4-线程池的拒绝策略">#</a> 4、线程池的拒绝策略</h5>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
- * 拒绝策略：
- *      1、AbortPolicy（默认的拒绝策略）：
- *          当请求任务数大于最大线程数+阻塞队列的时候，会：java.util.concurrent.RejectedExecutionException
- *      2、CallerRunsPolicy:
- *          当请求任务数大于最大线程数+阻塞队列的时候，超出的任务会返回给调用者让调用者执行
- *      3、DiscardOldestPolicy：
- *          当请求任务数大于最大线程数+阻塞队列的时候，会丢弃阻塞队列中等待最久的任务
- *      4、DiscardPolicy:
- *          当请求任务数大于最大线程数+阻塞队列的时候，会丢弃新来的任务
- *
- */</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThreadDemo</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">ThreadPoolExecutor</span> pool <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadPoolExecutor</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token comment">// 1、常驻核心线程数</span>
-                <span class="token number">5</span><span class="token punctuation">,</span> <span class="token comment">// 2、最大线程数</span>
-                <span class="token number">10</span><span class="token punctuation">,</span> <span class="token comment">// 3、保持活跃时间</span>
-                <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>MINUTES<span class="token punctuation">,</span> <span class="token comment">// 4、时间单位</span>
-                <span class="token keyword">new</span> <span class="token class-name">LinkedBlockingQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 5、阻塞队列</span>
-                <span class="token class-name">Executors</span><span class="token punctuation">.</span><span class="token function">defaultThreadFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 6、线程工厂</span>
-                <span class="token keyword">new</span> <span class="token class-name">ThreadPoolExecutor<span class="token punctuation">.</span>AbortPolicy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 7、拒绝策略</span>
-
-        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">20</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                <span class="token keyword">int</span> finalI <span class="token operator">=</span> i<span class="token punctuation">;</span>
-                pool<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-></span><span class="token punctuation">&#123;</span>
-                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"来了: "</span> <span class="token operator">+</span> finalI<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span><span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span><span class="token keyword">finally</span> <span class="token punctuation">&#123;</span>
-            pool<span class="token punctuation">.</span><span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<hr>
-<h5 id="5-线程池处理的执行流程"><a class="markdownIt-Anchor" href="#5-线程池处理的执行流程">#</a> 5、线程池处理的执行流程</h5>
-<p>1、在创建了线程池后，开始等待请求。</p>
-<p>2、当调用 execute () 方法添加一个请求任务时，线程池会做出如下判断：</p>
-<ul>
-<li>如果正在运行的线程数量小于 corePoolSize，那么马上创建线程运行这个任务；</li>
-<li>如果正在运行的线程数量大于或等于 corePoolSize，那么将这个任务放入队列；</li>
-<li>如果这个时候队列满了且正在运行的线程数量还小于 maxnumPoolSize，那么还是要创建非核心线程立刻运行这个任务；</li>
-<li>如果队列满了且正在运行的线程数量大于或等于 maxnumPoolSize，那么线程池会启动饱和拒绝策略来执行。</li>
-</ul>
-<p>3、当一个线程完成任务时，它会从队列中取下一个任务来执行。</p>
-<p>4、当一个线程无事可做超过一定的时间（keepAliveTime）时，线程会判断：</p>
-<ul>
-<li>如果当前运行的线程数大于 corePoolSize，那么这个线程就被停掉。</li>
-<li>所以线程池的所有任务完成后，它最终会收缩到 corePoolSize 的大小。</li>
-</ul>
-<hr>
-<h5 id="6-生产中如何设置配置线程池大小"><a class="markdownIt-Anchor" href="#6-生产中如何设置配置线程池大小">#</a> 6、生产中如何设置配置线程池大小？</h5>
-<p>1、CPU 密集型：如果是 CPU 密集型任务，那么就意味着 CPU 是稀缺资源，这个时候我们通常不能通过增加线程数来提高计算能力，因为线程数量太多，会导致频繁的上下文切换，一般这种情况下，建议合理的线程数值为：N (CPU) 数 + 1。</p>
-<p>2、I/O 密集型：如果是 I/O 密集型，就说明需要较多的等待，线程数 = CPU 核数 * （1 + 平均等待时间 / 平均工作时间）【参考：N（CPU）核数 * 2】</p>
-<blockquote>
-<p>具体的设置还需要根据实际情况进行调整，比如可以先将线程池大小设置为参考值，再观察任务运行情况和系统负载、资源利用率来进行适当调整。</p>
-</blockquote>
 
                 
             </div>
@@ -611,7 +525,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://localhost:4000/2022/08/12/30_%E7%BA%BF%E7%A8%8B%E6%B1%A0/">http://localhost:4000/2022/08/12/30_%E7%BA%BF%E7%A8%8B%E6%B1%A0/</a>
+                    <a href="http://localhost:4000/2022/08/16/%E9%9D%A2%E8%AF%95%E9%A2%9812_Linux%E4%B8%8EGit/">http://localhost:4000/2022/08/16/%E9%9D%A2%E8%AF%95%E9%A2%9812_Linux%E4%B8%8EGit/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -731,13 +645,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/12/29_BlockingQueue/">
+                <a href="/2022/08/16/%E9%9D%A2%E8%AF%95%E9%A2%9811_SpringCloud/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="29_BlockingQueue">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="面试题11_SpringCloud">
                         
-                        <span class="card-title">29_BlockingQueue</span>
+                        <span class="card-title">面试题11_SpringCloud</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -748,7 +662,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-12
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-16
                         </span>
                         <span class="publish-author">
                             
@@ -768,13 +682,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/12/27_%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
+                <a href="/2022/08/16/%E9%9D%A2%E8%AF%95%E9%A2%9810_RabbitMQ/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="27_为什么要使用线程池">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="面试题10_RabbitMQ">
                         
-                        <span class="card-title">27_为什么要使用线程池</span>
+                        <span class="card-title">面试题10_RabbitMQ</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -785,7 +699,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-16
                             </span>
                         <span class="publish-author">
                             

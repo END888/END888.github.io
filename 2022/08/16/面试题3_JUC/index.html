@@ -5,9 +5,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="面试题3_JUC, 殷存渝的个人博客">
-    <meta name="description" content="面试题3_JUC
-23、sleep 和 wait 的区别（1）sleep 是 Thread 类中的一个静态方法，wait 是Object 中的一个成员方法；
-（2）sleep 在使用时，必须要指定时间，而 wait 如果不指定时间，则需要使">
+    <meta name="description" content="# 面试题 3_JUC
+# 1、线程的状态转换有什么？（生命周期）
+
+
+# 2、什么情况下会产生死锁？
+产生死锁的原因
+（1） 因为系统资源不足。
+（2） 进程 / 线程运行推进的顺序不合适。
+（3） 资源分配不当等。如果系统资源充足，进程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -475,49 +481,158 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="面试题3-JUC"><a href="#面试题3-JUC" class="headerlink" title="面试题3_JUC"></a>面试题3_JUC</h3><hr>
-<h4 id="23、sleep-和-wait-的区别"><a href="#23、sleep-和-wait-的区别" class="headerlink" title="23、sleep 和 wait 的区别"></a>23、sleep 和 wait 的区别</h4><p>（1）sleep 是 Thread 类中的一个静态方法，wait 是Object 中的一个成员方法；</p>
+                <h3 id="面试题3_juc"><a class="markdownIt-Anchor" href="#面试题3_juc">#</a> 面试题 3_JUC</h3>
+<h4 id="1-线程的状态转换有什么生命周期"><a class="markdownIt-Anchor" href="#1-线程的状态转换有什么生命周期">#</a> 1、线程的状态转换有什么？（生命周期）</h4>
+<p><img src="C:%5CUsers%5Cycy%5CDesktop%5Cwebsite-hexo%5Csource_posts%5Cassets%5C1661838633351.png" alt="1661838633351"></p>
+<p><img src="C:%5CUsers%5Cycy%5CDesktop%5Cwebsite-hexo%5Csource_posts%5Cassets%5C1661838700354.png" alt="1661838700354"></p>
+<h4 id="2-什么情况下会产生死锁"><a class="markdownIt-Anchor" href="#2-什么情况下会产生死锁">#</a> 2、什么情况下会产生死锁？</h4>
+<p><strong>产生死锁的原因</strong><br>
+（1） 因为系统资源不足。<br>
+（2） 进程 / 线程运行推进的顺序不合适。<br>
+（3） 资源分配不当等。如果系统资源充足，进程的资源请求都能够得到满足，死锁出现的可能性就很低，否则就会因争夺有限的资源而陷入死锁。其次，进程运行推进顺序与速度不同，也可能产生死锁。<br>
+<strong>产生死锁的四个必要条件：</strong></p>
+<p>（1） 互斥条件：一个资源每次只能被一个进程使用。<br>
+（2） 请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放。<br>
+（3） 不剥夺条件：进程已获得的资源，在末使用完之前，不能强行剥夺。<br>
+（4） 循环等待条件：若干进程之间形成一种头尾相接的循环等待资源关系。<br>
+这四个条件是死锁的必要条件，只要系统发生死锁，这些条件必然成立，而只要上述条件之一不满足，就不会发生死锁。<br>
+<strong>死锁的解除与预防：</strong><br>
+理解了死锁的原因，尤其是产生死锁的四个必要条件，就可以最大可能地避免、预防和<br>
+解除死锁。所以，在系统设计、进程调度等方面注意如何不让这四个必要条件成立，如何确<br>
+定资源的合理分配算法，避免进程永久占据系统资源。此外，也要防止进程在处于等待状态<br>
+的情况下占用资源。因此，对资源的分配要给予合理的规划。</p>
+<hr>
+<h4 id="3-进程-线程-管程"><a class="markdownIt-Anchor" href="#3-进程-线程-管程">#</a> 3、进程、线程、、管程</h4>
+<p><strong>1、进程</strong>：指的是正在运行的应用程序，是系统进行资源分配和调度的基本单位</p>
+<p><strong>2、线程</strong>：用来执行进程中的每个任务的单位，是程序运行的最小单元</p>
+<p><strong>3、管程</strong>：监视器（Monitor），也就是锁</p>
+<hr>
+<h4 id="4-并行-并发"><a class="markdownIt-Anchor" href="#4-并行-并发">#</a> 4、并行、并发</h4>
+<p><strong>1、并行</strong>：多个线程同时执行操作多个资源</p>
+<p><strong>2、并发</strong>：多个线程同时操作一个资源</p>
+<hr>
+<h4 id="5-同步-异步"><a class="markdownIt-Anchor" href="#5-同步-异步">#</a> 5、同步、异步</h4>
+<blockquote>
+<p>同步和异步是指访问数据的机制</p>
+</blockquote>
+<p><strong>1、同步</strong>：主动请求数据并等待 IO 操作完成之后才能继续处理其他的任务</p>
+<p><strong>2、异步</strong>：主动请求数据后可以继续处理其他任务，之后会收到 IO 操作完成的通知</p>
+<hr>
+<h4 id="6-synchronized-和-lock-的区别"><a class="markdownIt-Anchor" href="#6-synchronized-和-lock-的区别">#</a> 6、synchronized 和 Lock 的区别</h4>
+<ol>
+<li>synchronized 是 Java 内置的关键字；Lock 是 java.util.concurrent 包下的一个接口；</li>
+<li>synchronized 创建的锁是非公平锁；Lock 默认创建的锁是非公平锁，但是可以根据需求创建非公平锁；</li>
+<li>synchronized 它的上锁和解锁是自动的（执行完同步代码块会自动释放、出现异常会自动释放）；Lock 是需要程序员手动上锁和手动释放锁（在 finally 中手动释放）</li>
+<li>synchronized 无法判断是否获取锁的状态；Lock 可以根据 tryLock () 判断是否获取锁的状态</li>
+<li>synchronized 是不可中断锁，Lock 是可中断锁</li>
+<li>synchronized 适用于少量的同步代码问题，Lock 适用于大量的同步代码问题</li>
+</ol>
+<hr>
+<h4 id="7-唤醒线程的方式"><a class="markdownIt-Anchor" href="#7-唤醒线程的方式">#</a> 7、唤醒线程的方式</h4>
+<p>1、使用 Object 中的 wait () 方法让线程等待，使用 Object 中的 notify () 方法让线程唤醒</p>
+<p>2、使用 JUC 包中的 Condition 的 await () 方法让线程等待，使用 signal () 方法让线程唤醒</p>
+<p>3、LockSupport 类可以阻塞当前线程以及唤醒指定被阻塞的线程</p>
+<hr>
+<p><strong>总结</strong></p>
+<p>1、Object 和 Condition 使用的限制条件：</p>
+<blockquote>
+<p>线程要先获得并持有锁，必须在 synchronized 或 lock 中</p>
+<p>必须要先等待后唤醒，线程才能被唤醒</p>
+</blockquote>
+<p>2、LockSupport：</p>
+<blockquote>
+<p>可以不用声明锁</p>
+<p>park、uppark 的顺序没有严格要求</p>
+</blockquote>
+<hr>
+<h4 id="8-为什么要使用线程池"><a class="markdownIt-Anchor" href="#8-为什么要使用线程池">#</a> 8、为什么要使用线程池？</h4>
+<p>1、线程也是系统资源的一种，频繁地创建和销毁线程会消耗系统资源，可以通过线程池对线程进行复用</p>
+<p>2、创建线程的这个操作比较耗时，使用线程池可以提高响应速度，当任务到达时，可以不需要等待线程创建而直接执行</p>
+<p>3、为了提高系统的稳定性，对线程进行统一的管理</p>
+<hr>
+<h4 id="9-什么是线程池线程池有哪些"><a class="markdownIt-Anchor" href="#9-什么是线程池线程池有哪些">#</a> 9、什么是线程池，线程池有哪些？</h4>
+<p>线程池就是事先将多个线程对象放到一个容器中，当使用的时候就不用 new 线程而是直接去池中拿线程即可，节省了开辟子线程的时间，提高的代码执行效率</p>
+<p>在 JDK 的 java.util.concurrent.Executors 中提供了生成多种线程池的静态方法。</p>
+<p>ExecutorService newCachedThreadPool = Executors.newCachedThreadPool();</p>
+<p>ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(4);</p>
+<p>ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(4);</p>
+<p>ExecutorService newSingleThreadExecutor = Executors.newSingleThreadExecutor();</p>
+<p>然后调用他们的 execute 方法即可。</p>
+<p><strong>1、newCachedThreadPool</strong></p>
+<p>创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。这种类型的线程池特点是：</p>
+<p>工作线程的创建数量几乎没有限制 (其实也有限制的，数目为 Interger. MAX_VALUE), 这样可灵活的往线程池中添加线程。</p>
+<p>如果长时间没有往线程池中提交任务，即如果工作线程空闲了指定的时间 (默认为 1 分钟)，则该工作线程将自动终止。终止后，如果你又提交了新的任务，则线程池重新创建一个工作线程。</p>
+<p>在使用 CachedThreadPool 时，一定要注意控制任务的数量，否则，由于大量线程同时运行，很有会造成系统瘫痪。</p>
+<p><strong>2、newFixedThreadPool</strong></p>
+<p>创建一个指定工作线程数量的线程池。每当提交一个任务就创建一个工作线程，如果工作线程数量达到线程池初始的最大数，则将提交的任务存入到池队列中。FixedThreadPool 是一个典型且优秀的线程池，它具有线程池提高程序效率和节省创建线程时所耗的开销的优点。但是，在线程池空闲时，即线程池中没有可运行任务时，它不会释放工作线程，还会占用一定的系统资源。</p>
+<p><strong>3、newSingleThreadExecutor</strong></p>
+<p>创建一个单线程化的 Executor，即只创建唯一的工作者线程来执行任务，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序 (FIFO, LIFO, 优先级) 执行。如果这个线程异常结束，会有另一个取代它，保证顺序执行。单工作线程最大的特点是可保证顺序地执行各个任务，并且在任意给定的时间不会有多个线程是活动的。</p>
+<p><strong>4、newScheduleThreadPool</strong></p>
+<p>创建一个定长的线程池，而且支持定时的以及周期性的任务执行。例如延迟 3 秒执行。</p>
+<p>这 4 种线程池底层 全部是 ThreadPoolExecutor 对象的实现，阿里规范手册中规定线程池采用 ThreadPoolExecutor 自定义的，实际开发也是。</p>
+<hr>
+<h4 id="10-线程池的核心参数"><a class="markdownIt-Anchor" href="#10-线程池的核心参数">#</a> 10、线程池的核心参数？</h4>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ThreadPoolExecutor</span> pool <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadPoolExecutor</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token comment">// 1、常驻核心线程数</span>
+                                                 <span class="token number">5</span><span class="token punctuation">,</span> <span class="token comment">// 2、最大线程数</span>
+                                                 <span class="token number">10</span><span class="token punctuation">,</span> <span class="token comment">// 3、保持活跃时间</span>
+                                                 <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>MINUTES<span class="token punctuation">,</span> <span class="token comment">// 4、时间单位</span>
+                                                 <span class="token keyword">new</span> <span class="token class-name">LinkedBlockingQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 5、阻塞队列</span>
+                                                 <span class="token class-name">Executors</span><span class="token punctuation">.</span><span class="token function">defaultThreadFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 6、线程工厂</span>
+                                                 <span class="token keyword">new</span> <span class="token class-name">ThreadPoolExecutor<span class="token punctuation">.</span>AbortPolicy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 7、拒绝策略</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h4 id="11-常见线程安全的并发容器有哪些"><a class="markdownIt-Anchor" href="#11-常见线程安全的并发容器有哪些">#</a> 11、常见线程安全的并发容器有哪些？</h4>
+<p>CopyOnWriteArrayList、CopyOnWriteArraySet、ConcurrentHashMap</p>
+<p>CopyOnWriteArrayList、CopyOnWriteArraySet 采用写时复制实现线程安全</p>
+<p>ConcurrentHashMap 采用分段锁的方式实现线程安全</p>
+<hr>
+<h4 id="12-原子类的原理"><a class="markdownIt-Anchor" href="#12-原子类的原理">#</a> 12、原子类的原理？</h4>
+<p>AtomicInteger 类利用 CAS (Compare and Swap) + volatile + native 方法来保证原子操作，从而避免 synchronized 的高开销，执行效率大为提升。</p>
+<p>CAS 的原理，是拿期望值和原本的值作比较，如果相同，则更新成新的值。UnSafe 类的 objectFieldOffset () 方法是个本地方法，这个方法是用来拿 “原值” 的内存地址，返回值是 valueOffset；另外，value 是一个 volatile 变量，因此 JVM 总是可以保证任意时刻的任何线程总能拿到该变量的最新值。</p>
+<hr>
+<h4 id="13-synchronized底层实现是什么lock底层是什么有什么区别"><a class="markdownIt-Anchor" href="#13-synchronized底层实现是什么lock底层是什么有什么区别">#</a> 13、synchronized 底层实现是什么？lock 底层是什么？有什么区别？</h4>
+<p><strong>Synchronized</strong> 原理：</p>
+<p>方法级的同步是隐式，即无需通过字节码指令来控制的，它实现在方法调用和返回操作之中。JVM 可以从方法常量池中的方法表结构 (method_info Structure) 中的 ACC_SYNCHRONIZED 访问标志区分一个方法是否同步方法。当方法调用时，调用指令将会 检查方法的 ACC_SYNCHRONIZED 访问标志是否被设置，如果设置了，执行线程将先持有 monitor（虚拟机规范中用的是管程一词）， 然后再执行方法，最后再方法完成 (无论是正常完成还是非正常完成) 时释放 monitor。</p>
+<p>代码块的同步是利用 monitorenter 和 monitorexit 这两个字节码指令。它们分别位于同步代码块的开始和结束位置。当 jvm 执行到 monitorenter 指令时，当前线程试图获取 monitor 对象的所有权，如果未加锁或者已经被当前线程所持有，就把锁的计数器 + 1；当执行 monitorexit 指令时，锁计数器 - 1；当锁计数器为 0 时，该锁就被释放了。如果获取 monitor 对象失败，该线程则会进入阻塞状态，直到其他线程释放锁。</p>
+<p><strong>Lock</strong> 原理：</p>
+<p>・Lock 的存储结构：一个 int 类型状态值（用于锁的状态变更），一个双向链表（用于存储等待中的线程）</p>
+<p>・Lock 获取锁的过程：本质上是通过 CAS 来获取状态值修改，如果当场没获取到，会将该线程放在线程等待链表中。</p>
+<p>・Lock 释放锁的过程：修改状态值，调整等待链表。</p>
+<p>・Lock 大量使用 CAS + 自旋。因此根据 CAS 特性，lock 建议使用在低锁冲突的情况下。</p>
+<p><strong>Lock 与 synchronized 的区别</strong>：</p>
+<ol>
+<li>
+<p>Lock 的加锁和解锁都是由 java 代码配合 native 方法（调用操作系统的相关方法）实现的，而 synchronize 的加锁和解锁的过程是由 JVM 管理的</p>
+</li>
+<li>
+<p>当一个线程使用 synchronize 获取锁时，若锁被其他线程占用着，那么当前只能被阻塞，直到成功获取锁。而 Lock 则提供超时锁和可中断等更加灵活的方式，在未能获取锁的     条件下提供一种退出的机制。</p>
+</li>
+<li>
+<p>一个锁内部可以有多个 Condition 实例，即有多路条件队列，而 synchronize 只有一路条件队列；同样 Condition 也提供灵活的阻塞方式，在未获得通知之前可以通过中断线程以    及设置等待时限等方式退出条件队列。</p>
+</li>
+<li>
+<p>synchronize 对线程的同步仅提供独占模式，而 Lock 即可以提供独占模式，也可以提供共享模式</p>
+</li>
+</ol>
+<hr>
+<h4 id="14-sleep-和-wait-的区别"><a class="markdownIt-Anchor" href="#14-sleep-和-wait-的区别">#</a> 14、sleep 和 wait 的区别</h4>
+<p>（1）sleep 是 Thread 类中的一个静态方法，wait 是 Object 中的一个成员方法；</p>
 <p>（2）sleep 在使用时，必须要指定时间，而 wait 如果不指定时间，则需要使用 notify/notifyAll 来唤醒；</p>
 <p>（3）sleep 在任何地方都能睡，而 wait 必须在 synchronized 内才能等；</p>
 <p>（4）sleep 不会释放锁，而 wait 会自动释放锁</p>
 <hr>
-<h4 id="如何查看死锁"><a href="#如何查看死锁" class="headerlink" title="如何查看死锁"></a>如何查看死锁</h4><p>1、可以通过jstack命令来进行查看，jstack命令中会显示发生了死锁的线程</p>
-<p>2、或者两个线程去操作数据库时，数据库发生了死锁，这是可以查询数据库的死锁情况SOL</p>
-<p>1、查询是否锁表</p>
-<p>show OPEN TABLES wtere In_use 》e;</p>
-<p>2、查询进程</p>
-<p>show processlist;</p>
-<p>3、查看正在锁的事务</p>
-<p>SELECT * EROM INFORMATION_SCHEMA.INNODB_LOCKS;</p>
-<p>4、查看等待锁的事务</p>
-<p>SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCK_WAITS;</p>
-<hr>
-<h4 id="Java-死锁如何避免"><a href="#Java-死锁如何避免" class="headerlink" title="Java 死锁如何避免"></a>Java 死锁如何避免</h4><p>造成死锁的几个原因:</p>
-<p>1.一个资源每次只能被一个线程使用</p>
-<p>2.一个线程在阻塞等待某个资源时，不释放已占有资源</p>
-<p>3.一个线程已经获得的资源，在未使用完之前，不能被强行剥夺</p>
-<p>4.若干线程形成头尾相接的循环等待资源关系</p>
-<p>这是造成死锁必须要达到的4个条件，如果要避免死锁，只需要不满足其中某一个条件即可。而其中前3个条件是作为锁要符合的条件，所以要避免死锁就需要打破第4个条件，不出现循环等待锁的关系。</p>
-<p>在开发过程中:</p>
-<p>1.要注意加锁顺序，保证每个线程按同样的顺序进行加锁</p>
-<p>2.要注意加锁时限，可以针对锁设置一个超时时间</p>
-<p>3.要注意死锁检查，这是一种预防机制，确保在第一时间发现死锁并进行解决</p>
-<hr>
-<h4 id="synchronized-与-lock-的区别"><a href="#synchronized-与-lock-的区别" class="headerlink" title="synchronized 与 lock 的区别"></a>synchronized 与 lock 的区别</h4><p>1、首先synchronized是java内置关键字；Lock是个  java.util.concurrent 包中的一个接口；</p>
-<p>2、synchronized会自动释放锁；Lock需在finally中手工释放锁（unlock()方法释放锁）；</p>
-<p>3、synchronized的锁可重入、不可中断、非公平，而Lock锁可重入、可判断、可公平（两者皆可）；</p>
+<h4 id="15-synchronized-与-lock-的区别"><a class="markdownIt-Anchor" href="#15-synchronized-与-lock-的区别">#</a> 15、synchronized 与 lock 的区别</h4>
+<p>1、首先 synchronized 是 java 内置关键字；Lock 是个  java.util.concurrent 包中的一个接口；</p>
+<p>2、synchronized 会自动释放锁；Lock 需在 finally 中手工释放锁（unlock () 方法释放锁）；</p>
+<p>3、synchronized 的锁可重入、不可中断、非公平，而 Lock 锁可重入、可判断、可公平（两者皆可）；</p>
 <p>4、锁是一个对象，并且锁的信息保存在了对象中；Lock 是通过 int 类型的 state 标识；</p>
 <p>5、synchronized 有锁升级；Lock 没有锁升级；</p>
-<p>6、synchronized无法判断是否获取锁的状态，Lock可以判断是否获取到锁；</p>
-<p>7、用synchronized关键字的两个线程1和线程2，如果当前线程1获得锁，线程2线程等待。如果线程1阻塞，线程2则会一直等待下去，而Lock锁就不一定会等待下去，如果尝试获取不到锁，线程可以不用一直等待就结束了；</p>
-<p>8、Lock锁适合大量同步的代码的同步问题，synchronized锁适合代码少量的同步问题。</p>
+<p>6、synchronized 无法判断是否获取锁的状态，Lock 可以判断是否获取到锁；</p>
+<p>7、用 synchronized 关键字的两个线程 1 和线程 2，如果当前线程 1 获得锁，线程 2 线程等待。如果线程 1 阻塞，线程 2 则会一直等待下去，而 Lock 锁就不一定会等待下去，如果尝试获取不到锁，线程可以不用一直等待就结束了；</p>
+<p>8、Lock 锁适合大量同步的代码的同步问题，synchronized 锁适合代码少量的同步问题。</p>
 <hr>
-<h4 id="为啥要用线程池"><a href="#为啥要用线程池" class="headerlink" title="为啥要用线程池"></a>为啥要用线程池</h4><p>1、线程也是系统资源的一种，频繁地创建和销毁线程会消耗系统资源，可以通过线程池对线程进行复用</p>
-<p>2、创建线程的这个操作比较耗时，使用线程池可以提高响应速度，当任务到达时，可以不需要等待线程创建而直接执行</p>
-<p>3、为了提高系统的稳定性，对线程进行统一的管理</p>
-<hr>
-<h4 id="线程池底层工作原理"><a href="#线程池底层工作原理" class="headerlink" title="线程池底层工作原理"></a>线程池底层工作原理</h4><p>1、在创建了线程池后，开始等待请求。</p>
-<p>2、当调用 execute() 方法添加一个请求任务时，线程池会做出如下判断：</p>
+<h4 id="16-线程池底层工作原理"><a class="markdownIt-Anchor" href="#16-线程池底层工作原理">#</a> 16、线程池底层工作原理</h4>
+<p>1、在创建了线程池后，开始等待请求。</p>
+<p>2、当调用 execute () 方法添加一个请求任务时，线程池会做出如下判断：</p>
 <ul>
 <li>如果正在运行的线程数量小于 corePoolSize，那么马上创建线程运行这个任务；</li>
 <li>如果正在运行的线程数量大于或等于 corePoolSize，那么将这个任务放入队列；</li>
@@ -531,35 +646,49 @@
 <li>所以线程池的所有任务完成后，它最终会收缩到 corePoolSize 的大小。</li>
 </ul>
 <hr>
-<h4 id="如何自定义线程池"><a href="#如何自定义线程池" class="headerlink" title="如何自定义线程池"></a>如何自定义线程池</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ThreadPoolExecutor</span> pool <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadPoolExecutor</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token comment">// 1、常驻核心线程数</span>
-                                                 <span class="token number">5</span><span class="token punctuation">,</span> <span class="token comment">// 2、最大线程数</span>
-                                                 <span class="token number">10</span><span class="token punctuation">,</span> <span class="token comment">// 3、保持活跃时间</span>
-                                                 <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>MINUTES<span class="token punctuation">,</span> <span class="token comment">// 4、时间单位</span>
-                                                 <span class="token keyword">new</span> <span class="token class-name">LinkedBlockingQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 5、阻塞队列</span>
-                                                 <span class="token class-name">Executors</span><span class="token punctuation">.</span><span class="token function">defaultThreadFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 6、线程工厂</span>
-                                                 <span class="token keyword">new</span> <span class="token class-name">ThreadPoolExecutor<span class="token punctuation">.</span>AbortPolicy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 7、拒绝策略</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-<hr>
-<h4 id="核心线程数如何确定"><a href="#核心线程数如何确定" class="headerlink" title="核心线程数如何确定"></a>核心线程数如何确定</h4><p>1、CPU 密集型：如果是 CPU 密集型任务，那么就意味着 CPU 是稀缺资源，这个时候我们通常不能通过增加线程数来提高计算能力，因为线程数量太多，会导致频繁的上下文切换，一般这种情况下，建议合理的线程数值为：N(CPU)数 + 1。</p>
-<p>2、I/O 密集型：如果是 I/O 密集型，就说明需要较多的等待，线程数 = CPU 核数 * （1 + 平均等待时间/平均工作时间）【参考：N（CPU）核数 * 2】</p>
-<blockquote>
-<p>具体的设置还需要根据实际情况进行调整，比如可以先将线程池大小设置为参考值，再观察任务运行情况和系统负载、资源利用率来进行适当调整。</p>
-</blockquote>
-<hr>
-<h4 id="拒绝策略"><a href="#拒绝策略" class="headerlink" title="拒绝策略"></a>拒绝策略</h4><p>1、AbortPolicy（默认的拒绝策略）：</p>
-<p>当请求任务数大于最大线程数+阻塞队列的时候，会：java.util.concurrent.RejectedExecutionException</p>
+<h4 id="17-拒绝策略"><a class="markdownIt-Anchor" href="#17-拒绝策略">#</a> 17、拒绝策略</h4>
+<p>1、AbortPolicy（默认的拒绝策略）：</p>
+<p>当请求任务数大于最大线程数 + 阻塞队列的时候，会：java.util.concurrent.RejectedExecutionException</p>
 <p>2、CallerRunsPolicy:</p>
-<p>当请求任务数大于最大线程数+阻塞队列的时候，超出的任务会返回给调用者让调用者执行</p>
+<p>当请求任务数大于最大线程数 + 阻塞队列的时候，超出的任务会返回给调用者让调用者执行</p>
 <p>3、DiscardOldestPolicy：</p>
-<p>当请求任务数大于最大线程数+阻塞队列的时候，会丢弃阻塞队列中等待最久的任务</p>
+<p>当请求任务数大于最大线程数 + 阻塞队列的时候，会丢弃阻塞队列中等待最久的任务</p>
 <p>4、DiscardPolicy:</p>
-<p>当请求任务数大于最大线程数+阻塞队列的时候，会丢弃新来的任务</p>
-<h4 id="ThreadLocal-的原理"><a href="#ThreadLocal-的原理" class="headerlink" title="ThreadLocal 的原理"></a>ThreadLocal 的原理</h4><p>ThreadLocal类用于创建一个线程本地变量</p>
-<p>在Thread中有一个成员变量ThreadLocals，该变量的类型是ThreadLocalMap,也就是一个Map，它的键是threadLocal，值就是变量的副本，ThreadLocal为每一个使用该变量的线程都提供了一个变量值的副本，每一个线程都可以独立地改变自己的副本，是线程隔离的。通过ThreadLocal的get()方法可以获取该线程变量的本地副本，在get方法之前要先set,否则就要重写initialValue()方法。<br>ThreadLocal不是用来解决对象共享访问问题的，而主要是提供了保持对象的方法和避免参数传递的方便的对象访问方式。一般情况下，通过ThreadLocal.set() 到线程中的对象是该线程自己使用的对象，其他线程是不需要访问的，也访问不到的。各个线程中访问的是不同的对象。</p>
+<p>当请求任务数大于最大线程数 + 阻塞队列的时候，会丢弃新来的任务</p>
+<hr>
+<h4 id="18-大小如何设置"><a class="markdownIt-Anchor" href="#18-大小如何设置">#</a> 18、大小如何设置？</h4>
+<ol>
+<li>
+<p>需要分析线程池执行的任务的特性： CPU 密集型还是 IO 密集型</p>
+</li>
+<li>
+<p>每个任务执行的平均时长大概是多少，这个任务的执行时长可能还跟任务处理逻辑是否涉及到网络传输以及底层系统资源依赖有关系</p>
+</li>
+</ol>
+<p>如果是 CPU 密集型，主要是执行计算任务，响应时间很快，cpu 一直在运行，这种任务 cpu 的利用率很高，那么线程数的配置应该根据 CPU 核心数来决定，CPU 核心数 = 最大同时执行线程数，加入 CPU 核心数为 4，那么服务器最多能同时执行 4 个线程。过多的线程会导致上下文切换反而使得效率降低。那线程池的最大线程数可以配置为 cpu 核心数 + 1 如果是 IO 密集型，主要是进行 IO 操作，执行 IO 操作的时间较长，这是 cpu 出于空闲状态，导致 cpu 的利用率不高，这种情况下可以增加线程池的大小。这种情况下可以结合线程的等待时长来做判断，等待时间越高，那么线程数也相对越多。一般可以配置 cpu 核心数的 2 倍。</p>
+<p>一个公式：线程池设定最佳线程数目 = （（线程池设定的线程等待时间 + 线程 CPU 时间）/ 线程 CPU 时间 ）* CPU 数目</p>
+<p>这个公式的线程 cpu 时间是预估的程序单个线程在 cpu 上运行的时间（通常使用 loadrunner 测试大量运行次数求出平均值）</p>
+<hr>
+<h4 id="19-threadlocal-的原理"><a class="markdownIt-Anchor" href="#19-threadlocal-的原理">#</a> 19、ThreadLocal 的原理</h4>
+<p>ThreadLocal 类用于创建一个线程本地变量</p>
+<p>在 Thread 中有一个成员变量 ThreadLocals，该变量的类型是 ThreadLocalMap, 也就是一个 Map，它的键是 threadLocal，值就是变量的副本，ThreadLocal 为每一个使用该变量的线程都提供了一个变量值的副本，每一个线程都可以独立地改变自己的副本，是线程隔离的。通过 ThreadLocal 的 get () 方法可以获取该线程变量的本地副本，在 get 方法之前要先 set, 否则就要重写 initialValue () 方法。<br>
+ThreadLocal 不是用来解决对象共享访问问题的，而主要是提供了保持对象的方法和避免参数传递的方便的对象访问方式。一般情况下，通过 ThreadLocal.set () 到线程中的对象是该线程自己使用的对象，其他线程是不需要访问的，也访问不到的。各个线程中访问的是不同的对象。</p>
+<hr>
+<h4 id="20-concurrenthashmap-底层实现原理的理解"><a class="markdownIt-Anchor" href="#20-concurrenthashmap-底层实现原理的理解">#</a> 20、ConcurrentHashMap 底层实现原理的理解</h4>
+<p>​	ConcurrentHashMap （1.7）：它的底层是使用数组加链表来实现的，然后使用了一种分段锁来保证线程安全，它是将数组分成了 16 段，也就是给每个 Segment 来配一把锁，然后再读每个 Segment 的时候就要先获取对应的锁，所以呢它是最多能有 16 个线程并发去操作。</p>
+<p>​	ConcurrentHashMap  （1.8）：它跟 HashMap 一样也引入了这种红黑树的这个数据结构，同时在并发处理方面，不再使用分段锁的方式，而是采用 CAS 加 synchronized 关键字的这样方式来实现一种更加细粒度的锁，相当于是把这个锁的控制，控制在了这种更加细粒度的哈希桶的这个级别，然后在写入键值对的时候，这个可以锁住哈希桶的这种链表的这个头节点，就不会影响到其他的哈希桶的写入，从而去提高对并发的这种处理能力。</p>
+<hr>
+<h4 id="21-concurrenthashmap-可以使用-reentrantlock-作为锁嘛"><a class="markdownIt-Anchor" href="#21-concurrenthashmap-可以使用-reentrantlock-作为锁嘛">#</a> 21、ConcurrentHashMap 可以使用 ReentrantLock 作为锁嘛</h4>
+<p>​	理论上来件的话应该是可以的，但是我认为这个 synchronized 关键字会更好一点吧，因为在 1.6 之后对 synchronized 关键字也进行了一些优化，它里面引入了偏向锁、轻量级锁、重量级锁，那么这些在 ReentrantLock 中是没有的，并且随着 JDK 版本的这个升级，这个 synchronized 也在进一步的进行优化，因为这个 ReentrantLock 是使用 Java 代码来实现的，所以在之后的话也很难有特别大的一种提升空间，所以的话，让我选的话，我会优先选择 synchronized，然后再考虑 ReentrantLock。</p>
+<hr>
+<h4 id="22-synchronized-关键字对于锁的优化的介绍"><a class="markdownIt-Anchor" href="#22-synchronized-关键字对于锁的优化的介绍">#</a> 22、synchronized 关键字对于锁的优化的介绍</h4>
+<p>​	synchronized 它默认是采用的偏向锁，如果在程序运行中始终是只有一个线程去获取 synchronized 锁，那么作为锁对象，它会记录一个线程的 ID，然后在下次获取这个 synchronized 的锁的时候，只需要去比较锁对象的线程 ID 就行了，在运行的过程中如果出现第二个线程去获取 synchronized 锁的时候，这里就分两种情况：在没有发生并发竞争锁的情况下，这个 synchronized 就会自动升级为轻量级锁，这个时候第二个线程就会尝试以自旋锁的方式来获取锁，因为很快就能拿到锁，所以第二个线程也不会阻塞，但是如果出现了这种两个线程竞争锁的情况的话，这个 synchronized 它会升级为重量级锁，那么这个时候就是只会有一个线程能够获取到锁，那么另外一个线程它会阻塞，然后要等待第一个线程释放锁之后，才能去拿到锁</p>
+<hr>
+<h4 id="23-hashmap-是线程安全的嘛"><a class="markdownIt-Anchor" href="#23-hashmap-是线程安全的嘛">#</a> 23、HashMap 是线程安全的嘛</h4>
+<p>​	HashMap 在设计的时候是针对于单线程环境下来设计的，所以在多线程环境下，它不是线程安全的。</p>
+<hr>
+<h4 id="24-多线程并发环境下如果需要一个-hash-结构你如何实现"><a class="markdownIt-Anchor" href="#24-多线程并发环境下如果需要一个-hash-结构你如何实现">#</a> 24、多线程并发环境下，如果需要一个 Hash 结构，你如何实现？</h4>
+<p>​	如果在多线程并发环境下，我们可以使用 ConcurrentHashMap 来实现这样的一个需求</p>
 
                 
             </div>
@@ -706,13 +835,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/16/%E9%9D%A2%E8%AF%95%E9%A2%984_JVM/">
+                <a href="/2022/08/16/%E9%9D%A2%E8%AF%95%E9%A2%9810_RabbitMQ/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="面试题4_JVM">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="面试题10_RabbitMQ">
                         
-                        <span class="card-title">面试题4_JVM</span>
+                        <span class="card-title">面试题10_RabbitMQ</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -743,13 +872,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/16/%E9%9D%A2%E8%AF%95%E9%A2%982_MySQL/">
+                <a href="/2022/08/16/%E9%9D%A2%E8%AF%95%E9%A2%9812_%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="面试题2_MySQL">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="面试题12_项目问题">
                         
-                        <span class="card-title">面试题2_MySQL</span>
+                        <span class="card-title">面试题12_项目问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

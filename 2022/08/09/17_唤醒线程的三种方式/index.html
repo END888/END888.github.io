@@ -5,10 +5,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="17_唤醒线程的三种方式, 殷存渝的个人博客">
-    <meta name="description" content="唤醒线程的三种方式
-1、使用 Object 中的 wait() 方法让线程等待，使用 Object 中的 notify() 方法让线程唤醒/**
+    <meta name="description" content="# 唤醒线程的三种方式
+
+# 1、使用 Object 中的 wait () 方法让线程等待，使用 Object 中的 notify () 方法让线程唤醒
+/**
  * 	流程：ObjLock 为一把锁，同时也作为两个线程所要共同操作的资源
- * 		1、A">
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -476,8 +478,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="唤醒线程的三种方式"><a href="#唤醒线程的三种方式" class="headerlink" title="唤醒线程的三种方式"></a>唤醒线程的三种方式</h3><hr>
-<h5 id="1、使用-Object-中的-wait-方法让线程等待，使用-Object-中的-notify-方法让线程唤醒"><a href="#1、使用-Object-中的-wait-方法让线程等待，使用-Object-中的-notify-方法让线程唤醒" class="headerlink" title="1、使用 Object 中的 wait() 方法让线程等待，使用 Object 中的 notify() 方法让线程唤醒"></a>1、使用 Object 中的 wait() 方法让线程等待，使用 Object 中的 notify() 方法让线程唤醒</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+                <h3 id="唤醒线程的三种方式"><a class="markdownIt-Anchor" href="#唤醒线程的三种方式">#</a> 唤醒线程的三种方式</h3>
+<hr>
+<h5 id="1-使用-object-中的-wait-方法让线程等待使用-object-中的-notify-方法让线程唤醒"><a class="markdownIt-Anchor" href="#1-使用-object-中的-wait-方法让线程等待使用-object-中的-notify-方法让线程唤醒">#</a> 1、使用 Object 中的 wait () 方法让线程等待，使用 Object 中的 notify () 方法让线程唤醒</h5>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * 	流程：ObjLock 为一把锁，同时也作为两个线程所要共同操作的资源
  * 		1、A 线程先获取到锁，然后等待（释放锁）
  * 		2、与此同时，主线程等待了 3 秒
@@ -517,11 +521,9 @@
         <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token string">"B"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
 <hr>
-<h5 id="2、使用-JUC-包中的-Condition-的-await-方法让线程等待，使用-signal-方法让线程唤醒"><a href="#2、使用-JUC-包中的-Condition-的-await-方法让线程等待，使用-signal-方法让线程唤醒" class="headerlink" title="2、使用 JUC 包中的 Condition 的 await() 方法让线程等待，使用 signal() 方法让线程唤醒"></a>2、使用 JUC 包中的 Condition 的 await() 方法让线程等待，使用 signal() 方法让线程唤醒</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+<h5 id="2-使用-juc-包中的-condition-的-await-方法让线程等待使用-signal-方法让线程唤醒"><a class="markdownIt-Anchor" href="#2-使用-juc-包中的-condition-的-await-方法让线程等待使用-signal-方法让线程唤醒">#</a> 2、使用 JUC 包中的 Condition 的 await () 方法让线程等待，使用 signal () 方法让线程唤醒</h5>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * 流程：
  *      1、线程A获取到锁，然后等待（会释放掉与该Condition关联的锁）
  *      2、与此同时，主线程睡了2秒
@@ -573,11 +575,9 @@
 
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
 <hr>
-<h5 id="3、LockSupport-类可以阻塞当前线程以及唤醒指定被阻塞的线程"><a href="#3、LockSupport-类可以阻塞当前线程以及唤醒指定被阻塞的线程" class="headerlink" title="3、LockSupport 类可以阻塞当前线程以及唤醒指定被阻塞的线程"></a>3、LockSupport 类可以阻塞当前线程以及唤醒指定被阻塞的线程</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java">
+<h5 id="3-locksupport-类可以阻塞当前线程以及唤醒指定被阻塞的线程"><a class="markdownIt-Anchor" href="#3-locksupport-类可以阻塞当前线程以及唤醒指定被阻塞的线程">#</a> 3、LockSupport 类可以阻塞当前线程以及唤醒指定被阻塞的线程</h5>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">
 <span class="token comment">/**
  * 流程：
  *      1、A 线程 come in
@@ -603,10 +603,9 @@
         <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token string">"B"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>LockSupport: 用来创建锁和其他同步类的基本线程阻塞原语；LockSupport 通过Permit（许可）的实现阻塞和唤醒线程的功能。</p>
-<p>每个线程都有一个许可证：permit（只有两个值：0默认值、1）</p>
-<p>可以把许可看成是一个（0,1）的信号量（Semaphore），但与 Semaphore 不同的是，许可的累加上限为1</p>
+<p>LockSupport: 用来创建锁和其他同步类的基本线程阻塞原语；LockSupport 通过 Permit（许可）的实现阻塞和唤醒线程的功能。</p>
+<p>每个线程都有一个许可证：permit（只有两个值：0 默认值、1）</p>
+<p>可以把许可看成是一个（0,1）的信号量（Semaphore），但与 Semaphore 不同的是，许可的累加上限为 1</p>
 <hr>
 <p>再来看一下下面的情况</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CountDownLatchDemo</span> <span class="token punctuation">&#123;</span>
@@ -627,15 +626,15 @@
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"--> LockSupport Over"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>1、thread 线程先 come in，sleep 3 秒</p>
-<p>2、main 线程 sleep 1秒</p>
+<p>2、main 线程 sleep 1 秒</p>
 <p>3、设置 permit 为 1</p>
 <p>4、main over</p>
 <p>5、thread 线程醒来，发现 permit 不为 0，通过 park 消费了一个</p>
 <p>6、go out</p>
 <hr>
-<h5 id="4、总结"><a href="#4、总结" class="headerlink" title="4、总结"></a>4、总结</h5><p>1、Object 和 Condition 使用的限制条件：</p>
+<h5 id="4-总结"><a class="markdownIt-Anchor" href="#4-总结">#</a> 4、总结</h5>
+<p>1、Object 和 Condition 使用的限制条件：</p>
 <blockquote>
 <p>线程要先获得并持有锁，必须在 synchronized 或 lock 中</p>
 <p>必须要先等待后唤醒，线程才能被唤醒</p>
@@ -791,13 +790,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/09/02_JUC%20%E5%9B%9B%E5%8F%A5%E5%8F%A3%E8%AF%80/">
+                <a href="/2022/08/09/09_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%8D%96%E7%A5%A8(synchronized)/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="02_JUC 四句口诀">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="09_多线程卖票(synchronized)">
                         
-                        <span class="card-title">02_JUC 四句口诀</span>
+                        <span class="card-title">09_多线程卖票(synchronized)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -813,7 +812,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            yincy
+                            殷存渝
                             
                         </span>
                     </div>
@@ -828,13 +827,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/09/15_JUC/">
+                <a href="/2022/08/09/19_%E7%BA%BF%E7%A8%8B%E9%97%B4%E5%AE%9A%E5%88%B6%E5%8C%96%E9%80%9A%E4%BF%A1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="15_JUC">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="19_线程间定制化通信">
                         
-                        <span class="card-title">15_JUC</span>
+                        <span class="card-title">19_线程间定制化通信</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

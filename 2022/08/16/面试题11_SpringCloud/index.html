@@ -5,7 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="面试题11_SpringCloud, 殷存渝的个人博客">
-    <meta name="description" content="面试题11_SpringCloud">
+    <meta name="description" content="# 面试题 11_SpringCloud
+# 1、项目中用到哪些 SpringCloud 的组件及其作用
+1、Nacos：作为注册中心和配置中心，实现服务注册发现和服务健康监测以及配置信息统一管理
+2、GateWay：作为网关，用来做分布式">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -473,7 +476,434 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="面试题11-SpringCloud"><a href="#面试题11-SpringCloud" class="headerlink" title="面试题11_SpringCloud"></a>面试题11_SpringCloud</h3>
+                <h3 id="面试题11_springcloud"><a class="markdownIt-Anchor" href="#面试题11_springcloud">#</a> 面试题 11_SpringCloud</h3>
+<h4 id="1-项目中用到哪些-springcloud-的组件及其作用"><a class="markdownIt-Anchor" href="#1-项目中用到哪些-springcloud-的组件及其作用">#</a> 1、项目中用到哪些 SpringCloud 的组件及其作用</h4>
+<p>1、Nacos：作为注册中心和配置中心，实现服务注册发现和服务健康监测以及配置信息统一管理</p>
+<p>2、GateWay：作为网关，用来做分布式系统统一的出入口，进行服务路由、统一鉴权等</p>
+<p>3、OpenFeign：作为远程调用的客户端，实现服务之间的远程调用</p>
+<p>4、Sentinel：用来做服务的熔断降级和限流</p>
+<p>5、Sleuth：实现服务的链路追踪</p>
+<hr>
+<h4 id="2-什么是微服务架构"><a class="markdownIt-Anchor" href="#2-什么是微服务架构">#</a> 2、什么是微服务架构？</h4>
+<p>微服务架构是一种架构模式或者说是架构风格，它提倡将单一应用程序划分成一组小的服务。每个服务运行在其独立的自己的</p>
+<p>进程中服务之间相互配合、相互协调，为用户提供最终价值。服务之间采用轻量级通信。每个服务都围绕具体业务进行构建，</p>
+<p>并能够独立部署到生产环境等。</p>
+<hr>
+<h4 id="3-微服务的优缺点是什么"><a class="markdownIt-Anchor" href="#3-微服务的优缺点是什么">#</a> 3、、微服务的优缺点是什么？</h4>
+<p><strong>优点</strong>：松耦合，聚焦单一业务功能，无关开发语言，团队规模降低。在开发中，不需要了解多有业务，只专注于当前功能，便</p>
+<p>利集中，功能小而精。微服务一个功能受损，对其他功能影响并不是太大，可以快速定位问题。微服务只专注于当前业务逻辑</p>
+<p>代码，不会和 html、css 或其他界面进行混合。可以灵活搭配技术，独立性比较好。</p>
+<p><strong>缺点</strong>：随着服务数量增加，管理复杂，部署复杂，服务器需要增多，服务通信和调用压力增大，运维工程师压力增大，人力资</p>
+<p>源增多，系统依赖增强，数据一致性，性能监控。</p>
+<hr>
+<h4 id="4-什么是spring-cloud"><a class="markdownIt-Anchor" href="#4-什么是spring-cloud">#</a> 4、什么是 Spring Cloud？</h4>
+<p>Spring Cloud 是一系列框架的有序集合。它利用 Spring Boot 的开发便利性巧妙地简化了分布式系统基础设施的开发，如服务</p>
+<p>发现注册、配置中心、消息总线、负载均衡、断路器、数据监控等，都可以用 Spring Boot 的开发风格做到一键启动和部署。</p>
+<p>Spring Cloud 并没有重复制造轮子，它只是将各家公司开发的比较成熟、经得起实际考验的服务框架组合起来，通过 Spring</p>
+<p>Boot 风格进行再封装屏蔽掉了复杂的配置和实现原理，最终给开发者留出了一套简单易懂、易部署和易维护的分布式系统开发</p>
+<p>工具包。</p>
+<hr>
+<h4 id="5-spring-boot和spring-cloud之间关系"><a class="markdownIt-Anchor" href="#5-spring-boot和spring-cloud之间关系">#</a> 5、Spring Boot 和 Spring Cloud 之间关系？</h4>
+<p>Spring Boot：专注于快速方便的开发单个个体微服务（关注微观）</p>
+<p>Spring Cloud：关注全局的微服务协调治理框架，将 Spring Boot 开发的一个个单体微服务组合并管理起来（关注宏观）</p>
+<p>Spring Boot 可以离开 Spring Cloud 独立使用，但是 Spring Cloud 不可以离开 Spring Boot，属于依赖关系。</p>
+<hr>
+<h4 id="6-spring-cloud和-dubbo有哪些区别"><a class="markdownIt-Anchor" href="#6-spring-cloud和-dubbo有哪些区别">#</a> 6、Spring Cloud 和 Dubbo 有哪些区别？</h4>
+<p>相同点：它们都是<strong>分布式管理框架</strong>。</p>
+<p>区别：</p>
+<p>1、dubbo 使用的是 RPC 通讯，占用带宽会少一点。Spring Cloud 使用的是 HTTP 的 Rest 方式进行通讯，带宽会多一点，同时</p>
+<p>使用 http 协议一般会使用 JSON 报文，消耗会更大。</p>
+<p>2、dubbo 开发难度较大，所依赖的 jar 包有很多问题大型工程无法解决。Spring Cloud 对第三方的继承可以一键式生成，天</p>
+<p>然集成。</p>
+<hr>
+<h4 id="7-什么是eureka以及它的架构是什么样子"><a class="markdownIt-Anchor" href="#7-什么是eureka以及它的架构是什么样子">#</a> 7、什么是 Eureka 以及它的架构是什么样子？</h4>
+<p>介绍：eureka 是 Netflix 开发的服务发现组件，本身是一个基于 REST 的服务。Spring Cloud 将它集成在其子项目 spring-</p>
+<p>cloud-netflix 中， 以实现 Spring Cloud 的服务发现功能。</p>
+<p>架构：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220226124228612.png" alt="image-20220226124228612" style="zoom:50%;" /> 
+<p>Eureka 是一个 C/S 的架构模式，包含了两部分：</p>
+<p>1、Eureka Server：注册中心服务端，用于维护和管理注册服务的列表</p>
+<p>2、Eureka Client：注册中心客户端，用于向 Eureka Server 中注册服务和从 Eureka Server 中拉取服务</p>
+<hr>
+<h4 id="8-简述一下eureka的自我保护机制"><a class="markdownIt-Anchor" href="#8-简述一下eureka的自我保护机制">#</a> 8、简述一下 Eureka 的自我保护机制？</h4>
+<p>心跳检查机制：Eureka Client 向 Eureka Server 中注册完服务信息以后，Eureka Server 会通过心跳检测机制来检测当前这个客户端服务是否还存活着！默认的检</p>
+<p>测机制是 Eureka Client 每隔 30s 向 Eureka Server 发送一个心跳检查包，如果 Eureka Server 在 90s 之内没有收到 Eureka Client 所发送的心跳检查包，那么此时</p>
+<p>Eureka Server 将该 Eureka Client 从服务列表中剔除掉。</p>
+<p>自我保护机制：自我保护模式正是一种针对网络异常波动的安全保护措施，使用自我保护模式能使 Eureka 集群更加的健壮、稳定的运行。</p>
+<p>自我保护机制的工作机制是：如果在 15 分钟内超过 85% 的客户端节点都没有正常的心跳，那么 Eureka 就认为客户端与注册中心出现了网络故障，Eureka Server 自</p>
+<p>动进入自我保护机制，</p>
+<p>此时会出现以下几种情况：</p>
+<ol>
+<li>Eureka Server 不再从注册列表中移除因为长时间没收到心跳而应该过期的服务。</li>
+<li>Eureka Server 仍然能够接受新服务的注册和查询请求，但是不会被同步到其它节点上，保证当前节点依然可用。</li>
+<li>当网络稳定时，当前 Eureka Server 新的注册信息会被同步到其它节点中。</li>
+</ol>
+<p>因此 Eureka Server 可以很好的应对因网络故障导致部分节点失联的情况，而不会像 ZK 那样如果有一半不可用的情况会导致整个集群不可用而变成瘫痪。</p>
+<p>自我保护的开关配置：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">eureka<span class="token punctuation">.</span>server<span class="token punctuation">.</span>enable<span class="token operator">-</span>self<span class="token operator">-</span>preservation <span class="token operator">=</span> <span class="token boolean">true</span>		# 开启自我保护机制，值设置为<span class="token boolean">false</span>关闭自我保护机制<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<hr>
+<h4 id="9-什么是ribbon以及它的工作流程"><a class="markdownIt-Anchor" href="#9-什么是ribbon以及它的工作流程">#</a> 9、什么是 Ribbon 以及它的工作流程？</h4>
+<p>概述：Ribbon 是一个客户端的负载均衡工具</p>
+<p>工作流程：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220226125909181.png" alt="image-20220226125909181"  /> 
+<p>基本流程如下：</p>
+<ul>
+<li>拦截我们的 RestTemplate 请求 http://userservice/user/1</li>
+<li>RibbonLoadBalancerClient 会从请求 url 中获取服务名称，也就是 user-service</li>
+<li>DynamicServerListLoadBalancer 根据 user-service 到 eureka 拉取服务列表</li>
+<li>eureka 返回列表，localhost:8081、localhost:8082</li>
+<li>IRule 利用内置负载均衡规则，从列表中选择一个，例如 localhost:8081</li>
+<li>RibbonLoadBalancerClient 修改请求地址，用 localhost:8081 替代 userservice，得到 http://localhost:8081/user/1，发起真实请求</li>
+</ul>
+<hr>
+<h4 id="10-在ribbon中定义了哪些常用的负载均衡算法以及默认的负载均衡算法是哪一个"><a class="markdownIt-Anchor" href="#10-在ribbon中定义了哪些常用的负载均衡算法以及默认的负载均衡算法是哪一个">#</a> 10、在 Ribbon 中定义了哪些常用的负载均衡算法以及默认的负载均衡算法是哪一个？</h4>
+<p>常用的负载均衡算法：</p>
+<p>1、RoundRobinRule：简单轮询服务列表来选择服务器</p>
+<p>2、AvailabilityFilteringRule：对以下两种服务器进行忽略：</p>
+<p>（1）在默认情况下，这台服务器如果 3 次连接失败，这台服务器就会被设置为 “短路” 状态。短路状态将持续 30 秒，如果再次连接失败，短路的持续时间就会几何级</p>
+<p>地增加。</p>
+<p>（2）并发数过高的服务器、如果一个服务器的并发连接数过高，配置了 AvailabilityFilteringRule 规则的客户端也会将其忽略。并发连接数的上限，可以由客户端的</p>
+<p><clientName>.<clientConfigNameSpace>.ActiveConnectionsLimit 属性进行配置。</p>
+<p>3、WeightedResponseTimeRule：   为每一个服务器赋予一个权重值。服务器响应时间越长，这个服务器的权重就越小。这个规则会随机选择服务器，这个权重值</p>
+<p>会影响服务器的选择。</p>
+<p>4、<strong>ZoneAvoidanceRule</strong>：以区域可用的服务器为基础进行服务器的选择。使用 Zone 对服务器进行分类，这个 Zone 可以理解为一个机房、一个机架等。而后再对</p>
+<p>Zone 内的多个服务做轮询。它是 Ribbon 默认的负载均衡规则。</p>
+<p>5、BestAvailableRule：忽略那些短路的服务器，并选择并发数较低的服务器。</p>
+<p>6、RandomRule：  随机选择一个可用的服务器。</p>
+<p>7、RetryRule：重试机制的选择逻辑。</p>
+<p>默认的负载均衡算法：ZoneAvoidanceRule</p>
+<hr>
+<h4 id="11-什么是fegin以及如何去使用"><a class="markdownIt-Anchor" href="#11-什么是fegin以及如何去使用">#</a> 11、什么是 fegin？以及如何去使用？</h4>
+<p>概述：</p>
+<p>1、fegin 一个声明式的 http 的客户端工具用来简化远程调用，基于接口的注解的方式来声明一个 http 的客户端</p>
+<p>2、feign 整合了 ribbon，具有负载均衡的能力</p>
+<p>3、整合了 Hystrix，具有熔断的能力</p>
+<p>使用：</p>
+<p>1、添加 pom 依赖</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-openfeign<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>2、在启动类上添加 @EnableFeignClients 注解</p>
+<p>3、定义一个接口，通过 @FeignClient (value = “leadnews-article”) 指定调用的哪个服务</p>
+<hr>
+<h4 id="12-你们项目中的配置信息是如何进行管理的"><a class="markdownIt-Anchor" href="#12-你们项目中的配置信息是如何进行管理的">#</a> 12、你们项目中的配置信息是如何进行管理的？</h4>
+<p>项目中的配置信息使用的是统一配置中心，常见的统一配置中心有：Spring Cloud Config 和 nacos。我们项目中使用的是 nacos，使用 nacos 可以很轻松的实现配置</p>
+<p>信息的热更新。</p>
+<p>具体的使用方式如下所示：</p>
+<p>1、在 nacos 中创建一个配置信息，指定配置信息的 dataId。dataId 的组成：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>a</mi><mi>p</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi mathvariant="normal">.</mi><mi>n</mi><mi>a</mi><mi>m</mi><mi>e</mi></mrow><mo>−</mo></mrow><annotation encoding="application/x-tex">{application.name}-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="mord mathnormal">p</span><span class="mord mathnormal">p</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">i</span><span class="mord mathnormal">c</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mord">.</span><span class="mord mathnormal">n</span><span class="mord mathnormal">a</span><span class="mord mathnormal">m</span><span class="mord mathnormal">e</span></span><span class="mord">−</span></span></span></span>{profile}.yml</p>
+<p>2、在项目中添加依赖</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-alibaba-nacos-config<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>3、在项目的 classpath 路径下创建一个 bootstrap.yml 文件，文件中的内容如下所示：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">51803</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> user<span class="token punctuation">-</span>service							<span class="token comment"># 指定服务名称</span>
+  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+    <span class="token key atrule">nacos</span><span class="token punctuation">:</span>
+      <span class="token key atrule">config</span><span class="token punctuation">:</span>
+        <span class="token key atrule">server-addr</span><span class="token punctuation">:</span> 192.168.200.130<span class="token punctuation">:</span><span class="token number">8848</span>		<span class="token comment"># 指定配置中心的ip地址和端口号</span>
+        <span class="token key atrule">file-extension</span><span class="token punctuation">:</span> yml						<span class="token comment"># 指定配置中心中文件的扩展名</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h4 id="13-什么是spring-cloud-gateway以及在你们的项目中如何去应用该组件的"><a class="markdownIt-Anchor" href="#13-什么是spring-cloud-gateway以及在你们的项目中如何去应用该组件的">#</a> 13、什么是 Spring Cloud Gateway 以及在你们的项目中如何去应用该组件的？</h4>
+<p>Spring Cloud Gateway：是 Spring Cloud 中所提供的一个服务网关组件，是整个微服务的统一入口，在服务网关中可以实现请求路由、统一的日志记录，流量监</p>
+<p>控、权限校验等一系列的相关功能！</p>
+<p>项目应用：权限的校验</p>
+<p>具体实现思路：使用 Spring Cloud Gateway 中的全局过滤器拦截请求 (GlobalFilter、Order)，从</p>
+<p>请求头中获取 token，然后解析 token。如果可以进行正常解析，此时进行放行；如果解析不到直接返回。</p>
+<hr>
+<h4 id="14-什么是雪崩效应以及常见的解决方案有哪些"><a class="markdownIt-Anchor" href="#14-什么是雪崩效应以及常见的解决方案有哪些">#</a> 14、什么是雪崩效应以及常见的解决方案有哪些？</h4>
+<p>雪崩效应：一个服务的不可用导致整个系统出现不可用的现象。如下图所示：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220226135547913.png" alt="image-20220226135547913" style="zoom: 67%;" /> 
+<p>常见的解决方案：</p>
+<p>1、超时处理：设定超时时间，请求超过一定时间没有响应就返回错误信息，不会无休止等待。</p>
+<p>2、线程隔离：给每一个服务分配指定数量的线程，当这个服务使用完这些线程以后，该服务就不能再次被访问，而对其他服务的访问不受影响，将故障控制到了一个</p>
+<p>小的范围。</p>
+<p>3、熔断降级：由断路器统计业务执行的异常比例，如果超出阈值则会熔断该业务，拦截访问该业务的一切请求，并且可以给失败的调用返回一个降级方案 (兜底方</p>
+<p>案)。</p>
+<p>4、流量控制：限制业务访问的 QPS，避免服务因流量的突增而故障。</p>
+<hr>
+<h4 id="15-常见的限流算法都有哪些"><a class="markdownIt-Anchor" href="#15-常见的限流算法都有哪些">#</a> 15、常见的限流算法都有哪些？</h4>
+<p>常见的限流算法：<strong>计数器</strong>、<strong>漏桶算法</strong>、<strong>令牌桶算法</strong></p>
+<p>计数器：计数器法是限流算法里最简单也是最容易实现的一种算法。比如我们规定，对于 A 接口来说，我们 1 分钟的访问次数不能超过 100 个。那么我们我们可以设置</p>
+<p>一个计数器 counter，其有效时间为 1 分钟（即每分钟计数器会被重置为 0），每当一个请求过来的时候，counter 就加 1，如果 counter 的值大于 100，就说明请求数</p>
+<p>过多；如下图所示：</p>
+<p><img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220226141403795.png" alt="image-20220226141403795"></p>
+<p>这个算法虽然简单，但是有一个十分致命的问题，那就是临界问题。</p>
+<p>如下图所示，在 1:00 前一刻到达 100 个请求，1:00 计数器被重置，1:00 后一刻又到达 100 个请求，显然计数器不会超过 100，所有请求都不会被拦截；然而这一时间</p>
+<p>段内请求数已经达到 200，远超 100。</p>
+<p><img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220226141447370.png" alt="image-20220226141447370"></p>
+<p>漏桶算法：漏桶算法其实很简单，可以粗略的认为就是注水漏水过程，往桶中以一定速率流出水，以任意速率流入水，当水超过桶流量则丢弃，因为桶容量是不变</p>
+<p>的，保证了整体的速率。</p>
+<p>如下图所示：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220226141558182.png" alt="image-20220226141558182" style="zoom:25%;" /> 
+<p>令牌桶算法：令牌桶是一个存放固定容量令牌的桶，按照固定速率 r 往桶里添加令牌；桶中最多存放 b 个令牌，当桶满时，新添加的令牌被丢弃；当一个请求达到时，</p>
+<p>会尝试从桶中获取令牌；如果有，则继续处理请求；如果没有则排队等待或者直接丢弃；可以发现，漏桶算法的流出速率恒定，而令牌桶算法的流出速率却有可能大</p>
+<p>于 r；</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220226141726380.png" alt="image-20220226141726380" style="zoom:50%;" /> 
+<p>从作用上来说，漏桶和令牌桶算法最明显的区别就是是否允许突发流量 (burst) 的处理，漏桶算法能够强行限制数据的实时传输（处理）速率，对突发流量不做额外处</p>
+<p>理；而令牌桶算法能够在限制数据的平均传输速率的同时允许某种程度的突发传输。</p>
+<hr>
+<h4 id="16-nginx中如何实现限流"><a class="markdownIt-Anchor" href="#16-nginx中如何实现限流">#</a> 16、Nginx 中如何实现限流？</h4>
+<p>nginx 的限流主要是两种方式：<strong>限制访问频率</strong>和<strong>限制并发连接数</strong>。nginx 按请求速率限速模块使用的是漏桶算法，即能够强行保证请求的实时处理速度不会超过设置</p>
+<p>的阈值。</p>
+<p>nginx 官方版本限制 IP 的连接和并发分别有两个模块：</p>
+<p>1、<strong>limit_req_zone</strong>：用来限制单位时间内的请求数，即速率限制，采用的漏桶算法 “leaky bucket”。</p>
+<p>2、<strong>limit_conn_zone</strong>：用来限制同一时间连接数，即并发限制。</p>
+<p>limit_req_zone 限流配置：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">http <span class="token punctuation">&#123;</span>
+    
+    # 定义限流策略<span class="token punctuation">,</span>$binary_remote_addr对客户端的ip进行限流，zone：定义共享内存区来存储访问信息， rateLimit<span class="token operator">:</span>10m 表示一个大小为10M，名字为rateLimit的内	# 存区域。1M能存储<span class="token number">16000</span> IP地址的访问信息，10M可以存储16W IP地址访问信息。rate定义了最大访问频率，1s最多允许<span class="token number">1</span>个请求访问。
+    limit_req_zone $binary_remote_addr  zone=rateLimit<span class="token operator">:</span>10m rate=1r/s ;
+    
+    # 搜索服务的虚拟主机
+    server <span class="token punctuation">&#123;</span>
+
+        location / <span class="token punctuation">&#123;</span>
+    		# 使用限流策略，burst=<span class="token number">5</span>，重点说明一下这个配置，burst爆发的意思，这个配置的意思是设置一个大小为<span class="token number">5</span>的缓冲区（队列）当有大量请求（爆发）过来时，
+    		# 超过了访问频次限制的请求可以先放到这个缓冲区内。nodelay，如果设置，超过访问频次而且缓冲区也满了的时候就会直接返回<span class="token number">503</span>，如果没有设置，则所
+    		# 有请求会等待排队。
+    		limit_req zone=rateLimit burst=<span class="token number">5</span> nodelay;		
+			proxy_pass http<span class="token operator">:</span><span class="token comment">//train-manager-search ;	</span>
+        <span class="token punctuation">&#125;</span>
+
+    <span class="token punctuation">&#125;</span> 
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>limit_conn_zone 限流配置：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">http <span class="token punctuation">&#123;</span>
+    
+    # 定义限流策略<span class="token punctuation">,</span>$binary_remote_addr对客户端的ip进行限流、$server_name对虚拟主机支持的最大连接数进行限流
+    limit_conn_zone $binary_remote_addr zone=perip<span class="token operator">:</span>10m;
+    limit_conn_zone $server_name zone=perserver<span class="token operator">:</span>10m;
+    
+    # 搜索服务的虚拟主机
+    server <span class="token punctuation">&#123;</span>
+
+        location / <span class="token punctuation">&#123;</span>
+    
+    		# 对应的key是 $binary_remote_addr，表示限制单个IP同时最多能持有<span class="token number">1</span>个连接。
+     		limit_conn perip <span class="token number">1</span>;
+    
+    		# 对应的key是 $server_name，表示虚拟主机(server) 同时能处理并发连接的总数。
+    		# 注意，只有当 request header 被后端server处理后，这个连接才进行计数。
+    		limit_conn perserver <span class="token number">10</span> ;
+			proxy_pass http<span class="token operator">:</span><span class="token comment">//train-manager-search ;	</span>
+        <span class="token punctuation">&#125;</span>
+
+    <span class="token punctuation">&#125;</span> 
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h4 id="17-sentinel中提供了哪些流控模式分别表示什么意思"><a class="markdownIt-Anchor" href="#17-sentinel中提供了哪些流控模式分别表示什么意思">#</a> 17、Sentinel 中提供了哪些流控模式分别表示什么意思？</h4>
+<p>常见的流控模式：</p>
+<p>1、<strong>直接</strong>：统计当前资源的请求，触发阈值时对当前资源直接限流，也是默认的模式</p>
+<p>2、<strong>关联</strong>：统计与当前资源相关的另一个资源，触发阈值时，对当前资源限流。如下流控模式：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220226143209268.png" alt="image-20220226143209268" style="zoom:50%;" /> 
+<p>表示的意思：当 /write 资源访问量触发阈值时，就会对 /read 资源限流，避免影响 /write 资源。</p>
+<p>3、<strong>链路</strong>：统计从指定链路访问到本资源的请求，触发阈值时，对指定链路限流</p>
+<p>例如有两条请求链路：</p>
+<ul>
+<li>/test1 --&gt; /common</li>
+<li>/test2 --&gt; /common</li>
+</ul>
+<p>如果只希望统计从 /test2 进入到 /common 的请求，则可以这样配置：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220226143242929.png" alt="image-20220226143242929" style="zoom:50%;" /> 
+<hr>
+<h4 id="18-sentinel中提供了哪些流控效果分别表示什么意思"><a class="markdownIt-Anchor" href="#18-sentinel中提供了哪些流控效果分别表示什么意思">#</a> 18、Sentinel 中提供了哪些流控效果分别表示什么意思？</h4>
+<p>常见的流控效果：</p>
+<p>1、<strong>快速失败</strong>：达到阈值后，新的请求会被立即拒绝并抛出 FlowException 异常。是默认的处理方式。</p>
+<p>2、<strong>warm up</strong>：预热模式，对超出阈值的请求同样是拒绝并抛出异常。但这种模式阈值会动态变化，从一个较小值逐渐增加到最大阈值。这种模式主要应用于服务的</p>
+<p>冷启动，请求阈值初始值是 maxThreshold /coldFactor，持续指定时长后，逐渐提高到 maxThreshold 值。而 coldFactor 的默认值是 3。例如，我设置 QPS 的</p>
+<p>maxThreshold 为 10，预热时间为 5 秒，那么初始阈值就是 10 / 3 ，也就是 3，然后在 5 秒后逐渐增长到 10。如下图所示：</p>
+<p><img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220226143609278.png" alt="image-20220226143609278"></p>
+<p>3、<strong>排队等待</strong>：让所有的请求按照先后次序排队执行，两个请求的间隔不能小于指定时长。后来的请求必须等待前面执行完成，如果请求预期的等待时间超出最大时</p>
+<p>长，则会被拒绝。</p>
+<p><img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220226144653085.png" alt="image-20220226144653085"></p>
+<hr>
+<h4 id="19-实现线程隔离有几种方式sentinel中使用的是哪一种方式"><a class="markdownIt-Anchor" href="#19-实现线程隔离有几种方式sentinel中使用的是哪一种方式">#</a> 19、实现线程隔离有几种方式？Sentinel 中使用的是哪一种方式？</h4>
+<p>线程隔离方式：</p>
+<p>1、线程池隔离：有额外开销，但隔离控制更强</p>
+<p>2、信号量隔离：简单，开销小</p>
+<p>在 Sentinel 是通过信号量来实现线程隔离。如下图所示：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220226145143335.png" alt="image-20220226145143335" style="zoom: 50%;" /> 
+<hr>
+<h4 id="20-简述sentinel中熔断器的工作原理"><a class="markdownIt-Anchor" href="#20-简述sentinel中熔断器的工作原理">#</a> 20、简述 Sentinel 中熔断器的工作原理？</h4>
+<p>熔断降级是解决雪崩问题的重要手段。其思路是由断路器统计服务调用的异常比例、慢请求比例，如果超出阈值则会熔断该服务。即拦截访问该服务的一切请求；而</p>
+<p>当服务恢复时，断路器会放行访问该服务的请求。断路器控制熔断和放行是通过状态机来完成的：</p>
+<p><img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220226145537822.png" alt="image-20220226145537822"></p>
+<p>状态机包括三个状态：</p>
+<ul>
+<li>closed：关闭状态，断路器放行所有请求，并开始统计异常比例、慢请求比例。超过阈值则切换到 open 状态</li>
+<li>open：打开状态，服务调用被熔断，访问被熔断服务的请求会被拒绝，快速失败，直接走降级逻辑。Open 状态 5 秒后会进入 half-open 状态</li>
+<li>half-open：半开状态，放行一次请求，根据执行结果来判断接下来的操作。
+<ul>
+<li>请求成功：则切换到 closed 状态</li>
+<li>请求失败：则切换到 open 状态</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="21-什么是分布式事务"><a class="markdownIt-Anchor" href="#21-什么是分布式事务">#</a> 21、什么是分布式事务？</h4>
+<p>概述：在分布式系统上一次大的操作由不同的小操作组成，这些小的操作分布在不同的服务节点上，且属于不同的应用，分布式事务需要保证这些小操作要么全部成</p>
+<p>功，要么全部失败。</p>
+<p>如下所示：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220227001256754.png" alt="image-20220227001256754" style="zoom: 67%;" /> 
+<p>某电商系统的下单操作，需要请求三个服务来完成，这三个服务分别是：订单服务，账户服务，库存服务。当订单生成完毕以后，就需要分别请求账户服务和库存服</p>
+<p>务进行进行账户余额的扣减和库存扣减。假设都扣减成功了，此时在执行下单的后续操作时出现了问题，那么订单数据库就进行事务回滚，订单生成失败，而账户余</p>
+<p>额和扣减则都扣减成功了。这就出现了问题，而分布式事务就是解决上述这种不一致问题的。</p>
+<hr>
+<h4 id="22-哪些场景下都会产生分布式事务"><a class="markdownIt-Anchor" href="#22-哪些场景下都会产生分布式事务">#</a> 22、哪些场景下都会产生分布式事务？</h4>
+<p><strong>场景 1：跨库事务</strong></p>
+<p>跨库事务指的是，一个应用某个功能需要操作多个库，不同的库中存储不同的业务数据。如下所示：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220227002146867.png" alt="image-20220227002146867" style="zoom: 50%;" /> 
+<p><strong>场景二：分库分表</strong></p>
+<p>通常一个库数据量比较大或者预期未来的数据量比较大，都会进行水平拆分，也就是分库分表。如下图，将数据库 B 拆分成了 2 个库：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220227002310376.png" alt="image-20220227002310376" style="zoom:50%;" /> 
+<p>对于分库分表的情况，一般开发人员都会使用一些数据库中间件来降低 sql 操作的复杂性。</p>
+<p>如，对于 sql：insert into user (id,name) values (1,“tianshouzhi”),(2,“wangxiaoxiao”)。这条 sql 是操作单库的语法，单库情况下，可以保证事务的一致性。</p>
+<p>但是由于现在进行了分库分表，开发人员希望将 1 号记录插入分库 1，2 号记录插入分库 2。所以数据库中间件要将其改写为 2 条 sql，分别插入两个不同的分库，此时要</p>
+<p>保证两个库要不都成功，要不都失败，因此基本上所有的数据库中间件都面临着分布式事务的问题。</p>
+<p><strong>场景三：跨服务事务</strong></p>
+<p>跨服务事务指的是，一个应用某个功能需要调用多个微服务进行实现，不同的微服务操作的是不同的数据库。如下所示：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220227002547447.png" alt="image-20220227002547447" style="zoom:50%;" /> 
+<p>Service A 完成某个功能需要直接操作数据库，同时需要调用 Service B 和 Service C，而 Service B 又同时操作了 2 个数据库，Service C 也操作了一个库。需要保证这</p>
+<p>些跨服务的对多个数据库的操作要不都成功，要不都失败，实际上这可能是最典型的分布式事务场景。</p>
+<hr>
+<h4 id="24-什么是cap理论"><a class="markdownIt-Anchor" href="#24-什么是cap理论">#</a> 24、什么是 CAP 理论？</h4>
+<p>CAP 定理是由加州大学伯克利分校 Eric Brewer 教授提出来的，他指出 WEB 服务无法同时满足一下 3 个属性：</p>
+<p>1、一致性 (Consistency) ： 更新操作成功并返回客户端完成后，所有节点在同一时间的数据完全一致 (强一致性)，不能存在中间状态。</p>
+<p>2、可用性 (Availability) ： 系统提供的服务必须一直处于可用的状态，对于用户的每一个操作请求总是能够在有限的时间内返回结果。</p>
+<p>3、分区容错性 (Partition tolerance) ： 分布式系统在遇到任何网络分区故障时，仍然需要能够保证对外提供满足一致性和可用性的服务，除非是整个网络环境都发</p>
+<p>生了故障。</p>
+<p>如下所示：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220227003549030.png" alt="image-20220227003549030" style="zoom:25%;" />  
+<hr>
+<h4 id="25-为什么分布式系统中无法同时保证一致性和可用性"><a class="markdownIt-Anchor" href="#25-为什么分布式系统中无法同时保证一致性和可用性">#</a> 25、为什么分布式系统中无法同时保证一致性和可用性？</h4>
+<p>首先一个前提，对于分布式系统而言，分区容错性是一个最基本的要求，因此基本上我们在设计分布式系统的时候只能从一致性（C）和可用性（A）之间进行取舍。</p>
+<p>如果保证了一致性（C）：对于节点 N1 和 N2，当往 N1 里写数据时，N2 上的操作必须被暂停，只有当 N1 同步数据到 N2 时才能对 N2 进行读写请求，在 N2 被暂停操作期</p>
+<p>间客户端提交的请求会收到失败或超时。显然，这与可用性是相悖的。</p>
+<p>如果保证了可用性（A）：那就不能暂停 N2 的读写操作，但同时 N1 在写数据的话，这就违背了一致性的要求。</p>
+<hr>
+<h4 id="26-什么是base理论"><a class="markdownIt-Anchor" href="#26-什么是base理论">#</a> 26、什么是 BASE 理论？</h4>
+<p>CAP 是分布式系统设计理论，BASE 是 CAP 理论中 AP 方案的延伸，核心思想是即使无法做到强一致性（StrongConsistency，CAP 的一致性就是强一致性），但应用</p>
+<p>可以采用适合的方式达到最终一致性（Eventual Consitency）。它的思想包含三方面：</p>
+<p>1、Basically Available（基本可用）：基本可用是指分布式系统在出现不可预知的故障的时候，允许损失部分可用性，但不等于系统不可用。</p>
+<p>2、Soft state（软状态）：即是指允许系统中的数据存在中间状态，并认为该中间状态的存在不会影响系统的整体可用性，即允许系统在不同节点的数据副本之间进</p>
+<p>行数据同步的过程存在延时。</p>
+<p>3、Eventually consistent（最终一致性）：强调系统中所有的数据副本，在经过一段时间的同步后，最终能够达到一个一致的状态。其本质是需要系统保证最终数</p>
+<p>据能够达到一致，而不需要实时保证系统数据的强一致性。</p>
+<hr>
+<h4 id="27-分布式事务的常见的解决方案有哪些"><a class="markdownIt-Anchor" href="#27-分布式事务的常见的解决方案有哪些">#</a> 27、分布式事务的常见的解决方案有哪些？</h4>
+<p><strong>方案一：2PC</strong></p>
+<p>两阶段提交又称 2PC，2PC 是一个非常经典的强一致、中心化的原子提交协议 。</p>
+<p>中心化是指协议中有两类节点：一个是中心化协调者节点 （coordinator）和 N 个参与者节点 （partcipant）。</p>
+<p>两个阶段 ：</p>
+<p>1、第一阶段：投票阶段</p>
+<p>2、第二阶段：提交 / 执行阶段。</p>
+<p>举例订单服务 A，需要调用支付服务 B 去支付，支付成功则处理订单状态为待发货状态，否则就需要将购物订单处理为失败状态。 那么看 2PC 阶段是如何处理的。</p>
+<p>阶段一：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220227191923690.png" alt="image-20220227191923690" style="zoom: 50%;" /> 
+<p>阶段一执行流程：</p>
+<p>1、事务询问协调者向所有的参与者发送事务预处理请求，称之为 Prepare，并开始等待各参与者的响应。</p>
+<p>2、执行本地事务各个参与者节点执行本地事务操作，但在执行完成后并不会真正提交数据库本地事务，而是先向协调者报告说：“我这边可以处理了 / 我这边不能处</p>
+<p>理”。</p>
+<p>3、各参与者向协调者反馈事务询问的响应如果参与者成功执行了事务操作，那么就反馈给协调者 Yes 响应，表示事务可以执行，如果没有参与者成功执行事务，那么就反馈</p>
+<p>给协调者 No 响应，表示事务不可以执行。</p>
+<p>阶段二：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220227192221258.png" alt="image-20220227192221258" style="zoom: 50%;" /> 
+<p>阶段二执行流程：</p>
+<p>1、所有的参与者反馈给协调者的信息都是 Yes, 那么就会执行事务提交协调者向所有参与者节点发出 Commit 请求</p>
+<p>2、事务提交参与者收到 Commit 请求之后，就会正式执行本地事务 Commit 操作，并在完成提交之后释放整个事务执行期间占用的事务资源。</p>
+<p><strong>方案二：3PC</strong></p>
+<p>三阶段提交又称 3PC，其在两阶段提交的基础上增加了 CanCommit 阶段，并引入了超时机制。一旦事务参与者迟迟没有收到协调者的 Commit 请求，就会自动进行</p>
+<p>本地 commit，这样相对有效地解决了协调者单点故障的问题。</p>
+<p>阶段一：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220227192500857.png" alt="image-20220227192500857" style="zoom: 50%;" /> 
+<p>阶段一执行流程：</p>
+<p>1、事务询问协调者向所有的参与者发送事务 can commit 请求，类似于 2PC 中的第二个阶段中的 Prepare 阶段，是一种事务询问操作，事务的协调者向所有参与者询</p>
+<p>问 “你们是否可以完成本次事务？”，并开始等待各参与者的响应。</p>
+<p>2、如果参与者节点认为自身可以完成事务就返回 “YES”，否则 “NO”。</p>
+<p>阶段二：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220227192730147.png" alt="image-20220227192730147" style="zoom:50%;" /> 
+<p>阶段二的执行流程：</p>
+<p>1、在阶段一中，如果所有的参与者都返回 Yes 的话，那么就会进入 PreCommit 阶段进行事务预提交。此时分布式事务协调者会向所有的参与者节点发送 PreCommit</p>
+<p>请求。</p>
+<p>2、参与者收到后开始执行事务操作，参与者执行完事务操作后（此时属于未提交事务的状态），就会向协调者反馈 “Ack” 表示我已经准备好提交了，并等待协调者的下一步指令。</p>
+<p>3、如果阶段一中有任何一个参与者节点返回的结果是 No 响应，或者协调者在等待参与者节点反馈的过程中超时。整个分布式事务就会中断，协调者就会向所有的参</p>
+<p>与者发送 “abort” 请求。</p>
+<p>阶段三：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220227193840276.png" alt="image-20220227193840276" style="zoom: 67%;" /> 
+<p>阶段三执行流程：</p>
+<p>1、在阶段二中如果所有的参与者节点都可以进行 PreCommit 提交，那么协调者就会从 “预提交状态”-》“提交状态”。然后向所有的参与者节点发</p>
+<p>送 &quot;doCommit&quot; 请求。</p>
+<p>2、参与者节点在收到提交请求后就会各自执行事务提交操作，并向协调者节点反馈 “Ack” 消息，协调者收到所有参与者的 Ack 消息后完成事务。</p>
+<p>3、相反，如果有一个参与者节点未完成 PreCommit 的反馈或者反馈超时，那么协调者都会向所有的参与者节点发送 abort 请求，从而中断事务。</p>
+<p><strong>方案三：TCC</strong></p>
+<p>TCC（Try-Confirm-Cancel）又称补偿事务。其核心思想是：“针对每个操作都要注册一个与其对应的确认和补偿（撤销操作）”。</p>
+<p>它分为三个操作：</p>
+<p>1、Try 阶段：主要是对业务系统做检测及资源预留。</p>
+<p>2、Confirm 阶段：确认执行业务操作。</p>
+<p>3、Cancel 阶段：取消执行业务操作。</p>
+<p>如下所示：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220227213459891.png" alt="image-20220227213459891" style="zoom: 67%;" /> 
+<p>TCC 事务的处理流程与 2PC 两阶段提交类似，不过 2PC 通常都是在跨库的 DB 层面，而 TCC 本质上就是一个应用层面的 2PC，需要通过业务逻辑来实现。这种分布式</p>
+<p>事务的实现方式的优势在于，可以让应用自己定义数据库操作的粒度，使得降低锁冲突、提高吞吐量成为可能。 不足之处则在于对应用的侵入性非常强，业务逻辑的</p>
+<p>每个分支都需要实现 try、confirm、cancel 三个操作。此外，其实现难度也比较大，需要按照网络状态、系统故障等不同的失败原因实现不同的回滚策略。为了满足</p>
+<p>一致性的要求，confirm 和 cancel 接口还必须实现幂等。</p>
+<p><strong>方案四：MQ 分布式事务</strong></p>
+<p>上面的三种分布式事务的解决方案适用于对数据一致性要求很高的场景。如果数据强一致性要求没那么高，可以采用消息中间件（MQ）实现事务最终一致。 在支付</p>
+<p>系统中，常常使用的分布式事务解决方案就是基于 MQ 实现的，它对数据强一致性要求没那么高，但要求数据最终一致即可。</p>
+<p>例如：向借呗申请借钱，借呗审核通过后支付宝的余额才会增加，但借呗和支付宝有可能不是同一个系统，这时候如何实现事务呢？实现方案如下图：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220227213916612.png" alt="image-20220227213916612" style="zoom:50%;" /> 
+<p>执行流程如下所示：</p>
+<p>1、找花呗借钱</p>
+<p>2、花呗借钱审核通过，同步生成借款单</p>
+<p>3、借款单生成后，向 MQ 发送消息，通知支付宝转账</p>
+<p>4、支付宝读取 MQ 消息，并增加账户余额</p>
+<p>上图最复杂的其实是如何保障 2、3 在同一个事务中执行（本地事务和 MQ 消息发送在同一个事务执行），借款结束后，借呗数据处理就完成了，接下来支付宝才能读</p>
+<p>到消息，然后执行余额增加，这才完成整个操作。如果中途操作发生异常，例如支付宝余额增加发生问题怎么办？此时需要人工解决，没有特别好的办法，但这种事</p>
+<p>故概率极低。</p>
+<hr>
+<h4 id="28-seata的架构是什么"><a class="markdownIt-Anchor" href="#28-seata的架构是什么">#</a> 28、Seata 的架构是什么？</h4>
+<p>Seata 事务管理中有三个重要的角色：</p>
+<p>1、TC (Transaction Coordinator) - 事务协调者：维护全局和分支事务的状态，协调全局事务提交或回滚。</p>
+<p>2、TM (Transaction Manager) - 事务管理器：定义全局事务的范围、开始全局事务、提交或回滚全局事务。</p>
+<p>3、RM (Resource Manager) - 资源管理器：管理分支事务处理的资源，与 TC 交谈以注册分支事务和报告分支事务的状态，并驱动分支事务提交或回滚。</p>
+<p>如下所示：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220227184446470.png" alt="image-20220227184446470" style="zoom: 67%;" /> 
+<hr>
+<h4 id="29-xa模式的工作流程是什么"><a class="markdownIt-Anchor" href="#29-xa模式的工作流程是什么">#</a> 29、XA 模式的工作流程是什么？</h4>
+<p>xa 模式整个工作流程图如下所示：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220227184741711.png" alt="image-20220227184741711" style="zoom: 67%;" /> 
+<p>分为两个阶段：</p>
+<p>1、RM 一阶段的工作：① 注册分支事务到 TC	② 执行分支业务 sql 但不提交	③ 报告执行状态到 TC</p>
+<p>2、TC 二阶段的工作：TC 检测各分支事务执行状态	①如果都成功，通知所有 RM 提交事务	②如果有失败，通知所有 RM 回滚事务</p>
+<p>3、RM 二阶段的工作：接收 TC 指令，提交或回滚事务</p>
+<p>xa 模式牺牲了可用性，保证了强一致性</p>
+<hr>
+<h4 id="30-at模型的工作原理是什么"><a class="markdownIt-Anchor" href="#30-at模型的工作原理是什么">#</a> 30、AT 模型的工作原理是什么？</h4>
+<p>at 模式的整个工作流程图如下所示：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220227185131682.png" alt="image-20220227185131682" style="zoom: 67%;" /> 
+<p>1、阶段一 RM 的工作：① 注册分支事务  ② 记录 undo-log（数据快照）③ 执行业务 sql 并提交 ④报告事务状态</p>
+<p>2、阶段二提交时 RM 的工作：删除 undo-log 即可</p>
+<p>3、阶段二回滚时 RM 的工作：根据 undo-log 恢复数据到更新前</p>
+<p>at 模式牺牲了一致性，保证了可用性</p>
+<hr>
+<h4 id="31-tcc模型的工作原理是什么"><a class="markdownIt-Anchor" href="#31-tcc模型的工作原理是什么">#</a> 31、TCC 模型的工作原理是什么？</h4>
+<p>TCC 模式与 AT 模式非常相似，每阶段都是独立事务，不同的是 TCC 通过人工编码来实现数据恢复。需要实现三个方法：</p>
+<p>1、Try：资源的检测和预留；</p>
+<p>2、Confirm：完成资源操作业务；要求 Try 成功 Confirm 一定要能成功。</p>
+<p>3、Cancel：预留资源释放，可以理解为 try 的反向操作。</p>
+<p>Seata 中的 tcc 模型的执行流程如下所示：</p>
+<img src="C:/Users/ycy/Desktop/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%96%87%E6%A1%A3/02-%E9%AB%98%E9%A2%91%E9%9D%A2%E8%AF%95%E9%A2%98/05-Spring%20Cloud/images/image-20220227185910188.png" alt="image-20220227185910188" style="zoom: 67%;" /> 
+<p>1、阶段一 RM 的工作：① 注册分支事务  ② 执行 try 操作预留资源  ④报告事务状态</p>
+<p>2、阶段二提交时 RM 的工作：根据各分支事务的状态执行 confirm 或者 cancel</p>
+
                 
             </div>
             <hr/>
@@ -656,13 +1086,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/16/%E9%9D%A2%E8%AF%95%E9%A2%989_Redis/">
+                <a href="/2022/08/16/%E9%9D%A2%E8%AF%95%E9%A2%9812_Linux%E4%B8%8EGit/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="面试题9_Redis">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="面试题12_Linux与Git">
                         
-                        <span class="card-title">面试题9_Redis</span>
+                        <span class="card-title">面试题12_Linux与Git</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
